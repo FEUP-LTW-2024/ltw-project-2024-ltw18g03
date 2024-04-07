@@ -1,0 +1,2 @@
+# detect .php as PHP
+*.php linguist-language=PHP
