@@ -1,17 +1,22 @@
 /* Reset default margin and padding */
 * {
-    font-size: 15px;
-    margin: 0;
-    padding: 0;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
 }
-  
+/* Style for the background */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FFEAC9;
+}
+
 /* Style for the header */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333; /* Change the color as needed */
+  background-color: #704214; /* Change the color as needed */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,11 +34,11 @@ header ul {
   padding: 1em;
   padding-left: 1.5em;
   padding-right: 3em;
-  color: #fff; /* Change the color as needed */
+  color: #DADADA; /* Change the color as needed */
   text-decoration: none;
   a {
     font-size: 2.5em; /* Adjust font size as needed */
-    color: #fff;
+    color: #DADADA;
     text-decoration: none;
   }
 }
@@ -52,7 +57,7 @@ header ul {
 
 /* Style for navigation links */
 #topics a {
-  color: #fff; /* Change the color as needed */
+  color: #DADADA; /* Change the color as needed */
   text-decoration: none;
   font-size: 1.5em /* Adjust font size as needed */
 }
@@ -66,15 +71,32 @@ header ul {
 }
 
 /* Style for login/register links */
-.login {
-  margin-left: auto; /* Pushes login/register to the far right */
-}
-
-.login a {
-  color: #fff; /* Change the color as needed */
-  text-decoration: none;
-  font-size: 16px; /* Adjust font size as needed */
-  margin-left: 20px; /* Adjust margin as needed */
+.user {
+  position: absolute;
+  right: 2em;
+  top: 1.5em;
+  .login {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #333;
+    color: #DADADA;
+    font-size: 1.2em;
+  }
+  .register {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #A30000;
+    color: #DADADA;
+    font-size: 1.2em;
+  }
+  .register:hover {
+    background-color: #640000;
+  }
+  .login:hover {
+    background-color: #222;
+  }
 }
 
 body {
