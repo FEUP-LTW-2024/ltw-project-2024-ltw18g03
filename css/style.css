@@ -41,6 +41,15 @@ header ul {
     color: #DADADA;
     text-decoration: none;
   }
+  .spin {
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+    transition: transform .7s ease-in-out;
+  }
+  .spin:hover {
+    transform: rotate(360deg);
+  }
 }
 .search {
     padding-left: 2em;
@@ -101,4 +110,11 @@ header ul {
 
 body {
   padding-top: 8em; /* Adjust this value to match the height of your header */
+}
+
+footer {
+  background-color: #333;
+  color: #DADADA;
+  padding: 1em;
+  font-size: 0.8em;
 }

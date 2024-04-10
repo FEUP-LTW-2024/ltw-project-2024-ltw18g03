@@ -1,10 +1,11 @@
 
 
 <?php function drawHeader(Session $session) { ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <title>GrooveSwap</title>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="imgs/favicon2.ico">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -13,9 +14,10 @@
         <ul>
         <li><div class="logo">
         <a href="index.php">GrooveSwap</a>
+        <img class="spin" src="imgs/vinyl-icon-500px.png" width="40" height="40"/>
         </div></li>
         <li><div class="search">
-            <input type="search" placeholder="Search artists, albums and more...">
+            <input type="text" placeholder="Search artists, albums and more...">
         </div></li>
         <li><nav id="topics">
             <ul>
@@ -24,12 +26,12 @@
             </ul>
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->
-        <li><div class="login"> 
+        <li><div class="user"> 
             <form>
-                <button formaction="login.php" formmethod="post" type="submit">
+                <button class="login" formaction="php/login.php" formmethod="post" type="submit">
                     Login
                 </button>
-                <button formaction="register.php" formmethod="post" type="submit">
+                <button class="register" formaction="php/register.php" formmethod="post" type="submit">
                     Register
                 </button>
             </form>            
@@ -38,6 +40,7 @@
         <h1>
     </header>
 <?php } ?>
+
 
 <?php function drawFooter(Session $session) { ?>
     <footer>
