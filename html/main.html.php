@@ -5,8 +5,8 @@
 <head>
     <title>GrooveSwap</title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="imgs/favicon2.ico">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,7 +14,7 @@
         <ul>
         <li><div class="logo">
         <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="imgs/vinyl-icon-500px.png" width="40" height="40"/>
+        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="40" height="40"/>
         </div></li>
         <li><div class="search">
             <input type="text" placeholder="Search artists, albums and more...">
@@ -42,7 +42,7 @@
 <?php } ?>
 
 
-<?php function drawFooter(Session $session) { ?>
+<?php function drawFooter() { ?>
     <footer>
     <p>&copy; 2024  GrooveSwap</p>
     </footer>
