@@ -112,6 +112,45 @@ body {
   padding-top: 8em; /* Adjust this value to match the height of your header */
 }
 
+.banner {
+  position: relative;
+  background-color: #000;
+  .bannerimg {
+    position: relative;
+    left: 18em;
+  }
+  h2:first-child {
+    padding: 1em;
+    color: #DDD;
+    font-size: 2em;
+    position: fixed;
+    right: 10em;
+  }
+  h2:nth-child(2) {
+    padding: 1em;
+    color: #DDD;
+    font-size: 2.4em;
+    position: fixed;
+    right: 11em;
+    top: 6em;
+
+  }
+  .sell {
+    position: fixed;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #118C4f;
+    color: #DADADA;
+    font-size: 1.2em;
+    right: 32em;
+    top: 20em;
+  }
+  .sell:hover {
+    background-color: #073820;
+  }
+}
+
 footer {
   background-color: #333;
   color: #DADADA;

@@ -41,6 +41,16 @@
     </header>
 <?php } ?>
 
+<?php function drawBanner() { ?>
+    <div class=banner>
+        <h2> Sell the Music You Don't Listen to Anymore </h2>
+        <h2> and Find New Grooves! </h2>  
+        <img class=bannerimg src=https://thumbs.dreamstime.com/b/smiling-handsome-senior-man-eyeglasses-holding-vinyl-record-sitting-carpet-129333038.jpg height=400>
+        <button class="sell" formaction="php/sell.php" formmethod="post" type="submit">
+                    Sell NOW
+        </button>
+    </div>
+<?php } ?>
 
 <?php function drawFooter() { ?>
     <footer>

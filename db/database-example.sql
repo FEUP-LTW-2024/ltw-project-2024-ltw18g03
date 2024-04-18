@@ -54,20 +54,7 @@ CREATE TABLE User
     CONSTRAINT PK_Customer PRIMARY KEY  (CustomerId)
 );
 
-CREATE TABLE Chat 
-(
-    idChat INTEGER  NOT NULL,
-    idUser1 INTEGER  NOT NULL,
-    idUser2
-);
 
-CREATE TABLE Message
-(
-    idMessage INTEGER NOT NULL,
-    idWriter INTEGER NOT NULL,
-    Content TEXT,
-
-);
 
 CREATE TABLE Track
 (

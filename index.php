@@ -5,10 +5,11 @@
   $session = new Session();
 
 
+  require_once('db/connection.db.php');
+  $db = getDBConn();
+
   require_once('html/main.html.php');
-
-
-
   drawHeader($session);
+  drawBanner();
   drawFooter();
 ?>
