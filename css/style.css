@@ -1,7 +1,7 @@
 /* Reset default margin and padding */
 * {
   font-size: 15px;
-  margin: 0;
+  margin: auto;
   padding: 0;
 }
 /* Style for the background */
@@ -91,6 +91,8 @@ header ul {
     background-color: #333;
     color: #DADADA;
     font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
   }
   .register {
     padding: 0.5em;
@@ -99,6 +101,8 @@ header ul {
     background-color: #A30000;
     color: #DADADA;
     font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
   }
   .register:hover {
     background-color: #640000;
@@ -113,42 +117,59 @@ body {
 }
 
 .banner {
-  position: relative;
+  margin: auto;
   background-color: #000;
-  .bannerimg {
-    position: relative;
-    left: 18em;
-  }
-  h2:first-child {
-    padding: 1em;
-    color: #DDD;
-    font-size: 2em;
-    position: fixed;
-    right: 10em;
-  }
-  h2:nth-child(2) {
-    padding: 1em;
-    color: #DDD;
-    font-size: 2.4em;
-    position: fixed;
-    right: 11em;
-    top: 6em;
+  
+  .box {
+    width: 100em;
+    display: flex;
+    align-items: center;
+    .image-wrapper {
+      flex:1;
+      padding-top: 5px;
+    }
 
+    .text-wrapper {
+      flex:2;
+      padding: 0 20px;
+      align-items: center;
+    }
+    h2:first-child {
+      padding: 1em;
+      color: #DADADA;
+      font-size: 2em;
+    }
+    h2:nth-child(2) {
+      padding: 1em;
+      color: #DADADA;
+      font-size: 2.4em;
+    }
+    .sell {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #118C4f;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+      left: 22em;
+    }
+    .sell:hover {
+      background-color: #073820;
+      border: 2px;
+    }
   }
-  .sell {
-    position: fixed;
-    padding: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
-    background-color: #118C4f;
-    color: #DADADA;
-    font-size: 1.2em;
-    right: 32em;
-    top: 20em;
-  }
-  .sell:hover {
-    background-color: #073820;
-  }
+}
+
+#top {
+  width: 100em;
+  margin: auto;
+  
+
+}
+.shelf {
+  display: flex;
 }
 
 footer {

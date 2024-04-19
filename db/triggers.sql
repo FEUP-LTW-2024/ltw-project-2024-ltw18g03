@@ -37,3 +37,4 @@ BEGIN
     )
     WHERE ID = OLD.album AND quantity > 1;
 END;
+    

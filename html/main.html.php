@@ -41,16 +41,27 @@
     </header>
 <?php } ?>
 
-<?php function drawBanner() { ?>
-    <div class=banner>
-        <h2> Sell the Music You Don't Listen to Anymore </h2>
-        <h2> and Find New Grooves! </h2>  
-        <img class=bannerimg src=https://thumbs.dreamstime.com/b/smiling-handsome-senior-man-eyeglasses-holding-vinyl-record-sitting-carpet-129333038.jpg height=400>
-        <button class="sell" formaction="php/sell.php" formmethod="post" type="submit">
-                    Sell NOW
-        </button>
+<?php 
+function drawBanner() { 
+?>
+    <div class="banner">
+        <div class="box">
+            <div class="image-wrapper">
+                <img class="bannerimg" src="https://thumbs.dreamstime.com/b/smiling-handsome-senior-man-eyeglasses-holding-vinyl-record-sitting-carpet-129333038.jpg" height="400" alt="Smiling senior man holding a vinyl record">
+            </div>
+            <div class="text-wrapper">
+                <h2>Sell the Music You Don't Listen to Anymore </h2>
+                <h2> and Find New Grooves!</h2>
+                <form action="php/sell.php" method="post">
+                    <button class="sell" type="submit">Sell NOW</button>
+                </form>
+            </div>
+        </div>
     </div>
-<?php } ?>
+<?php 
+} 
+?>
+
 
 <?php function drawFooter() { ?>
     <footer>

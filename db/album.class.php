@@ -25,7 +25,7 @@ class Album {
     }
 
     // You can also add methods here to perform operations related to albums
-    function getAlbums($db) {
+    static function getAlbums($db) {
         // Query to retrieve albums from the database
         $query = "SELECT * FROM Album";
     
@@ -36,14 +36,14 @@ class Album {
         $albums = [];
     
         // Fetch albums from the result set
-        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        while ($row = $result->fetch()) {
             // Create an Album object for each row and add it to the albums array
             $album = new Album($row['ID'], $row['title'], $row['artist'], $row['songs'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['averagePrice']);
             $albums[] = $album;
         }
     
         // Close the result set
-        $result->finalize();
+        $result->closeCursor();
     
         // Return the array of albums
         return $albums;
