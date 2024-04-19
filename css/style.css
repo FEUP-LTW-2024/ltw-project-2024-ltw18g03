@@ -20,6 +20,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 9999; 
 }
 
 /* Remove default list styling */
@@ -124,9 +125,8 @@ body {
     width: 100em;
     display: flex;
     align-items: center;
-    .image-wrapper {
+    .bannerimg {
       flex:1;
-      padding-top: 5px;
     }
 
     .text-wrapper {
@@ -136,15 +136,25 @@ body {
     }
     h2:first-child {
       padding: 1em;
-      color: #DADADA;
+      color: #DDD;
       font-size: 2em;
+      position: relative;
+      left: 4em;
+
     }
     h2:nth-child(2) {
       padding: 1em;
-      color: #DADADA;
+      color: #DDD;
       font-size: 2.4em;
+      position: relative;
+      left: 6em;
+      top: -1em;
+
+
+  
     }
     .sell {
+      position: relative;
       padding: 0.5em;
       padding-left: 1em;
       padding-right: 1em;
@@ -154,24 +164,94 @@ body {
       border-radius: 50px;
       border: none;
       left: 22em;
+
     }
     .sell:hover {
       background-color: #073820;
-      border: 2px;
     }
   }
 }
 
-#top {
+.top {
   width: 100em;
   margin: auto;
-  
+  #top {
+    width: 50px; height: 50px;
+    position: relative;
+    top: 3.3em;
+    left:-33em;
+    transform: skew(30deg); background-color: red;
+  }
+  #hot {
+    width: 50px; height: 50px;
+    position: relative;
+    top: 3.3em;
+    left:-33em;
+    transform: skew(30deg); background-color: orange;
+  }
+  #new {
+    width: 50px; height: 50px;
+    position: relative;
+    top: 3.3em;
+    left:-33em;
+    transform: skew(30deg); background-color: yellow;
+  }
 
+  h2 {
+    background-color: #DADADA;
+    padding: 0.5em;
+    color: #000;
+    margin-right: 55em;
+    font-size: 1.5em;
+
+  }
 }
+
+.title {
+  padding: 0.5em;
+  h3 {
+    font-size: 1.2em;
+  }
+}
+.desc {
+  padding: 0.5em;
+  p {
+    font-size: 0.9em;
+    color: #333;
+  }
+}
+
+
 .shelf {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100em;
+}
+.card {
+  margin: 1em;
+  background-color: antiquewhite;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  padding: 0.5em;
+  button {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #118C4f;
+    color: #DADADA;
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
+  }
+  button:hover {
+    background-color: #073820;
+  }
+}
 footer {
   background-color: #333;
   color: #DADADA;

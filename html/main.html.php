@@ -21,17 +21,18 @@
         </div></li>
         <li><nav id="topics">
             <ul>
-                <li><a href="pages/new.php">New</a></li>
-                <li><a href="pages/hot.php">Hot</a></li>
+                <li><a href="../php/top.php">Top</a></li>
+                <li><a href="../php/hot.php">Hot</a></li>
+                <li><a href="../php/new.php">New</a></li>
             </ul>
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->
         <li><div class="user"> 
             <form>
-                <button class="login" formaction="php/login.php" formmethod="post" type="submit">
+                <button class="login" formaction="../php/login.php" formmethod="post" type="submit">
                     Login
                 </button>
-                <button class="register" formaction="php/register.php" formmethod="post" type="submit">
+                <button class="register" formaction="../php/register.php" formmethod="post" type="submit">
                     Register
                 </button>
             </form>            
@@ -46,13 +47,11 @@ function drawBanner() {
 ?>
     <div class="banner">
         <div class="box">
-            <div class="image-wrapper">
-                <img class="bannerimg" src="https://thumbs.dreamstime.com/b/smiling-handsome-senior-man-eyeglasses-holding-vinyl-record-sitting-carpet-129333038.jpg" height="400" alt="Smiling senior man holding a vinyl record">
-            </div>
+            <img class="bannerimg" src="../imgs/banner.jpg" height="400" alt="Smiling senior man holding a vinyl record">
             <div class="text-wrapper">
                 <h2>Sell the Music You Don't Listen to Anymore </h2>
                 <h2> and Find New Grooves!</h2>
-                <form action="php/sell.php" method="post">
+                <form action="../php/sell.php" method="post">
                     <button class="sell" type="submit">Sell NOW</button>
                 </form>
             </div>

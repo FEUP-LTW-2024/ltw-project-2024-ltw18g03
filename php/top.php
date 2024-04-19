@@ -14,7 +14,7 @@
   require_once(__DIR__ . '/../html/main.html.php');
   require_once(__DIR__ . '/../html/albums.html.php');
   drawHeader($session);
-  drawNew($albums, 30);
+  drawTop($albums, 30);
 
   drawFooter();
 ?>
