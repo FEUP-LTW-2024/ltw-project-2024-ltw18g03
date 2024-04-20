@@ -14,16 +14,16 @@
         <ul>
         <li><div class="logo">
         <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="40" height="40"/>
+        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38"/>
         </div></li>
         <li><div class="search">
-            <input type="text" placeholder="Search artists, albums and more...">
+            <input type="text" placeholder="Search artists, albums, genres and more...">
         </div></li>
         <li><nav id="topics">
             <ul>
-                <li><a href="../php/top.php">Top</a></li>
-                <li><a href="../php/hot.php">Hot</a></li>
-                <li><a href="../php/new.php">New</a></li>
+            <a href="../php/top.php"><li><p>Top</p></li></a>
+            <a href="../php/hot.php"><li><p>Hot</p></li></a>
+            <a href="../php/new.php"><li><p>New</p></li></a>
             </ul>
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->

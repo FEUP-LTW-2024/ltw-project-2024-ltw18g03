@@ -8,16 +8,16 @@
   require_once(__DIR__ . '/../db/connection.db.php');
   $db = getDBConn();
 
-  require_once(__DIR__ . '/../db/album.class.php');
+  require_once(__DIR__ . '/../db/class.album.php');
   $albums = Album::getAlbums($db);
 
-  require_once(__DIR__ . '/../html/main.html.php');
-  require_once(__DIR__ . '/../html/albums.html.php');
+  require_once(__DIR__ . '/../html/html.main.php');
+  require_once(__DIR__ . '/../html/html.albums.php');
   drawHeader($session);
   drawBanner();
-  drawTop($albums, 5);
-  drawHot($albums, 5);
-  drawNew($albums, 5);
+  drawTopS($albums, 10);
+  drawHotS($albums, 10);
+  drawNewS($albums, 10);
 
   drawFooter();
 ?>

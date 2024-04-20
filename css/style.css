@@ -58,7 +58,7 @@ header ul {
 }
 /* Style for the search bar */
 .search input[type="text"] {
-  width: 24em; /* Adjust width as needed */
+  width: 28em; /* Adjust width as needed */
   padding: 1em;
   border: none;
   border-radius: 50px;
@@ -69,14 +69,15 @@ header ul {
 #topics a {
   color: #DADADA; /* Change the color as needed */
   text-decoration: none;
-  font-size: 1.5em /* Adjust font size as needed */
+  p{
+    font-size: 1.5em;}/* Adjust font size as needed */
 }
 #topics {
     li {
         padding: 2em;
     }
     li:hover {
-    background-color: #000; 
+    background-color: #38210a;; 
     }
 }
 
@@ -137,9 +138,9 @@ body {
     h2:first-child {
       padding: 1em;
       color: #DDD;
-      font-size: 2em;
+      font-size: 2.2em;
       position: relative;
-      left: 4em;
+      left: 1.5em;
 
     }
     h2:nth-child(2) {
@@ -147,7 +148,7 @@ body {
       color: #DDD;
       font-size: 2.4em;
       position: relative;
-      left: 6em;
+      left: 5em;
       top: -1em;
 
 
@@ -163,7 +164,7 @@ body {
       font-size: 1.2em;
       border-radius: 50px;
       border: none;
-      left: 22em;
+      left: 21em;
 
     }
     .sell:hover {
@@ -221,14 +222,39 @@ body {
   }
 }
 
+.shelf-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100em;
 
+}
 .shelf {
+  display: flex;
+  flex-wrap: nowrap;
+  .card {
+    margin: 1em;
+    margin-left: 0;
+    margin-right: 3em;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  
+  }
+}
+.page {
   display: flex;
   flex-wrap: wrap;
   max-width: 100em;
+  .card {
+    margin: 1.25em;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  
+  }
 }
 .card {
   margin: 1em;
+  margin-left: 0;
+  margin-right: 3em;
   background-color: antiquewhite;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
