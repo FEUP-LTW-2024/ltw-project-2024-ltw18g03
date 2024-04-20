@@ -21,18 +21,18 @@
         </div></li>
         <li><nav id="topics">
             <ul>
-            <a href="../php/top.php"><li><p>Top</p></li></a>
-            <a href="../php/hot.php"><li><p>Hot</p></li></a>
-            <a href="../php/new.php"><li><p>New</p></li></a>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
             </ul>
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->
         <li><div class="user"> 
             <form>
-                <button class="login" formaction="../php/login.php" formmethod="post" type="submit">
+                <button class="login" type="button" onclick="location.href='login.php'">
                     Login
                 </button>
-                <button class="register" formaction="../php/register.php" formmethod="post" type="submit">
+                <button class="register" type="button" onclick="location.href='register.php'">
                     Register
                 </button>
             </form>            

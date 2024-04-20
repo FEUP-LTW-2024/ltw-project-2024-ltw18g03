@@ -80,6 +80,11 @@ header ul {
     background-color: #38210a;; 
     }
 }
+#register p{
+  color: #DADADA;
+  font-size: 2em;
+  margin-left: 14em;
+}
 
 /* Style for login/register links */
 .user {
@@ -113,7 +118,10 @@ header ul {
     background-color: #222;
   }
 }
-
+.form-horizontal {
+  width: 30em;
+  margin:auto;
+}
 body {
   padding-top: 8em; /* Adjust this value to match the height of your header */
 }
