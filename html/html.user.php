@@ -24,6 +24,9 @@
         <li><div id="register">
           <p>Join the Community for Free</p>
         </div></li>
+        <li><div id="settings">
+        <a href="../pages/debug.php">&#9763;</a>
+        </div></li>
         </ul>
         <h1>
     </header>
@@ -55,7 +58,6 @@
 
 <?php function drawRegisterForm(Session $session) { ?>
   <form action="../php/register.php" class="form-horizontal" id="register_form" method="post" name="register_form" role="form">
-    <h2>Registration Form</h2>
     <div class="form-group">
         <label class="col-sm-3 control-label" for="firstname">First Name</label>
         <div class="col-sm-6">
@@ -139,18 +141,36 @@ generateDistrictOptions($districts);
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="checkbox">
-                    <label><input type="checkbox" required="required">I accept <a href=
-                    "#">Terms & Conditions</a></label>
+                    <label><input type="checkbox" required="required"><span>I accept </span><a href="#">Terms & Conditions</a></label>
                 </div>
             </div>
         </div><!-- /.form-group -->
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
-                <button class="btn btn-primary btn-block" type=
-                "submit">Register</button>
+                <button class="btn" type="submit">Register</button>
             </div>
         </div>
     </div>
 </form>
-
 <?php } ?>
+
+
+<?php
+function printUserTable($db) {
+//now output the data to a simple html table...
+print "<table border=1>";
+print "<tr><td>First Name</td><td>Last Name</td><td>Email</td><td>Password</td><td>Phone Number</td><td>Postal Code</td><td>City</td></tr>";
+$result = $db->query('SELECT * FROM User');
+foreach($result as $row)
+{
+ print "<tr><td>".$row['firstName']."</td>";
+ print "<td>".$row['lastName']."</td>";
+ print "<td>".$row['email']."</td>";
+ print "<td>".$row['passwordHash']."</td>";
+ print "<td>".$row['phone']."</td>";
+ print "<td>".$row['postalCode']."</td>";
+ print "<td>".$row['city']."</td></tr>";
+}
+print "</table>";
+}
+?>

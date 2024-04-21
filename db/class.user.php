@@ -12,7 +12,8 @@ class User {
     public $isAdmin = false;
     public $joinDate;
 
-    public function __construct($firstName, $lastName, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin = false, $joinDate = null) {
+    public function __construct($id, $firstName, $lastName, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin = false, $joinDate = null) {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->city = $city;

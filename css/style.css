@@ -84,6 +84,16 @@ header ul {
   color: #DADADA;
   font-size: 2em;
   margin-left: 14em;
+  position: relative;
+  left: -1em;
+}
+#settings a{
+  color: #DADADA;
+  font-size: 2em;
+  margin-left: 14em;
+  position: relative;
+  left: 5em;
+  text-decoration: none;
 }
 
 /* Style for login/register links */
@@ -119,9 +129,71 @@ header ul {
   }
 }
 .form-horizontal {
-  width: 30em;
+  width: 25em;
   margin:auto;
+  label {
+    font-size: 1.25em;
+    /* color: #FFEAC9; */
+  }
+  input.form-control  {
+    font-size: 1.2em;
+    width: 25em;
+    padding: 0.5em;
+    border-radius: 50px;
+    background-color: #EEE;
+    margin: 1em;
+  }
+  input.form-control::after {
+    content: '*';
+    color: red; /* Change the color as needed */
+    margin-left: 5px; /* Adjust spacing between the field and the asterisk */
+  }
+  select.form-control {
+    font-size: 1.2em;
+    width: 26em;
+    padding: 0.5em;
+    border-radius: 50px;
+    background-color: #EEE;
+    margin: 1em;
+  }
+  .checkbox label{
+    a {
+      font-size: 1em;
+    }
+    span {
+      margin-left: 1em;
+      font-size: 1em;
+
+    }
+    input {
+      font-size: 1em;
+    }
+    font-size: 1.25em;
+    padding: 0.5em;
+    border-radius: 50px;
+    margin-left: 4.5em;
+    margin-top: 13em;
+    
+  }
+  .btn {
+    margin-top: 2.5em;
+    margin-left: 8em;
+    margin-bottom: 2.5em;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #A30000;
+    color: #DADADA;
+    font-size: 1.5em;
+    border-radius: 50px;
+    border: none;
+  }
+  .btn:hover {
+    background-color: #640000;
+  }
 }
+
+
 body {
   padding-top: 8em; /* Adjust this value to match the height of your header */
 }
@@ -286,6 +358,10 @@ body {
     background-color: #073820;
   }
 }
+
+
+
+
 footer {
   background-color: #333;
   color: #DADADA;
