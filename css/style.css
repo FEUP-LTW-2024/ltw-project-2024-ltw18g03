@@ -127,6 +127,32 @@ header ul {
   .login:hover {
     background-color: #222;
   }
+  .logout {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #333;
+    color: #DADADA;
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
+  }
+  .userbutton {
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: #A30000;
+    color: #DADADA;
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: none;
+  }
+  .userbutton:hover {
+    background-color: #640000;
+  }
+  .logout:hover {
+    background-color: #222;
+  }
 }
 .form-horizontal {
   width: 25em;

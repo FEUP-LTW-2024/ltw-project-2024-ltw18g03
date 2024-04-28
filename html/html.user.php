@@ -16,7 +16,7 @@
     <button class="logout" type="button" onclick="location.href='../php/logout.php'">
                     Logout
                 </button>
-                <button class="user" type="button" onclick="location.href='../pages/user.php'">
+                <button class="userbutton" type="button" onclick="location.href='../pages/user.php'">
                     User
                 </button>
 <?php } ?>
