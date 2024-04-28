@@ -13,6 +13,8 @@
 
   require_once(__DIR__ . '/../html/html.main.php');
   require_once(__DIR__ . '/../html/html.albums.php');
+  require_once(__DIR__ . '/../html/html.user.php');
+
   drawHeader($session);
   drawHotP($albums);
 

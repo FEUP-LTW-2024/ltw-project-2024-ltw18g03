@@ -16,6 +16,6 @@
   require_once(__DIR__ . '/../html/html.user.php');
 
   drawHeaderLogin($session);
-
+  drawLoginForm($session);
   drawFooter();
 ?>

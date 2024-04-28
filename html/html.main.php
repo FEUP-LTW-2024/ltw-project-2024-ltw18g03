@@ -1,5 +1,3 @@
-
-
 <?php function drawHeader(Session $session) { ?>
 <!DOCTYPE html>
 <head>
@@ -28,13 +26,10 @@
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->
         <li><div class="user"> 
-            <form>
-                <button class="login" type="button" onclick="location.href='/pages/login.php'">
-                    Login
-                </button>
-                <button class="register" type="button" onclick="location.href='/pages/register.php'">
-                    Register
-                </button>
+            <form><?php
+                if ($session->isLoggedIn()) showLogout($session);
+                else showLogin($session);
+                ?>
             </form>            
         </div></li>
         </ul>

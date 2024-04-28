@@ -47,6 +47,34 @@ class User {
         // Return the array of users
         return $users;
     }
+    static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
+        $stmt = $db->prepare('
+          SELECT ID, firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin, joinDate
+          FROM User 
+          WHERE lower(email) = ? AND passwordHash = ?
+        ');
+  
+        $stmt->execute(array(strtolower($email), $password));
+    
+        if ($user = $stmt->fetch()) {
+          return new User(
+            $user['ID'],
+            $user['firstName'],
+            $user['lastName'],
+            $user['profilePicture'],
+            $user['city'],
+            $user['postalCode'],
+            $user['phone'],
+            $user['email'],
+            $user['isAdmin'],
+            $user['joinDate'],
+
+          );
+        } else return null;
+      }
+      function name() {
+        return $this->firstName . ' ' . $this->lastName;
+      }
 }
 
 ?>

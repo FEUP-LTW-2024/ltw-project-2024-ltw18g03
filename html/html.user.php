@@ -4,6 +4,22 @@
   require_once(__DIR__ . '/../db/class.user.php')
 ?>
 
+<?php function showLogin(Session $session) { ?>
+    <button class="login" type="button" onclick="location.href='../pages/login.php'">
+                    Login
+                </button>
+                <button class="register" type="button" onclick="location.href='../pages/register.php'">
+                    Register
+                </button>
+<?php } ?>
+<?php function showLogout(Session $session) { ?>
+    <button class="logout" type="button" onclick="location.href='../php/logout.php'">
+                    Logout
+                </button>
+                <button class="user" type="button" onclick="location.href='../pages/user.php'">
+                    User
+                </button>
+<?php } ?>
 
 <?php function drawHeaderRegister(Session $session) { ?>
 <!DOCTYPE html>
@@ -145,6 +161,7 @@ generateDistrictOptions($districts);
                 </div>
             </div>
         </div><!-- /.form-group -->
+
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 <button class="btn" type="submit">Register</button>
@@ -154,6 +171,36 @@ generateDistrictOptions($districts);
 </form>
 <?php } ?>
 
+<?php function drawLoginForm(Session $session) { ?>
+  <form action="../php/login.php" class="form-horizontal" id="login-form" method="post" name="login-form" role="form">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="email">Email</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="text" required="required">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="password">Password</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="password" name="password" placeholder="Password" type="password" required="required">
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" required="required"><span>Remember Me</span></label>
+                </div>
+            </div>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <button class="btn" type="submit">Login</button>
+            </div>
+        </div>
+    </div>
+</form>
+<?php } ?>
 
 <?php
 function printUserTable($db) {

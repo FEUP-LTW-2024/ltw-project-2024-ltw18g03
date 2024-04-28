@@ -19,7 +19,7 @@ $phone = $_POST['phone'];
 //Insert record  
 
 $db->exec("INSERT INTO User (firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin)
-VALUES('$firstname', '$lastname', 1, '$city', '$postalCode', '$phone', '$phone', '$password', FALSE);");
+VALUES('$firstname', '$lastname', 1, '$city', '$postalCode', '$phone', '$email', '$password', FALSE);");
 
 
 
