@@ -26,11 +26,14 @@
         </nav></li>
         <!-- idea is to change to a profile icon when loged in -->
         <li><div class="user"> 
-            <form><?php
-                if ($session->isLoggedIn()) showLogout($session);
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
                 else showLogin($session);
                 ?>
-            </form>            
         </div></li>
         </ul>
         <h1>

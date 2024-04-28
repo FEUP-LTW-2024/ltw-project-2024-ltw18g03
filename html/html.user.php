@@ -12,13 +12,11 @@
                     Register
                 </button>
 <?php } ?>
-<?php function showLogout(Session $session) { ?>
+<?php function showLogout(Session $session, $user) { ?>
     <button class="logout" type="button" onclick="location.href='../php/logout.php'">
                     Logout
                 </button>
-                <button class="userbutton" type="button" onclick="location.href='../pages/user.php'">
-                    User
-                </button>
+                <img class="userimg" type="image" src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50 onclick="location.href='../pages/user.php'">
 <?php } ?>
 
 <?php function drawHeaderRegister(Session $session) { ?>

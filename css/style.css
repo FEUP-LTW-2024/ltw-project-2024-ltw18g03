@@ -128,6 +128,8 @@ header ul {
     background-color: #222;
   }
   .logout {
+    position: relative;
+    bottom: 1.5em;
     padding: 0.5em;
     padding-left: 1em;
     padding-right: 1em;
@@ -137,18 +139,11 @@ header ul {
     border-radius: 50px;
     border: none;
   }
-  .userbutton {
-    padding: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
-    background-color: #A30000;
-    color: #DADADA;
-    font-size: 1.2em;
+  .userimg {
+    position: relative;
+    bottom: 0.5em;
     border-radius: 50px;
-    border: none;
-  }
-  .userbutton:hover {
-    background-color: #640000;
+    border: 2px solid #A30000;
   }
   .logout:hover {
     background-color: #222;

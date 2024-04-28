@@ -12,10 +12,11 @@ class User {
     public $isAdmin = false;
     public $joinDate;
 
-    public function __construct($id, $firstName, $lastName, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin = false, $joinDate = null) {
+    public function __construct($id, $firstName, $lastName, $profilePicture, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin = false, $joinDate = null) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->profilePicture = $profilePicture;
         $this->city = $city;
         $this->postalCode = $postalCode;
         $this->phone = $phone;
@@ -74,6 +75,32 @@ class User {
       }
       function name() {
         return $this->firstName . ' ' . $this->lastName;
+      }
+      static function getUser(PDO $db, Session $session) : ?User {
+        $idu = $session->getId();
+        $stmt = $db->prepare('
+          SELECT ID, firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin, joinDate
+          FROM User 
+          WHERE ID = ?
+        ');
+  
+        $stmt->execute(array($idu));
+        if ($user = $stmt->fetch()) {
+          return new User(
+            $user['ID'],
+            $user['firstName'],
+            $user['lastName'],
+            $user['profilePicture'],
+            $user['city'],
+            $user['postalCode'],
+            $user['phone'],
+            $user['email'],
+            $user['isAdmin'],
+            $user['joinDate'],
+
+          );
+        } else return null;
+      
       }
 }
 
