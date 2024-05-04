@@ -39,7 +39,7 @@
           <p>Join the Community for Free</p>
         </div></li>
         <li><div id="settings">
-        <a href="../pages/debug.php">&#9763;</a>
+        <a href="../pages/debug_user.php">&#9763;</a>
         </div></li>
         </ul>
         <h1>
@@ -185,8 +185,8 @@ generateDistrictOptions($districts);
     </div>
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
-                <div class="checkbox">
-                    <label><input type="checkbox" required="required"><span>Remember Me</span></label>
+                <div class="register-now">
+                    Don't have an account? <a href="../pages/register.php">Register for Free</a>
                 </div>
             </div>
         </div><!-- /.form-group -->

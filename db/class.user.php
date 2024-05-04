@@ -102,6 +102,21 @@ class User {
         } else return null;
       
       }
+      static function getUserByID($db, $id) {
+        $query = "SELECT * FROM User WHERE ID = :id";
+    
+        $statement = $db->prepare($query);
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+    
+        $row = $statement->fetch();
+    
+        if ($row) {
+            return new User($row['ID'], $row['firstName'], $row['lastName'], $row['profilePicture'], $row['city'], $row['postalCode'], $row['phone'], $row['email'], $row['passwordHash'], $row['isAdmin'], $row['joinDate']);
+        } else {
+            return null;
+        }
+      }
 }
 
 ?>
