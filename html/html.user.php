@@ -16,7 +16,7 @@
     <button class="logout" type="button" onclick="location.href='../php/logout.php'">
                     Logout
                 </button>
-                <img class="userimg" type="image" src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50 onclick="location.href='../pages/user.php'">
+                <img class="userimg" type="image" src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50 onclick="location.href='../pages/profile.php'">
 <?php } ?>
 
 <?php function drawHeaderRegister(Session $session) { ?>
@@ -26,6 +26,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -37,9 +38,6 @@
         </div></li>
         <li><div id="register">
           <p>Join the Community for Free</p>
-        </div></li>
-        <li><div id="settings">
-        <a href="../pages/debug_user.php">&#9763;</a>
         </div></li>
         </ul>
         <h1>
@@ -53,6 +51,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -219,3 +218,88 @@ foreach($result as $row)
 print "</table>";
 }
 ?>
+
+<?php function drawHeaderProfile(Session $session) { ?>
+<!DOCTYPE html>
+<head>
+    <title>Profile</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        <h1>
+        <ul>
+        <li><div class="logo">
+        <a href="index.php">GrooveSwap</a>
+        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38"/>
+        </div></li>
+        <li><div class="search">
+            <input type="search" placeholder="Search artists, albums, genres and more...">
+        </div></li>
+        <li><nav id="topics">
+            <ul>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
+            </ul>
+        </nav></li>
+        <!-- idea is to change to a profile icon when loged in -->
+        <li><div class="user"> 
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
+                else showLogin($session);
+                ?>
+        </div></li>
+        </ul>
+        <h1>
+    </header>
+<?php } ?>
+
+<?php function drawProfile(Session $session) { ?>
+    <?php $user = User::getUser(getDBConn(), $session); ?>
+    <div class="profile">
+        <div class="profileimg">
+            <img src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
+        </div>
+        <div class="profileinfo">
+            <h2><?php echo $user->firstName; echo " "; echo $user->lastName; ?></h2>
+            <p>Email: <?php echo $user->email; ?></p>
+            <p>Phone: <?php echo $user->phone; ?></p>
+            <p>City: <?php echo $user->city; ?></p>
+            <p>Postal Code: <?php echo $user->postalCode; ?></p>
+        </div>
+    </div>
+    <div class="profileselling">
+        <h2>Items for Sale</h2>
+        <div class="profilealbums">
+            <?php
+                $items = Item::getItemsByUser(getDBConn(), $user->id);
+                foreach ($items as $item): ?>
+                    <div class="item-slab">
+                        <div class="item-info">
+                            <h4><?php echo $item->title; ?></h4>
+                            <p><?php echo $item->condition; ?></p>
+                            <p><?php echo $item->price; ?>€</p>
+                        </div>
+                        <div class="item-buttons">
+                            <button>Buy</button>
+                            <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                                <?php else: ?>
+                                    <button>Message</button>
+                                <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+        </div>
+<?php } ?>

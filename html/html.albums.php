@@ -5,6 +5,51 @@
     require_once(__DIR__ . '/../db/class.item.php');
 ?>
 
+<?php function drawHeaderAlbum(Session $session, Album $album) { ?>
+<!DOCTYPE html>
+<head>
+    <title><?php echo $album->title; ?></title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        <h1>
+        <ul>
+        <li><div class="logo">
+        <a href="index.php">GrooveSwap</a>
+        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38"/>
+        </div></li>
+        <li><div class="search">
+            <input type="search" placeholder="Search artists, albums, genres and more...">
+        </div></li>
+        <li><nav id="topics">
+            <ul>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
+            </ul>
+        </nav></li>
+        <!-- idea is to change to a profile icon when loged in -->
+        <li><div class="user"> 
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
+                else showLogin($session);
+                ?>
+        </div></li>
+        </ul>
+        <h1>
+    </header>
+<?php } ?>
+
 <?php function drawTheme() { //trendy keyword ?>
 
 <?php } ?>
@@ -40,8 +85,10 @@
         return $b->rym <=> $a->rym;
     });?>   
     <div class="top">
+    <a href="../pages/top.php">
         <div id="top"> </div>
         <h2>Top of All Time</h2>
+    </a>
     </div>
     <div class="shelf-wrapper">
         <div class="shelf">
@@ -58,8 +105,10 @@
         return $b->quantity <=> $a->quantity;
     });?>
     <div class="top">
+    <a href="../pages/hot.php">
         <div id="hot"> </div>
         <h2>Hot Right Now</h2>
+    </a>
     </div>
     <div class="shelf-wrapper">
         <div class="shelf">
@@ -78,8 +127,10 @@
         return $b->yearOfRelease <=> $a->yearOfRelease;
     });?>
     <div class="top">
+    <a href="../pages/new.php">
         <div id="new"> </div>
         <h2>New Releases</h2>
+    </a>
     </div>
     <div class="shelf-wrapper">
         <div class="shelf">
@@ -146,7 +197,7 @@
     ?>
     </div>
 <?php } ?>
-<?php function drawBuy(Album $album) { ?>
+<?php function drawBuy(Session $session, Album $album) { ?>
     <div class="album_banner">
         <img src="<?php echo $album->cover; ?>" width="260px">
     </div>
@@ -185,9 +236,14 @@
                     <p><?php echo $item->price; ?>€</p>
                 </div>
                 <div class="item-buttons">
-                    <button>Buy</button>
-                    <button>Message</button>
-                </div>
+                            <button>Buy</button>
+                            <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                                <?php else: ?>
+                                    <button>Message</button>
+                                <?php endif; ?>
+                        </div>
             </div>
         <?php endforeach; ?>
     </div>

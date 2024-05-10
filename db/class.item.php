@@ -55,6 +55,24 @@ class Item {
 
         return $items;
     }
+    static function getItemsByUser($db, $userId) {
+        $query = "SELECT * FROM Item WHERE seller = :userId";
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+
+        $items = [];
+
+        while ($row = $statement->fetch()) {
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['date'], $row['seller'], $row['album']);
+            $items[] = $item;
+        }
+
+        $statement->closeCursor();
+
+        return $items;
+    }
 
 }
 ?>

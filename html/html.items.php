@@ -25,9 +25,14 @@
         <li><div id="register">
           <p>Sell Your Grails</p>
         </div></li>
-        <li><div id="settings">
-        <a href="../pages/debug_item.php">&#9763;</a>
-        </div></li>
+        <?php 
+        $user = User::getUserByID(getDBConn(), $session->getId());
+        if ($user->isAdmin()) {
+            ?>
+            <li><div id="settings">
+            <a href="../pages/debug.php">&#9763;</a>
+            </div></li>
+            <?php } ?>
         </ul>
         <h1>
     </header>
@@ -126,52 +131,6 @@ generateAlbumOptions($albums);
         <label class="col-sm-3 control-label" for="email">Email</label>
         <div class="col-sm-6">
             <input class="form-control" id="email" name="email" placeholder="Email" type="text" required="required">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="password">Password</label>
-        <div class="col-sm-6">
-            <input class="form-control" id="password" name="password" placeholder="Password" type="password" required="required">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="city">City</label>
-        <div class="col-sm-6">
-            <select class="form-control" id="city" name="city" required="required">
-            <?php
-$districts = array(
-    "Aveiro",
-    "Beja",
-    "Braga",
-    "Bragança",
-    "Castelo Branco",
-    "Coimbra",
-    "Évora",
-    "Faro",
-    "Guarda",
-    "Leiria",
-    "Lisboa",
-    "Portalegre",
-    "Porto",
-    "Santarém",
-    "Setúbal",
-    "Viana do Castelo",
-    "Vila Real",
-    "Viseu",
-    "Açores",
-    "Madeira"
-);
-
-function generateDistrictOptions($districts) {
-    foreach ($districts as $district) {
-        echo "<option>{$district}</option>\n";
-    }
-}
-
-generateDistrictOptions($districts);
-?>
-
-            </select>
         </div>
     </div><!-- /.form-group -->
     <div class="form-group">

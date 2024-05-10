@@ -20,5 +20,6 @@
   require_once(__DIR__ . '/../html/html.items.php');
 
   printItemTable($db);
+  printUserTable($db);
 
     ?>

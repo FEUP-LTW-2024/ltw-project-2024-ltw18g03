@@ -76,6 +76,9 @@ class User {
       function name() {
         return $this->firstName . ' ' . $this->lastName;
       }
+      function isAdmin() {
+        return $this->isAdmin;
+      }
       static function getUser(PDO $db, Session $session) : ?User {
         $idu = $session->getId();
         $stmt = $db->prepare('
