@@ -1,0 +1,578 @@
+/* Reset default margin and padding */
+* {
+    font-size: 15px;
+    margin: auto;
+    padding: 0;
+  }
+  /* Style for the background */
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFEAC9;
+  }
+  
+  /* Style for the header */
+  header {
+    #hamburger, .hamburger {
+      display: none;
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #704214; /* Change the color as needed */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999; 
+  }
+  
+  /* Remove default list styling */
+  header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the logo */
+  .logo {
+    padding: 1em;
+    padding-left: 1.5em;
+    padding-right: 3em;
+    color: #DADADA; /* Change the color as needed */
+    text-decoration: none;
+    span {
+      font-size: 1em; /* Adjust font size as needed */
+      color: #DADADA;
+      text-decoration: none;
+    }
+    a {
+        font-size: 2.5em; /* Adjust font size as needed */
+        color: #DADADA;
+        text-decoration: none;
+      }
+  
+    .spin {
+      position: relative;
+      top: 0.5em;
+      left: 0.5em;
+      transition: transform .7s ease-in-out;
+    }
+    .spin:hover {
+      transform: rotate(360deg);
+    }
+  }
+  .search {
+      padding-left: 2em;
+      padding-right: 3em;
+      width: 60%;
+  }
+  /* Style for the search bar */
+  .search input[type="search"] { /* Adjust width as needed */
+    padding: 1em;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  /* Style for navigation links */
+  #topics a {
+    color: #DADADA; /* Change the color as needed */
+    text-decoration: none;
+    p{
+      font-size: 1.5em;}/* Adjust font size as needed */
+  }
+  #topics {
+      li {
+          padding: 1.5em;
+      }
+      li:hover {
+      background-color: #38210a;; 
+      }
+  }
+  #register p{
+    color: #DADADA;
+    font-size: 2em;
+    margin-left: 14em;
+    position: relative;
+    left: -1em;
+  }
+  #settings a{
+    color: #DADADA;
+    font-size: 2em;
+    margin-left: 14em;
+    position: relative;
+    left: 5em;
+    text-decoration: none;
+  }
+  
+  /* Style for login/register links */
+  .user {
+    position: absolute;
+    right: 2em;
+    top: 1.1em;
+    .login {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #333;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .register {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #A30000;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .register:hover {
+      background-color: #640000;
+    }
+    .login:hover {
+      background-color: #222;
+    }
+    .logout {
+      position: relative;
+      bottom: 1.5em;
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #333;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .userimg {
+      position: relative;
+      bottom: 0.5em;
+      border-radius: 50px;
+      border: 2px solid #A30000;
+    }
+    .logout:hover {
+      background-color: #222;
+    }
+  }
+  .form-horizontal {
+    margin: 1.25em;
+    margin-bottom: 3em;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3em;
+    width: 28em;
+    margin:auto;
+    label {
+      font-size: 1.25em;
+      /* color: #FFEAC9; */
+    }
+    input.form-control  {
+      font-size: 1.2em;
+      width: 18em;
+      padding: 0.5em;
+      border-radius: 50px;
+      background-color: #EEE;
+      margin: 1em;
+    }
+    label.form-control::after {
+      content: '*';
+      color: red; /* Change the color as needed */
+      margin-left: 5px; /* Adjust spacing between the field and the asterisk */
+    }
+    select.form-control {
+      font-size: 1.2em;
+      width: 20em;
+      padding: 0.5em;
+      border-radius: 50px;
+      background-color: #EEE;
+      margin: 1em;
+    }
+    .register-now {
+      font-size: 1.1em;
+      a {
+        color: #118C4f;
+        font-size: 1.1em;
+      }
+  
+    }
+    .checkbox label{
+      a {
+        font-size: 1em;
+      }
+      span {
+        font-size: 1em;
+  
+      }
+      input {
+        font-size: 1em;
+      }
+      font-size: 1.25em;
+      border-radius: 50px;
+      
+    }
+    .btn {
+      margin-top: 2.5em;
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #A30000;
+      color: #DADADA;
+      font-size: 1.5em;
+      border-radius: 50px;
+      border: none;
+    }
+    .btn:hover {
+      background-color: #640000;
+    }
+  }
+  
+  
+  body {
+    padding-top: 8em; /* Adjust this value to match the height of your header */
+  }
+  
+  .banner {
+    margin: auto;
+    background-color: #000;
+    
+    .box {
+      width: 100em;
+      display: flex;
+      align-items: center;
+      .bannerimg {
+        flex:1;
+      }
+  
+      .text-wrapper {
+        flex:2;
+        padding: 0 20px;
+        align-items: center;
+      }
+      h2:first-child {
+        padding: 1em;
+        color: #DDD;
+        font-size: 2.2em;
+        position: relative;
+        left: 1.5em;
+  
+      }
+      h2:nth-child(2) {
+        padding: 1em;
+        color: #DDD;
+        font-size: 2.4em;
+        position: relative;
+        left: 5em;
+        top: -1em;
+  
+  
+    
+      }
+      .sell {
+        position: relative;
+        padding: 0.5em;
+        padding-left: 1em;
+        padding-right: 1em;
+        background-color: #118C4f;
+        color: #DADADA;
+        font-size: 1.2em;
+        border-radius: 50px;
+        border: none;
+        left: 21em;
+  
+      }
+      .sell:hover {
+        background-color: #073820;
+      }
+    }
+  }
+  
+  .top {
+    a{
+      text-decoration: none;
+    }
+    width: 100em;
+    margin: auto;
+    #top {
+      width: 50px; height: 50px;
+      position: relative;
+      top: 3.3em;
+      left:-33em;
+      transform: skew(30deg); background-color: red;
+    }
+    #hot {
+      width: 50px; height: 50px;
+      position: relative;
+      top: 3.3em;
+      left:-33em;
+      transform: skew(30deg); background-color: orange;
+    }
+    #new {
+      width: 50px; height: 50px;
+      position: relative;
+      top: 3.3em;
+      left:-33em;
+      transform: skew(30deg); background-color: yellow;
+    }
+  
+    h2 {
+      background-color: #DADADA;
+      padding: 0.5em;
+      color: #000;
+      margin-right: 55em;
+      font-size: 1.5em;
+  
+    }
+  }
+  
+  .title {
+    padding: 0.5em;
+    h3 {
+      font-size: 1.2em;
+    }
+  }
+  .desc {
+    padding: 0.5em;
+    p {
+      font-size: 0.9em;
+      color: #333;
+    }
+  }
+  
+  .shelf-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100em;
+  
+  }
+  .shelf {
+    display: flex;
+    flex-wrap: nowrap;
+    .card {
+      margin: 1em;
+      margin-left: 0;
+      margin-right: 3em;
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    }
+  }
+  .page {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100em;
+    .card {
+      margin: 1.25em;
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    }
+  }
+  .card {
+    margin: 1em;
+    margin-left: 0;
+    margin-right: 3em;
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    button {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #118C4f;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    button:hover {
+      background-color: #073820;
+    }
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: space-between;
+  
+    /* Style for the profile container */
+    .profile {
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-right: 2em;
+      align-items: center;
+      padding: 2em;
+      padding-top: 2em;
+      width: 30%; /* Adjust as needed */
+      
+      img {
+        
+        border-radius: 50px;
+        border: 2px solid #A30000;
+      }
+      h2 {
+        font-size: 1.4em;
+        margin-bottom: 1em;
+      }
+      p {
+        font-size: 1.2em;
+        margin-left: 1em;
+      }
+    }
+  
+    /* Style for the selling container */
+    .profileselling {
+      width: 70%; /* Adjust as needed */
+    }
+  
+    /* Style for the container holding the items */
+    .profilealbums {
+      column-count: 1;
+      column-gap: 20px;
+    }
+  
+    /* Style for each individual item */
+    .item-slab {
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-right: 2em;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      .item-seller {
+        font-size: 1.2em;;
+      }
+      .item-info {
+        font: 1em;
+      }
+      .item-buttons {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        button {
+          padding: 0.5em;
+          padding-left: 1em;
+          padding-right: 1em;
+          background-color: #118C4f;
+          color: #DADADA;
+          border-radius: 50px;
+          border: none;
+          margin: 0;
+          margin-top: 0.2em;
+        }
+          .message {
+            background-color: #CCC;
+          }
+      }
+        button:hover {
+          background-color: #073820;
+      }
+    }
+  }
+  
+  #delete {
+          background-color: #A30000;
+        }
+  
+  .album_wrapper {
+    display: flex;
+    justify-content: space-between;
+  
+    /* Style for the profile container */
+    .album {
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-right: 2em;
+      align-items: center;
+      padding: 2em;
+      padding-top: 2em;
+      width: 30%; /* Adjust as needed */
+      
+      .album_banner img {
+        
+        border: 2px solid #A30000;
+      }
+      .album_info  h2{
+        font-size: 1.4em;
+        margin-bottom: 1em;
+      }
+      .album_desc {
+        font-size: 1.2em;
+        margin-left: 1em;
+        margin-bottom: 2em;
+      }
+      margin: 2em;
+    }
+  
+    /* Style for the selling container */
+    .items {
+      width: 70%; /* Adjust as needed */
+    }
+  
+    /* Style for the container holding the items */
+    .profilealbums {
+      column-count: 1;
+      column-gap: 20px;
+    }
+  
+    /* Style for each individual item */
+    .item-slab {
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-right: 2em;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+      .item-seller {
+        font-size: 1.2em;;
+      }
+      .item-info {
+        font: 1em;
+      }
+      .item-buttons {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        button {
+          padding: 0.5em;
+          padding-left: 1em;
+          padding-right: 1em;
+          background-color: #118C4f;
+          color: #DADADA;
+          border-radius: 50px;
+          border: none;
+          margin: 0;
+          margin-top: 0.2em;        
+        }
+        button:hover {
+          background-color: #073820;
+        }
+      }
+    }
+  }
+  
+  
+  
+  
+  footer {
+    background-color: #333;
+    color: #DADADA;
+    padding: 1em;
+    font-size: 0.8em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

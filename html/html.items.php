@@ -12,7 +12,7 @@
     <title>Sell Now</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-sell.css" rel="stylesheet">
 </head>
 <body>
     <header>

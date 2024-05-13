@@ -16,7 +16,7 @@
     <button class="logout" type="button" onclick="location.href='../php/logout.php'">
                     Logout
                 </button>
-                <img class="userimg" type="image" src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50 onclick="location.href='../pages/profile.php'">
+                <img class="userimg" type="image" src="../imgs/profile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50 onclick="location.href='../pages/profile.php'">
 <?php } ?>
 
 <?php function drawHeaderRegister(Session $session) { ?>
@@ -25,7 +25,7 @@
     <title>Register</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-login.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -52,7 +52,7 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-login.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -229,7 +229,7 @@ print "</table>";
     <title>Profile</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-profile.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -275,7 +275,7 @@ print "</table>";
     <div class="profile-container">
         <div class="profile">
             <div class="profileimg">
-                <img src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
+                <img src="../imgs/profile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
             </div>
             <div class="profileinfo">
                 <h2><?php echo $user->firstName; echo " "; echo $user->lastName; ?></h2>
@@ -292,6 +292,13 @@ print "</table>";
                     $items = Item::getItemsByUser(getDBConn(), $user->id);
                     foreach ($items as $item): ?>
                         <div class="item-slab">
+                            <div class="item-img">
+                                <?php
+                                $album = Album::getAlbumByID(getDBConn(), $item->album);
+                                ?>
+                                <img src="<?php echo $album->cover; ?>" height=82 width=82>
+                                <h2><?php echo $album->artist; ?> - <?php echo $album->title; ?></h2>
+                            </div>
                             <div class="item-info">
                                 <h4><?php echo $item->title; ?></h4>
                                 <p><?php echo $item->condition; ?></p>

@@ -11,7 +11,7 @@
     <title><?php echo $album->title; ?></title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-item.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -226,11 +226,11 @@
         <div class="items">
             <h3>Items for Sale</h3>
             <?php foreach ($items as $item): ?>
-                <div class="item-slab">
-                    <div class="item-seller">
-                        <?php
+                <?php
                         $user = User::getUserByID($db, $item->seller); //get user
                         ?>
+                <div class="item-slab">
+                    <div class="item-seller">
                         <h4><?php echo $user->firstName; echo " "; echo $user->lastName;  ?></h4>
                         <p>From: <?php echo $user->city; ?></p>   
                         <p>Contact: <?php echo $user->phone; ?></p> 
@@ -242,10 +242,10 @@
                     </div>
                     <div class="item-buttons">
                                 <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
-                                    <button>Edit</button>
+                                    <button >Edit</button>
                                     <form method="POST" action="../php/delete.php">
                                         <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
-                                        <button class="delete" type="submit">Delete</button>
+                                        <button id="delete" type="submit">Delete</button>
                                     </form>
                                     <?php else: ?>
                                         <button>Buy</button>
