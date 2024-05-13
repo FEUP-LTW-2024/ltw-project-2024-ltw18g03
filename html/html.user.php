@@ -25,7 +25,7 @@
     <title>Register</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
-    <link href="../css/style-login.css" rel="stylesheet">
+    <link href="../css/style-register.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
@@ -286,7 +286,11 @@ print "</table>";
             </div>
         </div>
         <div class="profileselling">
-            <h2>Items for Sale</h2>
+            <div class="top">
+                <div id="hot"> </div>
+                <h2>Items for Sale</h2>
+            
+            </div>
             <div class="profilealbums">
                 <?php
                     $items = Item::getItemsByUser(getDBConn(), $user->id);

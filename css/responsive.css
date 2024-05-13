@@ -1,13 +1,46 @@
+@media (max-width:119em) {
+  .user {
+    right: 10em;
+  }
+}
+@media (max-width:114em) {
+  .user {
+    right: 9em;
+  }
+}
+@media (max-width:109em) {
+  .user {
+    right: 8em;
+  }
+}
+@media (max-width:104em) {
+  .user {
+    right: 7em;
+  }
+}
+@media (max-width:99em) {
+  .user {
+    right: 6em;
+  }
+}
+@media (max-width:94em) {
+  .user {
+    right: 5em;
+  }
+}
 
-@media (max-width: 85em) {
+@media (max-width: 89em) {
   #topics {
     display: none;
   
   }
+  .user {
+    right: 4em;
+  }
   
 }
 
-@media (max-width: 60em) {
+@media (max-width: 69em) {
   .logo span {
     display: none; /* Ensures the link covers the entire area */
 }

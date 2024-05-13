@@ -220,11 +220,16 @@
             ?>
             <div class="album_prices">
                 <h3>For Sale on GrooveSwap</h3>
-                <p><?php echo $album->quantity; ?> albums for <?php echo $album->averagePrice; ?> </p>
+                <p><?php echo $album->quantity; ?> albums for <?php echo $album->averagePrice; ?>€ </p>
             </div>
         </div>
         <div class="items">
-            <h3>Items for Sale</h3>
+            <div class="top">
+                <div id="hot"> </div>
+                <h2>Items for Sale</h2>
+            
+            </div>
+            <div class="items-window">
             <?php foreach ($items as $item): ?>
                 <?php
                         $user = User::getUserByID($db, $item->seller); //get user
@@ -254,6 +259,7 @@
                             </div>
                 </div>
             <?php endforeach; ?>
+            </div>
         </div>
     </div>
 
