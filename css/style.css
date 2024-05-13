@@ -401,6 +401,74 @@ body {
   }
 }
 
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+
+  /* Style for the profile container */
+  .profile {
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-right: 2em;
+    align-items: center;
+    padding: 2em;
+    padding-top: 2em;
+    width: 30%; /* Adjust as needed */
+    
+    img {
+      
+      border-radius: 50px;
+      border: 2px solid #A30000;
+    }
+    h2 {
+      font-size: 1.4em;
+      margin-bottom: 1em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-left: 1em;
+    }
+  }
+
+  /* Style for the selling container */
+  .profileselling {
+    width: 70%; /* Adjust as needed */
+  }
+
+  /* Style for the container holding the items */
+  .profilealbums {
+    column-count: 1;
+    column-gap: 20px;
+  }
+
+  /* Style for each individual item */
+  .item-slab {
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-right: 2em;
+    padding: 20px;
+    margin-bottom: 20px;
+    .item-info {
+      
+    }
+    .item-buttons {
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 0.5em;
+        padding-left: 1em;
+        padding-right: 1em;
+        background-color: #118C4f;
+        color: #DADADA;
+        border-radius: 50px;
+        border: none;
+      }
+      button:hover {
+        background-color: #073820;
+      }
+    }
+  }
+}
 
 
 

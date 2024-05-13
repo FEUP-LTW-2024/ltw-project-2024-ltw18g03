@@ -33,8 +33,10 @@
         <h1>
         <ul>
         <li><div class="logo">
-        <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="40" height="40"/>
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
         </div></li>
         <li><div id="register">
           <p>Join the Community for Free</p>
@@ -58,8 +60,10 @@
         <h1>
         <ul>
         <li><div class="logo">
-        <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="40" height="40"/>
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
         </div></li>
         <li><div id="register">
           <p>Join the Community for Free</p>
@@ -235,8 +239,10 @@ print "</table>";
         <h1>
         <ul>
         <li><div class="logo">
-        <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38"/>
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
         </div></li>
         <li><div class="search">
             <input type="search" placeholder="Search artists, albums, genres and more...">
@@ -266,6 +272,7 @@ print "</table>";
 
 <?php function drawProfile(Session $session) { ?>
     <?php $user = User::getUser(getDBConn(), $session); ?>
+    <div class="profile-container">
     <div class="profile">
         <div class="profileimg">
             <img src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
@@ -294,7 +301,10 @@ print "</table>";
                             <button>Buy</button>
                             <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
                                 <button>Edit</button>
-                                <button>Delete</button>
+                                <form method="POST" action="../php/delete.php">
+                                    <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                    <button type="submit">Delete</button>
+                                </form>
                                 <?php else: ?>
                                     <button>Message</button>
                                 <?php endif; ?>
@@ -302,4 +312,5 @@ print "</table>";
                     </div>
                 <?php endforeach; ?>
         </div>
+    </div>
 <?php } ?>

@@ -15,14 +15,16 @@
     <link href="../css/responsive.css" rel="stylesheet">
 </head>
 <body>
-    <header>
+<header>
         <input type="checkbox" id="hamburger"> 
         <label class="hamburger" for="hamburger"></label>
         <h1>
         <ul>
         <li><div class="logo">
-        <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38"/>
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
         </div></li>
         <li><div class="search">
             <input type="search" placeholder="Search artists, albums, genres and more...">
