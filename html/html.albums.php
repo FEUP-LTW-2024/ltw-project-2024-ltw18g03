@@ -200,54 +200,61 @@
     </div>
 <?php } ?>
 <?php function drawBuy(Session $session, Album $album) { ?>
-    <div class="album_banner">
-        <img src="<?php echo $album->cover; ?>" width="260px">
-    </div>
-    <div class="album_info">
-        <h2><?php echo $album->artist; ?> - <?php echo $album->title; ?></h2>
-    </div>
-    <div class="album_desc">
-        <h3>Album Details</h3>
-        <p>Released: <?php echo $album->yearOfRelease; ?></p>
-        <p>Genre: <?php echo $album->genre; ?></p>
-        <p>RYM Rating: <?php echo $album->rym; ?></p>
-    </div>
-    <?php 
-    $db = getDBConn();
-    $items = Item::getItemsByAlbum($db, $album->id); 
-    ?>
-    <div class="album_prices">
-        <h3>For Sale on GrooveSwap</h3>
-        <p><?php echo $album->quantity; ?> albums for <?php echo $album->averagePrice; ?> </p>
-    </div>
-    <div class="items">
-        <h3>Items for Sale</h3>
-        <?php foreach ($items as $item): ?>
-            <div class="item-slab">
-                <div class="item-seller">
-                    <?php
-                    $user = User::getUserByID($db, $item->seller); //get user
-                    ?>
-                    <h4><?php echo $user->firstName; echo " "; echo $user->lastName;  ?></h4>
-                    <p>From: <?php echo $user->city; ?></p>   
-                    <p>Contact: <?php echo $user->phone; ?></p> 
-                </div>
-                <div class="item-info">
-                    <h4><?php echo $item->title; ?></h4>
-                    <p><?php echo $item->condition; ?></p>
-                    <p><?php echo $item->price; ?>€</p>
-                </div>
-                <div class="item-buttons">
-                            <button>Buy</button>
-                            <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
-                                <button>Edit</button>
-                                <button>Delete</button>
-                                <?php else: ?>
-                                    <button>Message</button>
-                                <?php endif; ?>
-                        </div>
+    <div class="album_wrapper">
+        <div class="album">
+            <div class="album_banner">
+                <img src="<?php echo $album->cover; ?>" width="260px">
             </div>
-        <?php endforeach; ?>
+            <div class="album_info">
+                <h2><?php echo $album->artist; ?> - <?php echo $album->title; ?></h2>
+            </div>
+            <div class="album_desc">
+                <h3>Album Details</h3>
+                <p>Released: <?php echo $album->yearOfRelease; ?></p>
+                <p>Genre: <?php echo $album->genre; ?></p>
+                <p>RYM Rating: <?php echo $album->rym; ?></p>
+            </div>
+            <?php 
+            $db = getDBConn();
+            $items = Item::getItemsByAlbum($db, $album->id); 
+            ?>
+            <div class="album_prices">
+                <h3>For Sale on GrooveSwap</h3>
+                <p><?php echo $album->quantity; ?> albums for <?php echo $album->averagePrice; ?> </p>
+            </div>
+        </div>
+        <div class="items">
+            <h3>Items for Sale</h3>
+            <?php foreach ($items as $item): ?>
+                <div class="item-slab">
+                    <div class="item-seller">
+                        <?php
+                        $user = User::getUserByID($db, $item->seller); //get user
+                        ?>
+                        <h4><?php echo $user->firstName; echo " "; echo $user->lastName;  ?></h4>
+                        <p>From: <?php echo $user->city; ?></p>   
+                        <p>Contact: <?php echo $user->phone; ?></p> 
+                    </div>
+                    <div class="item-info">
+                        <h4><?php echo $item->title; ?></h4>
+                        <p><?php echo $item->condition; ?></p>
+                        <p><?php echo $item->price; ?>€</p>
+                    </div>
+                    <div class="item-buttons">
+                                <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
+                                    <button>Edit</button>
+                                    <form method="POST" action="../php/delete.php">
+                                        <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                        <button class="delete" type="submit">Delete</button>
+                                    </form>
+                                    <?php else: ?>
+                                        <button>Buy</button>
+                                        <button class="message">Message</button>
+                                    <?php endif; ?>
+                            </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 
 <?php } ?>

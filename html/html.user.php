@@ -273,44 +273,45 @@ print "</table>";
 <?php function drawProfile(Session $session) { ?>
     <?php $user = User::getUser(getDBConn(), $session); ?>
     <div class="profile-container">
-    <div class="profile">
-        <div class="profileimg">
-            <img src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
+        <div class="profile">
+            <div class="profileimg">
+                <img src="../imgs/profiile/<?php echo $user->profilePicture; ?>.jpg" height=200 width=200>
+            </div>
+            <div class="profileinfo">
+                <h2><?php echo $user->firstName; echo " "; echo $user->lastName; ?></h2>
+                <p>Email: <?php echo $user->email; ?></p>
+                <p>Phone: <?php echo $user->phone; ?></p>
+                <p>City: <?php echo $user->city; ?></p>
+                <p>Postal Code: <?php echo $user->postalCode; ?></p>
+            </div>
         </div>
-        <div class="profileinfo">
-            <h2><?php echo $user->firstName; echo " "; echo $user->lastName; ?></h2>
-            <p>Email: <?php echo $user->email; ?></p>
-            <p>Phone: <?php echo $user->phone; ?></p>
-            <p>City: <?php echo $user->city; ?></p>
-            <p>Postal Code: <?php echo $user->postalCode; ?></p>
-        </div>
-    </div>
-    <div class="profileselling">
-        <h2>Items for Sale</h2>
-        <div class="profilealbums">
-            <?php
-                $items = Item::getItemsByUser(getDBConn(), $user->id);
-                foreach ($items as $item): ?>
-                    <div class="item-slab">
-                        <div class="item-info">
-                            <h4><?php echo $item->title; ?></h4>
-                            <p><?php echo $item->condition; ?></p>
-                            <p><?php echo $item->price; ?>€</p>
+        <div class="profileselling">
+            <h2>Items for Sale</h2>
+            <div class="profilealbums">
+                <?php
+                    $items = Item::getItemsByUser(getDBConn(), $user->id);
+                    foreach ($items as $item): ?>
+                        <div class="item-slab">
+                            <div class="item-info">
+                                <h4><?php echo $item->title; ?></h4>
+                                <p><?php echo $item->condition; ?></p>
+                                <p><?php echo $item->price; ?>€</p>
+                            </div>
+                            <div class="item-buttons">
+                                <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
+                                    <button>Edit</button>
+                                    <form method="POST" action="../php/delete.php">
+                                        <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                        <button id="delete" type="submit">Delete</button>
+                                    </form>
+                                    <?php else: ?>
+                                        <button>Buy</button>
+                                        <button id="message">Message</button>
+                                    <?php endif; ?>
+                            </div>
                         </div>
-                        <div class="item-buttons">
-                            <button>Buy</button>
-                            <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
-                                <button>Edit</button>
-                                <form method="POST" action="../php/delete.php">
-                                    <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
-                                    <button type="submit">Delete</button>
-                                </form>
-                                <?php else: ?>
-                                    <button>Message</button>
-                                <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+            </div>
         </div>
     </div>
 <?php } ?>

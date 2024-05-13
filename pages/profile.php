@@ -17,3 +17,4 @@
 
   drawHeaderProfile($session);
   drawProfile($session);
+  drawFooter();
