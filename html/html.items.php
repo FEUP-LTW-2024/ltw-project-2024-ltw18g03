@@ -45,7 +45,7 @@
     <div class="form-group">
         <label class="col-sm-3 control-label" for="title">Title</label>
         <div class="col-sm-6">
-            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something that would catch your eye!" type="text" required="required">
+            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something catchy!" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
@@ -120,7 +120,7 @@ generateAlbumOptions($albums);
     <div class="form-group">
         <label class="col-sm-3 control-label" for="title">Title</label>
         <div class="col-sm-6">
-            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something that would catch your eye!" type="text" required="required">
+            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something catchy!" type="text" required="required">
         </div>
     </div>
     <div class="form-group">

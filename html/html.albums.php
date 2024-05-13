@@ -74,7 +74,7 @@
                 <button type="submit" name="action" value="buy">Buy</button>
             </form>
             <button>Want</button>
-            <form action="../pages/sell.php" method="GET">
+            <form action="../php/sell.php" method="GET">
                 <input type="hidden" name="id" value="<?php echo $album->id; ?>">
                 <button type="submit" name="action" value="sell">Sell</button>
             </form>

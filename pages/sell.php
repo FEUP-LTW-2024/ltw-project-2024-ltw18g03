@@ -17,7 +17,7 @@
   require_once(__DIR__ . '/../html/html.items.php');
 
   drawHeaderSell($session);
-  if (isset($_GET['id'])) {
+  if ($_GET['id'] != null) {
   $album = Album::getAlbumByID($db, $_GET['id']);
   drawSell($session, $album);}
     else drawSellNow($session);
