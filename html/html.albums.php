@@ -13,43 +13,52 @@
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style-item.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/search.js" defer></script> <!-- Include the JavaScript file -->
 </head>
 <body>
 <header>
-        <input type="checkbox" id="hamburger"> 
-        <label class="hamburger" for="hamburger"></label>
-        <h1>
+    <input type="checkbox" id="hamburger"> 
+    <label class="hamburger" for="hamburger"></label>
+    <h1>
         <ul>
-        <li><div class="logo">
-            <a href="index.php">
-                <span class="brand">GrooveSwap</span>
-                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
-            </a>
-        </div></li>
-        <li><div class="search">
-            <input type="search" placeholder="Search artists, albums, genres and more...">
-        </div></li>
-        <li><nav id="topics">
-            <ul>
-            <a href="../pages/top.php"><li><p>Top</p></li></a>
-            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
-            <a href="../pages/new.php"><li><p>New</p></li></a>
-            </ul>
-        </nav></li>
-        <!-- idea is to change to a profile icon when loged in -->
-        <li><div class="user"> 
-            <?php
-                if ($session->isLoggedIn()) {
-                    $db = getDBConn();
-                    $user = User::getUser($db, $session);
-                    showLogout($session, $user);
-                }
-                else showLogin($session);
-                ?>
-        </div></li>
+            <li>
+                <div class="logo">
+                    <a href="index.php">
+                        <span class="brand">GrooveSwap</span>
+                        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="search">
+                    <input type="search" id="searchInput" placeholder="Search artists, albums, genres and more...">
+                    <ul id="searchResults"></ul>
+                </div>
+            </li>
+            <li>
+                <nav id="topics">
+                    <ul>
+                        <a href="../pages/top.php"><li><p>Top</p></li></a>
+                        <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+                        <a href="../pages/new.php"><li><p>New</p></li></a>
+                    </ul>
+                </nav>
+            </li>
+            <li>
+                <div class="user"> 
+                    <?php
+                        if ($session->isLoggedIn()) {
+                            $db = getDBConn();
+                            $user = User::getUser($db, $session);
+                            showLogout($session, $user);
+                        }
+                        else showLogin($session);
+                    ?>
+                </div>
+            </li>
         </ul>
-        <h1>
-    </header>
+    </h1>
+</header>
 <?php } ?>
 
 <?php function drawTheme() { //trendy keyword ?>
