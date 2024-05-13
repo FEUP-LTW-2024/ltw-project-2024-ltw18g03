@@ -19,8 +19,10 @@
         <h1>
         <ul>
         <li><div class="logo">
-        <a href="index.php">GrooveSwap</a>
-        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="40" height="40"/>
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
         </div></li>
         <li><div id="register">
           <p>Sell Your Grails</p>
@@ -114,35 +116,36 @@ generateAlbumOptions($albums);
 <?php } ?>
 
 <?php function drawSell(Session $session, Album $album) { ?>
-    <form action="../php/register.php" class="form-horizontal" id="register_form" method="post" name="register_form" role="form">
+    <form action="../php/item.php" class="form-horizontal" id="register_form" method="post" name="item_form" role="form">
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="firstname">First Name</label>
+        <label class="col-sm-3 control-label" for="title">Title</label>
         <div class="col-sm-6">
-            <input autofocus="" class="form-control" id="firstname" name="firstname" placeholder="First Name" type="text" required="required">
+            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something that would catch your eye!" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="lastname">Last Name</label>
+        <label class="col-sm-3 control-label" for="description">Description</label>
         <div class="col-sm-6">
-            <input autofocus="" class="form-control" id="lastname" name="lastname" placeholder="Last Name" type="text" required="required">
+            <input autofocus="" class="form-control" id="description" name="description" placeholder="Why should it be bought?" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="email">Email</label>
+        <label class="col-sm-3 control-label" for="price">Price</label>
         <div class="col-sm-6">
-            <input class="form-control" id="email" name="email" placeholder="Email" type="text" required="required">
-        </div>
-    </div><!-- /.form-group -->
-    <div class="form-group">
-        <label class="col-sm-3 control-label" for="postal">Postal Code</label>
-        <div class="col-sm-6">
-            <input class="form-control" id="postal" name="postal" placeholder="XXXX-XXX" type="text">
+            <input class="form-control" id="price" name="price" placeholder="€" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="phone">Phone Number</label>
+        <label class="col-sm-3 control-label" for="condition">Condition</label>
         <div class="col-sm-6">
-            <input class="form-control" id="phone" name="phone" placeholder="XXXXXXXXX" type="text">
+            <select class="form-control" id="condition" name="condition">
+                <option value="Mint">Mint</option>
+                <option value="Near Mint">Near Mint</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Light Scratches">Light Scratches</option>
+                <option value="Damaged Cover">Damaged Cover</option>
+                <option value="Scratched">Scratched</option>
+            </select>
         </div>
     </div>
     <div class="form-group">
@@ -159,9 +162,11 @@ generateAlbumOptions($albums);
 
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
-                <button class="btn" type="submit">Register</button>
+                <button class="btn" type="submit">Publish</button>
             </div>
         </div>
+        <input type="hidden" name="album" value="<?php echo $album->id; ?>">
+        <input type="hidden" name="seller" value="<?php echo $session->getId(); ?>">
     </div>
 </form>
 <?php } ?>
