@@ -80,7 +80,11 @@
         <div class="desc">
             <p><?php echo $album->yearOfRelease; ?></p>
             <p><?php echo $album->genre; ?></p>
+            <?php if ($album->quantity > 0): ?>
             <p><?php echo $album->quantity; ?> for <?php echo $album->averagePrice; ?>€</p>
+            <?php else: ?>
+            <p>Out of stock</p>
+            <?php endif; ?>
         </div>
         <div class="buttons">
             <form action="../pages/album.php" method="GET">
