@@ -218,10 +218,11 @@ body {
         padding-right: 1em;
         background-color: #118C4f;
         color: #DADADA;
-        font-size: 1.2em;
+        font-size: 2em;
         border-radius: 50px;
         border: none;
-        left: 21em;
+        left: 11em;
+        bottom: 0.5em;
   
       }
       .sell:hover {
