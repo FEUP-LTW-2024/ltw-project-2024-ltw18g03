@@ -13,7 +13,7 @@
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style-item.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
-    
+    <script src="../js/search.js" defer></script>
 </head>
 <body>
 <header>
@@ -30,13 +30,15 @@
                 </div>
             </li>
             <li>
-                <form id="searchForm" action="../pages/search.php" method="GET">
-                    <div class="search">
-                        <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
-                        <button type="submit">Search</button>
-                    </div>
-                </form>
-                <ul id="searchResults"></ul>                 
+                <div class="search">
+                    <form id="searchForm" action="../pages/search.php" method="GET">
+                        <div class="search">
+                            <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
+                    <ul id="searchResults"></ul>
+                </div>
             </li>
             <li>
                 <nav id="topics">

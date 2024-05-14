@@ -6,6 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style-index.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/search.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,9 +20,15 @@
                 <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
             </a>
         </div></li>
-        <li><div class="search">
-            <input type="search" placeholder="Search artists, albums, genres and more...">
-        </div></li>
+        <li>
+            <form id="searchForm" action="../pages/search.php" method="GET">
+                <div class="search">
+                    <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            <ul id="searchResults"></ul>    
+        </li>
         <li><nav id="topics">
             <ul>
             <a href="../pages/top.php"><li><p>Top</p></li></a>
