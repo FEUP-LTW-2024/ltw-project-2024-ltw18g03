@@ -4,6 +4,66 @@
     require_once(__DIR__ . '/../db/class.album.php');
     require_once(__DIR__ . '/../db/class.item.php');
 ?>
+<?php function drawHeaderWish(Session $session) { ?>
+<!DOCTYPE html>
+<head>
+    <title>Wishlist</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style-wishlist.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/search.js" defer></script>
+</head>
+<body>
+<header>
+    <input type="checkbox" id="hamburger"> 
+    <label class="hamburger" for="hamburger"></label>
+    <h1>
+        <ul>
+            <li>
+                <div class="logo">
+                    <a href="index.php">
+                        <span class="brand">GrooveSwap</span>
+                        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="search">
+                    <form id="searchForm" action="../pages/search.php" method="GET">
+                        <div class="search">
+                            <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                            <button type="submit">Search</button>
+                        </div>
+                    </form>
+                    <ul id="searchResults"></ul>
+                </div>
+            </li>
+            <li>
+                <nav id="topics">
+                    <ul>
+                        <a href="../pages/top.php"><li><p>Top</p></li></a>
+                        <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+                        <a href="../pages/new.php"><li><p>New</p></li></a>
+                    </ul>
+                </nav>
+            </li>
+            <li>
+                <div class="user"> 
+                    <?php
+                        if ($session->isLoggedIn()) {
+                            $db = getDBConn();
+                            $user = User::getUser($db, $session);
+                            showLogout($session, $user);
+                        }
+                        else showLogin($session);
+                    ?>
+                </div>
+            </li>
+        </ul>
+    </h1>
+</header>
+<?php } ?>
 
 <?php function drawHeaderAlbum(Session $session, Album $album) { ?>
 <!DOCTYPE html>
@@ -135,9 +195,39 @@
     </div>
     <div class="shelf-wrapper">
         <div class="shelf">
-            <?php foreach ($albums as $album):
-                drawCard($album, $session);
-                endforeach; ?>
+            <?php foreach ($albums as $album): ?>
+                <div class="card">
+                <img src="<?php echo $album->cover; ?>" width="260px">
+                <div class="title">
+                    <h3><?php echo $album->title; ?></h3>
+                    <p><?php echo $album->artist; ?></p>
+                </div>
+                <div class="desc">
+                    <p><?php echo $album->yearOfRelease; ?></p>
+                    <p><?php echo $album->genre; ?></p>
+                    <?php if ($album->quantity > 0): ?>
+                    <p><?php echo $album->quantity; ?> for <?php echo $album->averagePrice; ?>€</p>
+                    <?php else: ?>
+                    <p>Out of stock</p>
+                    <?php endif; ?>
+                </div>
+                <div class="buttons">
+                    <form action="../pages/album.php" method="GET">
+                        <input type="hidden" name="id" value="<?php echo $album->id; ?>">
+                        <button type="submit" name="action" value="buy">Buy</button>
+                    </form>
+                    <form action="../php/unwishlist.php" method="POST">
+                        <input type="hidden" name="album" value="<?php echo $album->id; ?>">
+                        <input type="hidden" name="user" value="<?php echo $session->getId(); ?>">
+                        <button type="submit" name="action" value="wishlist">Remove</button>
+                    </form>
+                    <form action="../php/sell.php" method="GET">
+                        <input type="hidden" name="id" value="<?php echo $album->id; ?>">
+                        <button type="submit" name="action" value="sell">Sell</button>
+                    </form>
+                </div>
+            </div> 
+              <?php  endforeach; ?>
         </div>
     </div>
 <?php } ?>

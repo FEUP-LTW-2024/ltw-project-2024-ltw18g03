@@ -10,7 +10,7 @@ $albumID = $_POST['album'];
 
 
 //Insert record  
-
+if ()
 $db->exec("INSERT INTO Wishlist (userID, albumID)
 VALUES('$userID', '$albumID');");
 

@@ -15,7 +15,7 @@
   require_once(__DIR__ . '/../html/html.albums.php');
   require_once(__DIR__ . '/../html/html.user.php');
 
-  drawHeader($session);
+  drawHeaderWish($session);
   drawWishlist($session);
 
   drawFooter();
