@@ -180,7 +180,7 @@ body {
     background-color: #000;
     
     .box {
-      width: 100em;
+      width: 100vw;
       display: flex;
       align-items: center;
       .bannerimg {
