@@ -46,6 +46,33 @@
     </header>
 <?php } ?>
 
+<?php function drawHeaderEditProfile(Session $session) { ?>
+<!DOCTYPE html>
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style-register.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>
+        <ul>
+        <li><div class="logo">
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
+        </div></li>
+        <li><div id="register">
+          <p>Edit Your Information</p>
+        </div></li>
+        </ul>
+        <h1>
+    </header>
+<?php } ?>
+
 <?php function drawHeaderLogin(Session $session) { ?>
 <!DOCTYPE html>
 <head>
@@ -152,6 +179,12 @@ generateDistrictOptions($districts);
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-3 control-label" for="profilePicture">Profile Picture</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="profilePicture" name="profilePicture" placeholder="Profile Picture" type="number" value="0" min="0" max="7">
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-sm-6">
             <div class="checkbox"></div>
         </div><!-- /.form-group -->
@@ -166,6 +199,110 @@ generateDistrictOptions($districts);
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 <button class="btn" type="submit">Register</button>
+            </div>
+        </div>
+    </div>
+</form>
+<?php } ?>
+<?php function drawEditForm(Session $session) { ?>
+  <form action="../php/edit-profile.php" class="form-horizontal" id="register_form" method="post" name="register_form" role="form">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="firstname">First Name</label>
+        <div class="col-sm-6">
+            <input autofocus="" class="form-control" id="firstname" name="firstname" placeholder="First Name" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="lastname">Last Name</label>
+        <div class="col-sm-6">
+            <input autofocus="" class="form-control" id="lastname" name="lastname" placeholder="Last Name" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="email">Email</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="password">Password</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="city">City</label>
+        <div class="col-sm-6">
+            <select class="form-control" id="city" name="city">
+            <?php
+$districts = array(
+    "Aveiro",
+    "Beja",
+    "Braga",
+    "Bragança",
+    "Castelo Branco",
+    "Coimbra",
+    "Évora",
+    "Faro",
+    "Guarda",
+    "Leiria",
+    "Lisboa",
+    "Portalegre",
+    "Porto",
+    "Santarém",
+    "Setúbal",
+    "Viana do Castelo",
+    "Vila Real",
+    "Viseu",
+    "Açores",
+    "Madeira"
+);
+
+function generateDistrictOptions($districts) {
+    foreach ($districts as $district) {
+        echo "<option>{$district}</option>\n";
+    }
+}
+
+generateDistrictOptions($districts);
+?>
+
+            </select>
+        </div>
+    </div><!-- /.form-group -->
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="postal">Postal Code</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="postal" name="postal" placeholder="XXXX-XXX" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="phone">Phone Number</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="phone" name="phone" placeholder="XXXXXXXXX" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="profilePicture">Profile Picture</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="profilePicture" name="profilePicture" placeholder="Profile Picture" type="number" value="0" min="0" max="7">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <div class="checkbox"></div>
+        </div><!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" required="required"><span>I accept </span><a href="#">Terms & Conditions</a></label>
+                </div>
+            </div>
+        </div><!-- /.form-group -->
+        <input type="hidden" name="user" value="<?php echo $session->getId(); ?>">
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <button class="btn" type="submit">Update</button>
             </div>
         </div>
     </div>
@@ -284,6 +421,13 @@ print "</table>";
                 <p>City: <?php echo $user->city; ?></p>
                 <p>Postal Code: <?php echo $user->postalCode; ?></p>
             </div>
+            <div class="profilebuttons">
+                <button type="submit" onclick="location.href='../pages/edit_profile.php'">Edit Profile</button>
+                <?php if ($user->isAdmin()) { ?>
+                    <button onclick="location.href='../pages/admin.php'">Admin Panel</button>
+                <?php } ?>
+                <button type="submit" onclick="location.href='../pages/wishlist.php'">Wishlist</button>
+            </div>
         </div>
         <div class="profileselling">
             <div class="top">
@@ -300,7 +444,7 @@ print "</table>";
                                 <?php
                                 $album = Album::getAlbumByID(getDBConn(), $item->album);
                                 ?>
-                                <img src="<?php echo $album->cover; ?>" height=82 width=82>
+                                <img class="item-image" src="<?php echo $album->cover; ?>" height=82 width=82>
                                 <h2><?php echo $album->artist; ?> - <?php echo $album->title; ?></h2>
                             </div>
                             <div class="item-info">

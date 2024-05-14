@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Album;
 DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS ProfilePicture;
+DROP TABLE IF EXISTS Wishlist;
 DROP TABLE IF EXISTS Image;
 DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Chat;
@@ -14,7 +15,7 @@ CREATE TABLE User
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
-    profilePicture INTEGER REFERENCES ProfilePicture(ID) DEFAULT 1,
+    profilePicture INTEGER REFERENCES ProfilePicture(ID) DEFAULT 0,
     city VARCHAR(30) NOT NULL,
     postalCode CHAR(8),
     phone CHAR(9),
@@ -91,11 +92,11 @@ CREATE TABLE ProfilePicture
     url VARCHAR(255) NOT NULL
 );
 -- Table created for each picture for each item
-CREATE TABLE Image
+CREATE TABLE Wishlist
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    itemID INTEGER REFERENCES Item(ID) ON DELETE CASCADE,
-    url VARCHAR(255) NOT NULL
+    userID INTEGER REFERENCES User(ID) ON DELETE CASCADE,
+    albumID INTEGER REFERENCES Album(ID) ON DELETE CASCADE
 );
 -- Table created for each review a user leaves on an item
 CREATE TABLE Review 
@@ -112,7 +113,7 @@ CREATE TABLE Chat
 (
     idChat INTEGER  NOT NULL,
     idUser1 INTEGER  NOT NULL,
-    idUser2
+    idUser2 
 );
 
 CREATE TABLE Message

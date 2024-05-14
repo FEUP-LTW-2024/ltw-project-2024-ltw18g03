@@ -117,7 +117,7 @@
       padding: 0.5em;
       padding-left: 1em;
       padding-right: 1em;
-      background-color: #A30000;
+      background-color: #8c2d19;
       color: #DADADA;
       font-size: 1.2em;
       border-radius: 50px;
@@ -145,7 +145,7 @@
       position: relative;
       bottom: 0.5em;
       border-radius: 50px;
-      border: 2px solid #A30000;
+      border: 2px solid #8c2d19;
     }
     .logout:hover {
       background-color: #222;
@@ -168,7 +168,7 @@
       position: relative;
       top: 3.3em;
       left:-33em;
-      transform: skew(30deg); background-color: #A30000;
+      transform: skew(30deg); background-color: #8c2d19;
     }
   
     h2 {
@@ -187,6 +187,7 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   
     /* Style for the profile container */
     .profile {
@@ -201,7 +202,7 @@
       img {
         
         border-radius: 50px;
-        border: 2px solid #A30000;
+        border: 2px solid #8c2d19;
       }
       h2 {
         font-size: 1.4em;
@@ -211,7 +212,27 @@
         font-size: 1.2em;
         margin-left: 1em;
       }
+      .profilebuttons {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        button {
+          padding: 0.5em;
+          padding-left: 1em;
+          padding-right: 1em;
+          background-color: #118C4f;
+          color: #DADADA;
+          border-radius: 50px;
+          border: none;
+          margin: 0;
+          margin-top: 1em;
+        }
+        button:hover {
+          background-color: #073820;
+        }
     }
+  }
   
     /* Style for the selling container */
     .profileselling {
@@ -223,7 +244,7 @@
       flex-direction: column;
       gap: 20px;
       overflow-y: auto; /* Add this line */
-      max-height: 22em;
+      max-height: 23.8em;
     }
   
     /* Style for each individual item */
@@ -235,6 +256,11 @@
       margin-bottom: 20px;
       display: flex;
       flex-direction: row;
+      .item-image {
+        width: 100px;
+        height: 100px;
+        border: 2px solid #8c2d19;
+      }
       .item-seller {
         font-size: 1.2em;;
       }
@@ -267,8 +293,13 @@
   }
   
   #delete {
-          background-color: #A30000;
+          background-color: #8c2d19;
         }
+        #delete:hover {
+          background-color: #571c10;
+        }
+
+
   
 
   

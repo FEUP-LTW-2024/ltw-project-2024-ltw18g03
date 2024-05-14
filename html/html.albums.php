@@ -70,7 +70,7 @@
 
 <?php } ?>
 
-<?php function drawCard(Album $album) { ?>
+<?php function drawCard(Album $album, Session $session) { ?>
     <div class="card">
         <img src="<?php echo $album->cover; ?>" width="260px">
         <div class="title">
@@ -87,7 +87,11 @@
                 <input type="hidden" name="id" value="<?php echo $album->id; ?>">
                 <button type="submit" name="action" value="buy">Buy</button>
             </form>
-            <button>Want</button>
+            <form action="../php/wishlist.php" method="POST">
+                <input type="hidden" name="album" value="<?php echo $album->id; ?>">
+                <input type="hidden" name="user" value="<?php echo $session->getId(); ?>">
+                <button type="submit" name="action" value="wishlist">Wish</button>
+            </form>
             <form action="../php/sell.php" method="GET">
                 <input type="hidden" name="id" value="<?php echo $album->id; ?>">
                 <button type="submit" name="action" value="sell">Sell</button>
@@ -96,7 +100,7 @@
     </div> 
 <?php } ?>
 
-<?php function drawTopS(array $albums, int $n) {
+<?php function drawTopS(array $albums, int $n, Session $session) {
     usort($albums, function($a, $b) {
         return $b->rym <=> $a->rym;
     });?>   
@@ -110,13 +114,32 @@
         <div class="shelf">
             <?php for ($i = 0; $i < min(count($albums), $n); $i++):
                 $album = $albums[$i];
-                drawCard($album);
+                drawCard($album, $session);
                 endfor; ?>
         </div> 
     </div>   
 <?php } ?>
 
-<?php function drawHotS(array $albums, int $n) { //most items
+<?php function drawWishlist(Session $session) {
+    $db = getDBConn();
+    $user = User::getUser($db, $session);
+    $albums = $user->getWishlist($db, $session->getId());
+    ?>
+    <div class="top">
+        <div id="wishlist"> </div>
+        <h2>Wishlist</h2>
+    </div>
+    <div class="shelf-wrapper">
+        <div class="shelf">
+            <?php foreach ($albums as $album):
+                drawCard($album, $session);
+                endforeach; ?>
+        </div>
+    </div>
+<?php } ?>
+
+
+<?php function drawHotS(array $albums, int $n, Session $session) { //most items
     usort($albums, function($a, $b) {
         return $b->quantity <=> $a->quantity;
     });?>
@@ -131,14 +154,14 @@
         <?php 
         for ($i = 0; $i < min(count($albums), $n); $i++):
             $album = $albums[$i];
-            drawCard($album);
+            drawCard($album, $session);
             endfor; 
         ?>
         </div>
     </div>    
 <?php } ?>
 
-<?php function drawNewS(array $albums, int $n) { //recent date 
+<?php function drawNewS(array $albums, int $n, Session $session) { //recent date 
     usort($albums, function($a, $b) {
         return $b->yearOfRelease <=> $a->yearOfRelease;
     });?>
@@ -153,14 +176,14 @@
         <?php 
         for ($i = 0; $i < min(count($albums), $n); $i++):
             $album = $albums[$i];
-            drawCard($album);
+            drawCard($album, $session);
             endfor; 
         ?>
         </div>        
     </div>    
 <?php } ?>
 
-<?php function drawTopP(array $albums) {
+<?php function drawTopP(array $albums, Session $session) {
     usort($albums, function($a, $b) {
         return $b->rym <=> $a->rym;
     });?>   
@@ -172,13 +195,13 @@
     <?php 
     for ($i = 0; $i < count($albums); $i++):
         $album = $albums[$i];
-        drawCard($album);
+        drawCard($album, $session);
         endfor; 
     ?>
     </div>    
 <?php } ?>
 
-<?php function drawHotP(array $albums) { //most items
+<?php function drawHotP(array $albums, Session $session) { //most items
     usort($albums, function($a, $b) {
         return $b->quantity <=> $a->quantity;
     });?>
@@ -190,13 +213,13 @@
     <?php 
     for ($i = 0; $i < count($albums); $i++):
         $album = $albums[$i];
-        drawCard($album);
+        drawCard($album, $session);
         endfor; 
     ?>
     </div>    
 <?php } ?>
 
-<?php function drawNewP(array $albums) { //recent date 
+<?php function drawNewP(array $albums, Session $session) { //recent date 
     usort($albums, function($a, $b) {
         return $b->yearOfRelease <=> $a->yearOfRelease;
     });?>
@@ -208,7 +231,7 @@
     <?php 
     for ($i = 0; $i < count($albums); $i++):
         $album = $albums[$i];
-        drawCard($album);
+        drawCard($album, $session);
         endfor; 
     ?>
     </div>

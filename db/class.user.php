@@ -107,7 +107,6 @@ class User {
       }
       static function getUserByID($db, $id) {
         $query = "SELECT * FROM User WHERE ID = :id";
-    
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $id);
         $statement->execute();
@@ -119,6 +118,23 @@ class User {
         } else {
             return null;
         }
+      }
+      static function getWishlist($db, $id) {
+        $query = "SELECT * FROM Wishlist WHERE userID = :id";
+    
+        $statement = $db->prepare($query);
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+    
+        $rows = $statement->fetchAll();
+    
+        $wishlist = [];
+    
+        foreach ($rows as $row) {
+            $wishlist[] = Album::getAlbumByID($db,$row['albumID']);
+        }
+    
+        return $wishlist;
       }
 }
 

@@ -116,7 +116,7 @@
       padding: 0.5em;
       padding-left: 1em;
       padding-right: 1em;
-      background-color: #A30000;
+      background-color: #8c2d19;
       color: #DADADA;
       font-size: 1.2em;
       border-radius: 50px;
@@ -144,7 +144,7 @@
       position: relative;
       bottom: 0.5em;
       border-radius: 50px;
-      border: 2px solid #A30000;
+      border: 2px solid #8c2d19;
     }
     .logout:hover {
       background-color: #222;

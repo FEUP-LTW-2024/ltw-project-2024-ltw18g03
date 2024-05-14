@@ -16,9 +16,9 @@
   require_once(__DIR__ . '/../html/html.user.php');
   drawHeader($session);
   drawBanner();
-  drawTopS($albums, 10);
-  drawHotS($albums, 10);
-  drawNewS($albums, 10);
+  drawTopS($albums, 10, $session);
+  drawHotS($albums, 10, $session);
+  drawNewS($albums, 10, $session);
 
   drawFooter();
 ?>
