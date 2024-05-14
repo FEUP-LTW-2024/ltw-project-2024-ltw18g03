@@ -71,7 +71,6 @@ function drawBanner() {
 } 
 ?>
 
-
 <?php function drawFooter() { ?>
     <footer>
     <p>&copy; 2004  GrooveSwap</p>
