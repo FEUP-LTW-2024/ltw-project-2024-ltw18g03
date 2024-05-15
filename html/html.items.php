@@ -170,6 +170,80 @@ generateAlbumOptions($albums);
     </div>
 </form>
 <?php } ?>
+<?php function drawEditItemForm(Session $session, string $item) { ?>
+    <form action="../php/edit-item.php" class="form-horizontal" id="register_form" method="post" name="item_form" role="form">
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="title">Title</label>
+        <div class="col-sm-6">
+            <input autofocus="" class="form-control" id="title" name="title" placeholder="Write something catchy!" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="description">Description</label>
+        <div class="col-sm-6">
+            <input autofocus="" class="form-control" id="description" name="description" placeholder="Why should it be bought?" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="album">Album</label>
+        <div class="col-sm-6">
+            <select class="form-control" id="album" name="album">
+            <?php
+$albums = Album::getAlbums(getDBConn());
+
+function generateAlbumOptions(Array $albums) {
+    for ($i = 0; $i < count($albums); $i++):
+        $album = $albums[$i];
+        echo "<option value=\"{$album->id}\">{$album->title} - {$album->artist}</option>\n";
+        endfor;
+}
+
+generateAlbumOptions($albums);
+?>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="price">Price</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="price" name="price" placeholder="€" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="condition">Condition</label>
+        <div class="col-sm-6">
+            <select class="form-control" id="condition" name="condition">
+                <option value="Mint">Mint</option>
+                <option value="Near Mint">Near Mint</option>
+                <option value="Very Good">Very Good</option>
+                <option value="Light Scratches">Light Scratches</option>
+                <option value="Damaged Cover">Damaged Cover</option>
+                <option value="Scratched">Scratched</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <div class="checkbox"></div>
+        </div><!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="checkbox">
+                    <label><input type="checkbox" required="required"><span>I accept </span><a href="#">Terms & Conditions</a></label>
+                </div>
+            </div>
+        </div><!-- /.form-group -->
+
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <button class="btn" type="submit">Publish</button>
+            </div>
+        </div>
+        <input type="hidden" name="item" value="<?php echo $item; ?>">
+    </div>
+</form>
+<?php } ?>
 <?php
 function printItemTable($db) {
 //now output the data to a simple html table...

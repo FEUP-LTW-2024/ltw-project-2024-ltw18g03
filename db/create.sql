@@ -9,13 +9,13 @@ DROP TABLE IF EXISTS Chat;
 DROP TABLE IF EXISTS Message;
 
 
---Table created for every user that is registered in
+--Table created for every user that is registered in●●●●●●●●●●●●●●●●●●●●
 CREATE TABLE User
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
-    profilePicture INTEGER REFERENCES ProfilePicture(ID) DEFAULT 0,
+    profilePicture VARCHAR(30) DEFAULT white,
     city VARCHAR(30) NOT NULL,
     postalCode CHAR(8),
     phone CHAR(9),
@@ -27,11 +27,11 @@ CREATE TABLE User
 -- Populate Users
 INSERT INTO User (firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin) 
 VALUES 
-('John', 'Doe', 1, 'New York', '1000-101', '123456789', 'john@example.com', 'hashed_password', FALSE),
-('Jane', 'Smith', 2, 'Los Angeles', '9000-111', '987654321', 'jane@example.com', 'hashed_password', FALSE),
-('Admin', 'Adminson', 1, 'Admin City', '1234-345', '111222333', 'admin@example.com', 'admin_password_hash', TRUE),
+('John', 'Doe', 'blue', 'New York', '1000-101', '123456789', 'john@example.com', 'hashed_password', FALSE),
+('Jane', 'Smith','green', 'Los Angeles', '9000-111', '987654321', 'jane@example.com', 'hashed_password', FALSE),
+('Admin', 'Adminson', 'white', 'Admin City', '1234-345', '111222333', 'admin@example.com', 'admin_password_hash', TRUE),
 --('Gonçalo', 'Sousa', ...),
-('Rodrigo', 'de Sousa', 5, 'Porto', '4250-453', '966110454', 'rodrigodiasdesousa@gmail.com', 'what_imnot_doingTHAT', TRUE);
+('Rodrigo', 'de Sousa', 'orange', 'Porto', '4250-453', '966110454', 'rodrigodiasdesousa@gmail.com', 'what_imnot_doingTHAT', TRUE);
 
 -- Table created for every album on the db, not necessarily on sale
 CREATE TABLE Album
@@ -81,6 +81,7 @@ CREATE TABLE Item
     descriptionOfItem TEXT DEFAULT 'no description was provided by the seller',
     price FLOAT NOT NULL,
     condition VARCHAR(40),
+    sold BOOLEAN DEFAULT FALSE,
     listDate DATE NOT NULL DEFAULT CURRENT_DATE,
     seller INTEGER REFERENCES User(ID),
     album INTEGER REFERENCES Album(ID)

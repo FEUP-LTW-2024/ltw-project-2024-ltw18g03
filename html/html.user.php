@@ -132,6 +132,7 @@
             <select class="form-control" id="city" name="city" required="required">
             <?php
 $districts = array(
+    "Porto",
     "Aveiro",
     "Beja",
     "Braga",
@@ -144,7 +145,6 @@ $districts = array(
     "Leiria",
     "Lisboa",
     "Portalegre",
-    "Porto",
     "Santarém",
     "Setúbal",
     "Viana do Castelo",
@@ -181,7 +181,16 @@ generateDistrictOptions($districts);
     <div class="form-group">
         <label class="col-sm-3 control-label" for="profilePicture">Profile Picture</label>
         <div class="col-sm-6">
-            <input class="form-control" id="profilePicture" name="profilePicture" placeholder="Profile Picture" type="number" value="0" min="0" max="7">
+        <select class="form-control" id="profilePicture" name="profilePicture" required="required">
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="pink">Pink</option>
+        </select>
         </div>
     </div>
     <div class="form-group">
@@ -236,6 +245,7 @@ generateDistrictOptions($districts);
             <select class="form-control" id="city" name="city">
             <?php
 $districts = array(
+    "Porto",
     "Aveiro",
     "Beja",
     "Braga",
@@ -248,7 +258,6 @@ $districts = array(
     "Leiria",
     "Lisboa",
     "Portalegre",
-    "Porto",
     "Santarém",
     "Setúbal",
     "Viana do Castelo",
@@ -285,8 +294,17 @@ generateDistrictOptions($districts);
     <div class="form-group">
         <label class="col-sm-3 control-label" for="profilePicture">Profile Picture</label>
         <div class="col-sm-6">
-            <input class="form-control" id="profilePicture" name="profilePicture" placeholder="Profile Picture" type="number" value="0" min="0" max="7">
-        </div>
+        <select class="form-control" id="profilePicture" name="profilePicture" required="required">
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="purple">Purple</option>
+            <option value="pink">Pink</option>
+        </select>        
+    </div>
     </div>
     <div class="form-group">
         <div class="col-sm-6">
@@ -453,8 +471,15 @@ print "</table>";
                                 <p><?php echo $item->price; ?>€</p>
                             </div>
                             <div class="item-buttons">
-                                <?php if ($session->isLoggedIn() && $session->getId() == $item->seller): ?>
-                                    <button>Edit</button>
+                                <?php if ($session->isLoggedIn() && $session->getId() == $item->seller):
+                                        if ($item->sold):?>
+                                            <button>Sold</button>
+                                        <?php else: ?>
+                                            <form method="POST" action="../pages/edit_item.php">
+                                                <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                                <button type="submit">Edit</button>
+                                            </form>
+                                        <?php endif; ?>
                                     <form method="POST" action="../php/delete.php">
                                         <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
                                         <button id="delete" type="submit">Delete</button>

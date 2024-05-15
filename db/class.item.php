@@ -5,16 +5,18 @@ class Item {
     public $description;
     public $price;
     public $condition;
+    public $sold;
     public $date;
     public $seller;
     public $album;
 
-    public function __construct($id, $title, $description, $price, $condition, $date, $seller, $album) {
+    public function __construct($id, $title, $description, $price, $condition, $sold, $date, $seller, $album) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->price = $price;
         $this->condition = $condition;
+        $this->sold = $sold;
         $this->date = $date;
         $this->seller = $seller;
         $this->album = $album;
@@ -28,7 +30,7 @@ class Item {
         $items = [];
 
         while ($row = $result->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
             $items[] = $item;
         }
 
@@ -47,7 +49,7 @@ class Item {
         $items = [];
 
         while ($row = $statement->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
             $items[] = $item;
         }
 
@@ -65,7 +67,7 @@ class Item {
         $items = [];
 
         while ($row = $statement->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
             $items[] = $item;
         }
 

@@ -3,16 +3,16 @@ class User {
     public $id;
     public $firstName;
     public $lastName;
-    public $profilePicture = 1; // Default profile picture ID
+    public $profilePicture;
     public $city;
     public $postalCode;
     public $phone;
     public $email;
     public $passwordHash;
-    public $isAdmin = false;
+    public $isAdmin;
     public $joinDate;
 
-    public function __construct($id, $firstName, $lastName, $profilePicture, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin = false, $joinDate = null) {
+    public function __construct($id, $firstName, $lastName, $profilePicture, $city, $postalCode, $phone, $email, $passwordHash, $isAdmin, $joinDate) {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
@@ -67,6 +67,7 @@ class User {
             $user['postalCode'],
             $user['phone'],
             $user['email'],
+            $user['passwordHash'],
             $user['isAdmin'],
             $user['joinDate'],
 
@@ -98,6 +99,7 @@ class User {
             $user['postalCode'],
             $user['phone'],
             $user['email'],
+            $user['passwordHash'],
             $user['isAdmin'],
             $user['joinDate'],
 
