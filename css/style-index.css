@@ -238,6 +238,13 @@ body {
       left:-33em;
       transform: skew(30deg); background-color: yellow;
     }
+    #res {
+      width: 50px; height: 50px;
+      position: relative;
+      top: 3.3em;
+      left:-33em;
+      transform: skew(30deg); background-color: #8c2d19;
+    }
   
     h2 {
       background-color: #DADADA;
@@ -326,4 +333,31 @@ footer {
     color: #DADADA;
     padding: 1em;
     font-size: 0.8em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ccc; /* Grey background */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Dark grey handle */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker grey handle on hover */
+  }
+  
+  /* Make scrollbar slightly transparent when not hovered */
+  ::-webkit-scrollbar {
+    background-color: rgba(204, 204, 204, 0.5); /* Grey color with 50% opacity */
   }

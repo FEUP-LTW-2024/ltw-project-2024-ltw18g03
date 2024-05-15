@@ -400,7 +400,7 @@ print "</table>";
             </a>
         </div></li>
         <li>
-            <form id="searchForm" action="../pages/search.php" method="GET">
+            <form id="searchForm" action="../pages/results.php" method="GET">
                 <div class="search">
                     <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
                     <button type="submit">Search</button>
