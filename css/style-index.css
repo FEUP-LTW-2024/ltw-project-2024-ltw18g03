@@ -340,24 +340,24 @@ footer {
     height: 12px;
   }
   
-  /* Track */
+  
   ::-webkit-scrollbar-track {
-    background: #FFEAC9; /* Grey background */
-    border-radius: 0px; /* Rounded corners */
+    background: #FFEAC9; 
+    border-radius: 0px; 
   }
   
-  /* Handle */
+ 
   ::-webkit-scrollbar-thumb {
-    background: #888; /* Dark grey handle */
-    border-radius: 10px; /* Rounded corners */
+    background: #888; 
+    border-radius: 10px; 
   }
   
-  /* Handle on hover */
+  
   ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker grey handle on hover */
+    background: #555;
   }
   
-  /* Make scrollbar slightly transparent when not hovered */
+  
   ::-webkit-scrollbar {
-    background-color: rgba(204, 204, 204, 0.5); /* Grey color with 50% opacity */
+    background-color: rgba(204, 204, 204, 0.5); 
   }
