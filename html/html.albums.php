@@ -30,7 +30,7 @@
             </li>
             <li>
                 <div class="search">
-                    <form id="searchForm" action="../pages/search.php" method="GET">
+                    <form id="searchForm" action="../pages/results.php" method="GET">
                         <div class="search">
                             <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
                             <button type="submit">Search</button>
@@ -91,9 +91,13 @@
             </li>
             <li>
                 <div class="search">
-                    <form id="searchForm" action="../pages/search.php" method="GET">
+                    <form id="searchForm" action="../pages/results.php" method="GET">
                         <div class="search">
-                            <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                            <input 
+                                type="search" 
+                                id="searchInput" 
+                                name="query" 
+                                placeholder="Search artists, albums, genres and more...">
                             <button type="submit">Search</button>
                         </div>
                     </form>
@@ -394,4 +398,21 @@
         </div>
     </div>
 
+<?php } ?>
+<?php function drawRes(array $result, Session $session) {
+    usort($result, function($a, $b) {
+        return $b->rym <=> $a->rym;
+    });?>   
+    <div class="top">
+        <div id="res"> </div>
+        <h2>Search Results</h2>
+    </div>  
+    <div class="page">
+    <?php 
+    for ($i = 0; $i < count($result); $i++):
+        $album = $result[$i];
+        drawCard($album, $session);
+        endfor; 
+    ?>
+    </div>    
 <?php } ?>

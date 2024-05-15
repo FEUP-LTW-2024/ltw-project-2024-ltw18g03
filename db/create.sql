@@ -30,7 +30,6 @@ VALUES
 ('John', 'Doe', 'blue', 'New York', '1000-101', '123456789', 'john@example.com', 'hashed_password', FALSE),
 ('Jane', 'Smith','green', 'Los Angeles', '9000-111', '987654321', 'jane@example.com', 'hashed_password', FALSE),
 ('Admin', 'Adminson', 'white', 'Admin City', '1234-345', '111222333', 'admin@example.com', 'admin_password_hash', TRUE),
---('Gonçalo', 'Sousa', ...),
 ('Rodrigo', 'de Sousa', 'orange', 'Porto', '4250-453', '966110454', 'rodrigodiasdesousa@gmail.com', 'what_imnot_doingTHAT', TRUE);
 
 -- Table created for every album on the db, not necessarily on sale

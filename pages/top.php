@@ -19,4 +19,4 @@
   drawTopP($albums, $session);
 
   drawFooter();
-?>1
+?>

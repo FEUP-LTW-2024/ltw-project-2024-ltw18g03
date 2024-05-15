@@ -73,6 +73,26 @@
     border-radius: 50px;
     font-size: 16px; /* Adjust font size as needed */
   }
+  .search button {
+    /* Hide default button text */
+    text-indent: -9999px;
+    /* Set width and height of the button */
+    width: 35px; /* Adjust according to your design */
+    height: 35px; /* Adjust according to your design */
+    /* Set background image */
+    background-image: url('../imgs/lupa.png');
+    /* Set background size to cover the button */
+    background-size: cover;
+    background-color: transparent;
+    /* Optionally, you can add some padding to make the button larger */
+    padding: 5px; /* Adjust according to your design */
+    /* Optionally, you can add a border or other styles */
+    border: none; /* Remove default button border */
+    /* Add any other styles you want */
+    /* Ensure the cursor changes on hover */
+    cursor: pointer;
+}
+  
   
   /* Style for navigation links */
   #topics a {
@@ -279,4 +299,30 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  
+  ::-webkit-scrollbar-track {
+    background: #FFEAC9; 
+    border-radius: 0px; 
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+  }
+  
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  
+  ::-webkit-scrollbar {
+    background-color: rgba(204, 204, 204, 0.5); 
   }
