@@ -237,7 +237,7 @@ generateAlbumOptions($albums);
 
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
-                <button class="btn" type="submit">Publish</button>
+                <button class="btn" type="submit">Update</button>
             </div>
         </div>
         <input type="hidden" name="item" value="<?php echo $item; ?>">

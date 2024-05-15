@@ -17,6 +17,5 @@
 
   drawHeaderEditProfile($session);
   drawEditForm($session);
-
   drawFooter();
 ?>
