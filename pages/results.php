@@ -10,12 +10,9 @@
     $db = getDBConn();
 
     require_once(__DIR__ . '/../db/class.album.php');
-    $albums = Album::getAlbums($db);
-
-
-    require_once(__DIR__ . '/../db/class.album.php');
     
     $query = isset($_GET['query']) ? $_GET['query'] : '';
+    //var_dump($query);
 
     $result = Album::searchAlbums($db, $query);
     

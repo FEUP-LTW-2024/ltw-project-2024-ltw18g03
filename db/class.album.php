@@ -66,29 +66,34 @@ class Album {
         return $album;
     }
     static function searchAlbums($db, $query) {
-       
-        $query = "SELECT * FROM Album WHERE title LIKE :searchQuery OR artist LIKE :searchQuery";
-
-        $statement = $db->prepare($query);
         $searchQuery = "%{$query}%"; 
+    
+        $query = "SELECT * FROM Album WHERE title LIKE :searchQuery OR artist LIKE :searchQuery";
+    
+        $statement = $db->prepare($query);
         $statement->bindValue(':searchQuery', $searchQuery);
         $statement->execute();
-
-
+    
         $albums = [];
-
     
         while ($row = $statement->fetch()) {
-            
-            $album = new Album($row['ID'], $row['title'], $row['artist'], $row['songs'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['averagePrice']);
+            $album = new Album(
+                $row['ID'], 
+                $row['title'], 
+                $row['artist'], 
+                $row['songs'], 
+                $row['yearOfRelease'], 
+                $row['cover'], 
+                $row['genre'], 
+                $row['rym'], 
+                $row['quantity'], 
+                $row['averagePrice']
+            );
             $albums[] = $album;
         }
-
-        
+    
         $statement->closeCursor();
-
-        
+    
         return $albums;
     }
-    
 }
