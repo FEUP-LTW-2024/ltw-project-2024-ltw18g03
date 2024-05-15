@@ -342,8 +342,8 @@ footer {
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #ccc; /* Grey background */
-    border-radius: 10px; /* Rounded corners */
+    background: #FFEAC9; /* Grey background */
+    border-radius: 0px; /* Rounded corners */
   }
   
   /* Handle */
