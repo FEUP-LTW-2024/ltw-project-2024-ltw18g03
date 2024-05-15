@@ -48,32 +48,6 @@ class User {
         // Return the array of users
         return $users;
     }
-    static function getUserWithPassword(PDO $db, string $email, string $password) : ?User {
-        $stmt = $db->prepare('
-          SELECT ID, firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin, joinDate
-          FROM User 
-          WHERE lower(email) = ? AND passwordHash = ?
-        ');
-  
-        $stmt->execute(array(strtolower($email), $password));
-    
-        if ($user = $stmt->fetch()) {
-          return new User(
-            $user['ID'],
-            $user['firstName'],
-            $user['lastName'],
-            $user['profilePicture'],
-            $user['city'],
-            $user['postalCode'],
-            $user['phone'],
-            $user['email'],
-            $user['passwordHash'],
-            $user['isAdmin'],
-            $user['joinDate'],
-
-          );
-        } else return null;
-      }
       function name() {
         return $this->firstName . ' ' . $this->lastName;
       }
@@ -111,6 +85,20 @@ class User {
         $query = "SELECT * FROM User WHERE ID = :id";
         $statement = $db->prepare($query);
         $statement->bindValue(':id', $id);
+        $statement->execute();
+    
+        $row = $statement->fetch();
+    
+        if ($row) {
+            return new User($row['ID'], $row['firstName'], $row['lastName'], $row['profilePicture'], $row['city'], $row['postalCode'], $row['phone'], $row['email'], $row['passwordHash'], $row['isAdmin'], $row['joinDate']);
+        } else {
+            return null;
+        }
+      }
+      static function getUserByEmail($db, $email) {
+        $query = "SELECT * FROM User WHERE email = :email";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $email);
         $statement->execute();
     
         $row = $statement->fetch();

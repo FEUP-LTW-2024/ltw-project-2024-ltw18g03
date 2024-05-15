@@ -10,6 +10,13 @@ try {
     $price = $_POST['price'];
     $condition = $_POST['condition'];
 
+    //Sanitize the inputs
+    $title = preg_replace ("/[^a-zA-Z\s]/", '', $title);
+    $description = preg_replace ("/[^a-zA-Z\s]/", '', $description);
+    $album = preg_replace ("/[^a-zA-Z\s]/", '', $album);
+    $price = preg_replace ("/[^0-9.]/", '', $price);
+    $condition = preg_replace ("/[^a-zA-Z\s]/", '', $condition);
+
     // Initialize an array to hold the SQL parts
     $sqlParts = [];
     $params = [];

@@ -1,0 +1,255 @@
+* {
+    font-size: 15px;
+    margin: auto;
+    padding: 0;
+  }
+  /* Style for the background */
+  html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFEAC9;
+  }
+  
+  /* Style for the header */
+  header {
+    #hamburger, .hamburger {
+      display: none;
+    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #704214; /* Change the color as needed */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999; 
+  }
+  
+  /* Remove default list styling */
+  header ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the logo */
+  .logo {
+    padding: 1em;
+    padding-left: 1.5em;
+    padding-right: 3em;
+    color: #DADADA; /* Change the color as needed */
+    text-decoration: none;
+    span {
+      font-size: 1em; /* Adjust font size as needed */
+      color: #DADADA;
+      text-decoration: none;
+    }
+    a {
+        font-size: 2.5em; /* Adjust font size as needed */
+        color: #DADADA;
+        text-decoration: none;
+      }
+  
+    .spin {
+      position: relative;
+      top: 0.5em;
+      left: 0.5em;
+      transition: transform .7s ease-in-out;
+    }
+    .spin:hover {
+      transform: rotate(360deg);
+    }
+  }
+  .search {
+      padding-left: 2em;
+      padding-right: 3em;
+  }
+  /* Style for the search bar */
+  .search input[type="search"] { 
+    width: 30em;/* Adjust width as needed */
+    padding: 1em;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  /* Style for navigation links */
+  #topics a {
+    color: #DADADA; /* Change the color as needed */
+    text-decoration: none;
+    p{
+      font-size: 1.5em;}/* Adjust font size as needed */
+  }
+  #topics {
+      li {
+          padding: 1.5em;
+      }
+      li:hover {
+      background-color: #38210a;; 
+      }
+  }
+  #register p{
+    color: #DADADA;
+    font-size: 2em;
+    margin-left: 14em;
+    position: relative;
+    left: -1em;
+  }
+
+  
+  /* Style for login/register links */
+  .user {
+    position: absolute;
+    right: 16em;
+    top: 1.1em;
+    .login {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #333;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .register {
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #8c2d19;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .register:hover {
+      background-color: #640000;
+    }
+    .login:hover {
+      background-color: #222;
+    }
+    .logout {
+      position: relative;
+      bottom: 1.5em;
+      padding: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+      background-color: #333;
+      color: #DADADA;
+      font-size: 1.2em;
+      border-radius: 50px;
+      border: none;
+    }
+    .userimg {
+      position: relative;
+      bottom: 0.5em;
+      border-radius: 50px;
+      border: 2px solid #8c2d19;
+    }
+    .logout:hover {
+      background-color: #222;
+    }
+  }
+
+
+body {
+    padding-top: 5em; /* Adjust this value to match the height of your header */
+  }
+
+  .top {
+    a{
+      text-decoration: none;
+    }
+    width: 100em;
+    margin: auto;
+    #hot {
+      width: 50px; height: 50px;
+      position: relative;
+      top: 3.3em;
+      left:-33em;
+      transform: skew(30deg); background-color: #93BFEB;
+    }
+    h2 {
+      background-color: #DADADA;
+      padding: 0.5em;
+      color: #000;
+      margin-right: 55em;
+      font-size: 1.5em;
+      margin-bottom: 2em;
+    }
+  }
+
+  .users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100em;
+    margin: auto;
+}
+
+.us {
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%; /* Adjust as needed */
+}
+
+.userimg img {
+    border: 2px solid #8c2d19;
+    border-radius: 50%; /* Makes the image round */
+    margin-right: 20px;
+}
+
+.userinfo {
+    flex-grow: 1;
+}
+
+.userinfo h3 {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+.userinfo p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.userbuttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.userbuttons button {
+    padding: 0.5em 1em;
+    background-color: #118C4f;
+    color: #DADADA;
+    border-radius: 50px;
+    border: none;
+}
+
+.userbuttons button:hover {
+    background-color: #073820;
+}
+
+#delete {
+    background-color: #8c2d19;
+}
+#delete:hover {
+    background-color: #640000;
+}
+
+footer {
+    background-color: #333;
+    color: #DADADA;
+    padding: 1em;
+    font-size: 0.8em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
