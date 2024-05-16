@@ -237,6 +237,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        
         button {
           padding: 0.5em;
           padding-left: 1em;
@@ -346,7 +347,19 @@
 
 
   
-
+        .button-style {
+          padding: 0.5em 1em;
+          background-color: #118C4F;
+          color: #DADADA;
+          border-radius: 50px;
+          border: none;
+          margin-top: 1em;
+          flex: 1; /* Optional, for flex styling */
+          width: 100%; /* Optional, for full width */
+      }
+      .button-style:hover {
+          background-color: #073820;
+      }
   
   
   

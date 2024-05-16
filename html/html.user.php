@@ -531,12 +531,15 @@ print "</table>";
                 <p>City: <?php echo $user->city; ?></p>
                 <p>Postal Code: <?php echo $user->postalCode; ?></p>
             </div>
+            <form method="POST" action="../pages/wishlist.php">
+                    <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+                    <button type="submit" class="button-style">Wishlist</button>
+                </form>
             <div class="profilebuttons">
                 <button type="submit" onclick="location.href='../pages/edit_profile.php'">Edit Profile</button>
                 <?php if ($user->isAdmin()) { ?>
                     <button onclick="location.href='../pages/admin.php'">Admin Panel</button>
                 <?php } ?>
-                <button type="submit" onclick="location.href='../pages/wishlist.php'">Wishlist</button>
                 <div class="mail">
                     <button id="sent" type="submit" onclick="location.href='../pages/sent.php'">Sent</button>
                     <button id="received" type="submit" onclick="location.href='../pages/received.php'">Received</button>
@@ -566,24 +569,20 @@ print "</table>";
                                 <p><?php echo $item->condition; ?></p>
                                 <p><?php echo $item->price; ?>€</p>
                             </div>
+                            
                             <div class="item-buttons">
-                                <?php if ($session->isLoggedIn() && $session->getId() == $item->seller):
-                                        if ($item->sold):?>
-                                            <button>Sold</button>
-                                        <?php else: ?>
-                                            <form method="POST" action="../pages/edit_item.php">
-                                                <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
-                                                <button type="submit">Edit</button>
-                                            </form>
-                                        <?php endif; ?>
+                                <?php if ($item->sold):?>
+                                    <button>Sold</button>
+                                <?php else: ?>
+                                    <form method="POST" action="../pages/edit_item.php">
+                                        <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                        <button type="submit" id="edit">Edit</button>
+                                    </form>
+                                <?php endif; ?>
                                     <form method="POST" action="../php/delete.php">
                                         <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
                                         <button id="delete" type="submit">Delete</button>
                                     </form>
-                                    <?php else: ?>
-                                        <button>Buy</button>
-                                        <button id="message">Message</button>
-                                    <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -605,15 +604,10 @@ print "</table>";
                 <p>Postal Code: <?php echo $user->postalCode; ?></p>
             </div>
             <div class="profilebuttons">
-                <button type="submit" onclick="location.href='../pages/edit_profile.php'">Edit Profile</button>
-                <?php if ($user->isAdmin()) { ?>
-                    <button onclick="location.href='../pages/admin.php'">Admin Panel</button>
-                <?php } ?>
-                <button type="submit" onclick="location.href='../pages/wishlist.php'">Wishlist</button>
-                <div class="mail">
-                    <button id="sent" type="submit" onclick="location.href='../pages/sent.php'">Sent</button>
-                    <button id="received" type="submit" onclick="location.href='../pages/received.php'">Received</button>
-                </div>
+                <form method="POST" action="../pages/wishlist.php">
+                    <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+                    <button type="submit">Wishlist</button>
+                </form>
             </div>
         </div>
         <div class="profileselling">
@@ -640,23 +634,12 @@ print "</table>";
                                 <p><?php echo $item->price; ?>€</p>
                             </div>
                             <div class="item-buttons">
-                                <?php if ($user->id == $item->seller):
-                                        if ($item->sold):?>
-                                            <button>Sold</button>
-                                        <?php else: ?>
-                                            <form method="POST" action="../pages/edit_item.php">
-                                                <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
-                                                <button type="submit">Edit</button>
-                                            </form>
-                                        <?php endif; ?>
-                                    <form method="POST" action="../php/delete.php">
-                                        <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
-                                        <button id="delete" type="submit">Delete</button>
-                                    </form>
-                                    <?php else: ?>
                                         <button>Buy</button>
-                                        <button id="message">Message</button>
-                                    <?php endif; ?>
+                                        <form action="../pages/write.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>">
+                                            <input type="hidden" name="dest" value="<?= $item->seller ?>">
+                                            <button type="submit" name="reply">Message</button>
+                                        </form>
                             </div>
                         </div>
                     <?php endforeach; ?>

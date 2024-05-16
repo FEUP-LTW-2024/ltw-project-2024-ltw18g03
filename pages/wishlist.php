@@ -14,9 +14,9 @@
   require_once(__DIR__ . '/../html/html.main.php');
   require_once(__DIR__ . '/../html/html.albums.php');
   require_once(__DIR__ . '/../html/html.user.php');
-
+  $user = User::getUserByID($db, $_POST['id']);
   drawHeaderWish($session);
-  drawWishlist($session);
+  drawWishlist($user, $session);
 
   drawFooter();
 ?>
