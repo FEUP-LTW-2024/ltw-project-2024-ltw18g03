@@ -34,7 +34,7 @@ VALUES
 CREATE TABLE Album
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    title VARCHAR(25) NOT NULL, --album name
+    title VARCHAR(25) NOT NULL CHECK (LENGTH(title) <= 25), --album name
     artist VARCHAR(30) NOT NULL, --album artist
     yearOfRelease CHAR(4) NOT NULL, --date of release
     cover VARCHAR(255) NOT NULL, --cover url
