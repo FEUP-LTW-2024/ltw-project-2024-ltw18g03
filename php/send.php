@@ -18,7 +18,7 @@ $email_body = $_POST['content'];
 $sender = preg_replace ("/[^0-9]/", '', $sender);
 $receiver = preg_replace ("/[^0-9]/", '', $receiver);
 $item = preg_replace ("/[^0-9]/", '', $item);
-$title = preg_replace ("/[^a-zA-Z0-9\s.]/", '', $title);
+$title = preg_replace ("/[^a-zA-Z0-9\s.:]/", '', $title);
 
 $email_body = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $email_body);
 

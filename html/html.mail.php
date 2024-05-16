@@ -163,7 +163,7 @@
             <input type="hidden" name="itemID" value="<?= $itemID ?>">
             <input type="hidden" name="receiverID" value="<?= $receiverID ?>">
             <input type="hidden" name="senderID" value="<?= $session->getId() ?>">
-            <input type="hidden" name="title" value="<?= $title ?>">
+            <input type="hidden" name="title" value="Re: <?= $title ?>">
             <label for="content">Body:</label>
             <textarea id="content" name="content" rows="4" cols="50" required></textarea>
             <button type="submit">Send</button>
@@ -208,15 +208,17 @@
             <div class="mail-timest">
                 <p><?= $mail->timest ?></p>
             </div>
-            <div class="mail-buttons">
-            <form action="../pages/write.php" method="POST">
-                <input type="hidden" name="itemId" value="<?= $item->id ?>">
-                <input type="hidden" name="dest" value="<?= $mail->senderID ?>">
-                <input type="hidden" name="title" value="<?= $mail->title ?>">
-                <button type="submit" name="reply">Reply</button>
-            </form>
-        </div>
-        </div>
+            <?php if (!$isUserSender) { ?>
+                <div class="mail-buttons">
+                    <form action="../pages/write.php" method="POST">
+                        <input type="hidden" name="itemId" value="<?= $item->id ?>">
+                        <input type="hidden" name="dest" value="<?= $mail->senderID ?>">
+                        <input type="hidden" name="title" value="<?= $mail->title ?>">
+                        <button type="submit" name="reply">Reply</button>
+                    </form>
+                </div>
+            <?php } ?>
+            </div>
         <div class="mail-content">
             <p><?= $mail->content ?></p>
         </div>

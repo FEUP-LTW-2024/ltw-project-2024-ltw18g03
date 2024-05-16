@@ -199,11 +199,14 @@ body {
     }
   }
 
-  .mails {
+  #mails {
     display: flex;
     flex-direction: column;
-    width: 50em;
     margin: auto;
+    gap: 20px;
+    overflow-y: auto; /* Add this line */
+    max-height: 40em;
+    
 }
 
 .mail {
