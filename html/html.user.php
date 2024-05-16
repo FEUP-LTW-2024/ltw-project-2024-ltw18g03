@@ -444,7 +444,7 @@ print "</table>";
                 </div>
                 <div class="userbuttons">
                     <?php if (!$user->isAdmin()): ?>
-                        <form method="POST" action="../php/make_admin.php">
+                        <form method="POST" action="../php/make-admin.php">
                             <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
                             <button type="submit">Make Admin</button>
                         </form>
