@@ -74,6 +74,7 @@
     margin-bottom: 3em;
     background-color: antiquewhite;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 7%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -97,6 +98,16 @@
       color: red; /* Change the color as needed */
       margin-left: 5px; /* Adjust spacing between the field and the asterisk */
     }
+
+    textarea.form-control {
+      border-radius: 2%;
+      width: 25em; 
+      height: 25em; 
+      position: relative;
+      text-align: justify;
+      resize: none; 
+  }
+    
     select.form-control {
       font-size: 1.2em;
       width: 20em;
