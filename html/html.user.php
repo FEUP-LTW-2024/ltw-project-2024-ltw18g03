@@ -428,10 +428,14 @@ print "</table>";
 
 <?php function drawUsers(Session $session, Array $users) {?>
     <div class="users">
+        
         <div class="top">
                 <div id="hot"> </div>
                 <h2>Users</h2>
         </div>
+        <button id="register" type="button" onclick="location.href='../pages/register.php'">
+                    Add User
+        </button>
         <?php foreach ($users as $user): ?>
             <div class="us">
                 <div class="userimg">

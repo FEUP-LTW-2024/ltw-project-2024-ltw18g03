@@ -9,7 +9,9 @@
   $db = getDBConn();
 
   require_once(__DIR__ . '/../db/class.user.php');
+  require_once(__DIR__ . '/../db/class.album.php');
   $users = User::getUsers($db);
+  $albums = Album::getAlbums($db);
 
   require_once(__DIR__ . '/../html/html.main.php');
   require_once(__DIR__ . '/../html/html.albums.php');
@@ -17,6 +19,7 @@
 
   drawHeaderAdmin($session);
   drawUsers($session, $users);
+  drawAlbums($session, $albums);
 
   drawFooter();
 ?>

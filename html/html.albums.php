@@ -399,6 +399,42 @@
     </div>
 
 <?php } ?>
+
+<?php function drawAlbums(Session $session, Array $albums) {?>
+    <div class="albums">
+        
+        <div class="top">
+                <div id="hot"> </div>
+                <h2>Albums</h2>
+        </div>
+        <button id="register" type="button" onclick="location.href='../pages/add_album.php'">
+                    Add Album
+        </button>
+        <?php foreach ($albums as $album): ?>
+            <div class="al">
+                <div class="albumimg">
+                    <img src="<?php echo $album->cover; ?>" height=50 width=50>
+                </div>
+                <div class="albuminfo">
+                    <h3><?php echo $album->title; ?></h3>
+                    <p><?php echo $album->artist; ?></p>
+                    <p><?php echo $album->genre; ?></p>
+                </div>
+                <div class="userbuttons">
+                <form method="POST" action="../php/edit-album.php">
+                        <input type="hidden" name="album_id" value="<?php echo $album->id; ?>">
+                        <button id="edit" type="submit">Edit</button>
+                    </form>
+                    <form method="POST" action="../php/delete-album.php">
+                        <input type="hidden" name="album_id" value="<?php echo $album->id; ?>">
+                        <button id="delete" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php } ?>
+
 <?php function drawRes(array $result, Session $session) {
     usort($result, function($a, $b) {
         return $b->rym <=> $a->rym;
