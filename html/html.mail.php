@@ -141,38 +141,52 @@
 <?php } ?>
 <?php function drawReply($session, $itemID, $receiverID, $title) { ?>
     <section id="mail">
-        <div class="top">
-            <div id="new"> </div>
-            <h2>Reply</h2>
+        <form action="../php/send.php" class="form-horizontal" id="login-form" method="post" name="login-form" role="form">
+        <div class="form-group">
+        <label for="content">Body:</label>
+            <div class="col-sm-6">
+            <textarea id="content" class="form-control" name="content" rows="4" cols="50" required></textarea>
+            </div>
         </div>
-        <form action="../php/send.php" method="POST">
+            <input type="hidden" name="title" value="<?= $title ?>">
             <input type="hidden" name="itemID" value="<?= $itemID ?>">
             <input type="hidden" name="receiverID" value="<?= $receiverID ?>">
             <input type="hidden" name="senderID" value="<?= $session->getId() ?>">
-            <input type="hidden" name="title" value="Re: <?= $title ?>">
-            <label for="content">Body:</label>
-            <textarea id="content" name="content" rows="4" cols="50" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <button class="btn" type="submit">Send</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>
 <?php } ?>
 <?php function drawSend($session, $itemID, $receiverID) { ?>
     <section id="mail">
-        <div class="top">
-            <div id="new"> </div>
-            <h2>Reply</h2>
+        <form action="../php/send.php" class="form-horizontal" id="login-form" method="post" name="login-form" role="form">
+        <div class="form-group">
+        <label for="title">Subject:</label>
+            <div class="col-sm-6">
+                <input class="form-control" name="title" type="text" required="required">
+            </div>
         </div>
-        <form action="../php/send.php" method="POST">
+        <div class="form-group">
+        <label for="content">Body:</label>
+            <div class="col-sm-6">
+            <textarea id="content" class="form-control" name="content" rows="4" cols="50" required></textarea>
+            </div>
+        </div>
             <input type="hidden" name="itemID" value="<?= $itemID ?>">
             <input type="hidden" name="receiverID" value="<?= $receiverID ?>">
             <input type="hidden" name="senderID" value="<?= $session->getId() ?>">
-            <label for="title">Subject:</label>
-            <input name="title" required>
-            <label for="content">Body:</label>
-            <textarea id="content" name="content" rows="4" cols="50" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3">
+                <button class="btn" type="submit">Send</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>
 <?php } ?>
 
 <?php function drawMail(Mail $mail, bool $isUserSender) { 
