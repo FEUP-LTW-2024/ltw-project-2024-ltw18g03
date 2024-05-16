@@ -185,26 +185,6 @@ generateAlbumOptions($albums);
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="album">Album</label>
-        <div class="col-sm-6">
-            <select class="form-control" id="album" name="album">
-            <?php
-$albums = Album::getAlbums(getDBConn());
-
-function generateAlbumOptions(Array $albums) {
-    for ($i = 0; $i < count($albums); $i++):
-        $album = $albums[$i];
-        echo "<option value=\"{$album->id}\">{$album->title} - {$album->artist}</option>\n";
-        endfor;
-}
-
-generateAlbumOptions($albums);
-?>
-
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
         <label class="col-sm-3 control-label" for="price">Price</label>
         <div class="col-sm-6">
             <input class="form-control" id="price" name="price" placeholder="€" type="text">
