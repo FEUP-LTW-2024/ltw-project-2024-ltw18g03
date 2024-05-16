@@ -45,53 +45,46 @@
 </head>
 <body>
 <header>
-    <input type="checkbox" id="hamburger"> 
-    <label class="hamburger" for="hamburger"></label>
-    <h1>
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        <h1>
         <ul>
-            <li>
-                <div class="logo">
-                    <a href="index.php">
-                        <span class="brand">GrooveSwap</span>
-                        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
-                    </a>
-                </div>
-            </li>
-            <li>
+        <li><div class="logo">
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
+        </div></li>
+        <li>
+            <form id="searchForm" action="../pages/results.php" method="GET">
                 <div class="search">
-                    <form id="searchForm" action="../pages/results.php" method="GET">
-                        <div class="search">
-                            <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
-                            <button type="submit">Search</button>
-                        </div>
-                    </form>
-                    <ul id="searchResults"></ul>
+                    <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                    <button type="submit">Search</button>
                 </div>
-            </li>
-            <li>
-                <nav id="topics">
-                    <ul>
-                        <a href="../pages/top.php"><li><p>Top</p></li></a>
-                        <a href="../pages/hot.php"><li><p>Hot</p></li></a>
-                        <a href="../pages/new.php"><li><p>New</p></li></a>
-                    </ul>
-                </nav>
-            </li>
-            <li>
-                <div class="user"> 
-                    <?php
-                        if ($session->isLoggedIn()) {
-                            $db = getDBConn();
-                            $user = User::getUser($db, $session);
-                            showLogout($session, $user);
-                        }
-                        else showLogin($session);
-                    ?>
-                </div>
-            </li>
+            </form>
+            <ul id="searchResults"></ul>    
+        </li>
+        <li><nav id="topics">
+            <ul>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
+            </ul>
+        </nav></li>
+        <!-- idea is to change to a profile icon when loged in -->
+        <li><div class="user"> 
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
+                else showLogin($session);
+                ?>
+        </div></li>
         </ul>
-    </h1>
-</header>
+        <h1>
+    </header>
 <?php } ?>
 <?php function drawHeaderReceived(Session $session) { ?>
 <!DOCTYPE html>
@@ -105,53 +98,46 @@
 </head>
 <body>
 <header>
-    <input type="checkbox" id="hamburger"> 
-    <label class="hamburger" for="hamburger"></label>
-    <h1>
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        <h1>
         <ul>
-            <li>
-                <div class="logo">
-                    <a href="index.php">
-                        <span class="brand">GrooveSwap</span>
-                        <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
-                    </a>
-                </div>
-            </li>
-            <li>
+        <li><div class="logo">
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
+        </div></li>
+        <li>
+            <form id="searchForm" action="../pages/results.php" method="GET">
                 <div class="search">
-                    <form id="searchForm" action="../pages/results.php" method="GET">
-                        <div class="search">
-                            <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
-                            <button type="submit">Search</button>
-                        </div>
-                    </form>
-                    <ul id="searchResults"></ul>
+                    <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                    <button type="submit">Search</button>
                 </div>
-            </li>
-            <li>
-                <nav id="topics">
-                    <ul>
-                        <a href="../pages/top.php"><li><p>Top</p></li></a>
-                        <a href="../pages/hot.php"><li><p>Hot</p></li></a>
-                        <a href="../pages/new.php"><li><p>New</p></li></a>
-                    </ul>
-                </nav>
-            </li>
-            <li>
-                <div class="user"> 
-                    <?php
-                        if ($session->isLoggedIn()) {
-                            $db = getDBConn();
-                            $user = User::getUser($db, $session);
-                            showLogout($session, $user);
-                        }
-                        else showLogin($session);
-                    ?>
-                </div>
-            </li>
+            </form>
+            <ul id="searchResults"></ul>    
+        </li>
+        <li><nav id="topics">
+            <ul>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
+            </ul>
+        </nav></li>
+        <!-- idea is to change to a profile icon when loged in -->
+        <li><div class="user"> 
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
+                else showLogin($session);
+                ?>
+        </div></li>
         </ul>
-    </h1>
-</header>
+        <h1>
+    </header>
 <?php } ?>
 <?php function drawReply($session, $itemID, $receiverID, $title) { ?>
     <section id="mail">

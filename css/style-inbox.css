@@ -81,17 +81,16 @@
     /* Set background image */
     background-image: url('../imgs/lupa.png');
     /* Set background size to cover the button */
-    background-color: transparent;
     background-size: cover;
+    background-color: transparent;
     /* Optionally, you can add some padding to make the button larger */
-    padding: 5px; /* Adjust according to your design */ 
+    padding: 5px; /* Adjust according to your design */
     /* Optionally, you can add a border or other styles */
     border: none; /* Remove default button border */
     /* Add any other styles you want */
     /* Ensure the cursor changes on hover */
     cursor: pointer;
 }
-  
   
   /* Style for navigation links */
   #topics a {

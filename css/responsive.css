@@ -22,6 +22,9 @@
   .user {
     right: 6em;
   }
+  .banner {
+    display: none;
+  }
 }
 @media (max-width:94em) {
   .user {

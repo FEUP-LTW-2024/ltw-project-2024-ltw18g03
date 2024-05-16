@@ -14,13 +14,10 @@
   require_once(__DIR__ . '/../html/html.main.php');
   require_once(__DIR__ . '/../html/html.albums.php');
   require_once(__DIR__ . '/../html/html.user.php');
-  if ($session->isLoggedIn()) {
-    drawHeaderProfile($session);
-    drawProfile($session);
-    drawFooter();
-  } else {
-    header('Location: login.php');
-  }
-?>
 
-  
+    $user = User::getUserByEmail($db, $_GET['email']);
+
+    drawHeaderProfile($session);
+    drawUser($user);
+    drawFooter();
+?>
