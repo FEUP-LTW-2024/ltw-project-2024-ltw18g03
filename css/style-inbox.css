@@ -1,4 +1,3 @@
-/* Reset default margin and padding */
 * {
     font-size: 15px;
     margin: auto;
@@ -82,10 +81,10 @@
     /* Set background image */
     background-image: url('../imgs/lupa.png');
     /* Set background size to cover the button */
-    background-size: cover;
     background-color: transparent;
+    background-size: cover;
     /* Optionally, you can add some padding to make the button larger */
-    padding: 5px; /* Adjust according to your design */
+    padding: 5px; /* Adjust according to your design */ 
     /* Optionally, you can add a border or other styles */
     border: none; /* Remove default button border */
     /* Add any other styles you want */
@@ -171,219 +170,165 @@
       background-color: #222;
     }
   }
-  
-  body {
-    padding-top: 6em; /* Adjust this value to match the height of your header */
 
+
+body {
+    padding-top: 5em; /* Adjust this value to match the height of your header */
   }
+
   .top {
     a{
       text-decoration: none;
     }
     width: 100em;
     margin: auto;
-    margin-bottom: 1em;
-    #hot {
+    #new {
       width: 50px; height: 50px;
       position: relative;
       top: 3.3em;
       left:-33em;
-      transform: skew(30deg); background-color: #8c2d19;
+      transform: skew(30deg); background-color: #93BFEB;
     }
-  
     h2 {
       background-color: #DADADA;
       padding: 0.5em;
       color: #000;
       margin-right: 55em;
       font-size: 1.5em;
-  
+      margin-bottom: 2em;
     }
   }
 
-  
-  .profile-container {
-    width: 100em;
-    margin: auto;
+  .mails {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    /* Style for the profile container */
-    .profile {
-      background-color: antiquewhite;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      margin-right: 2em;
-      align-items: center;
-      padding: 2em;
-      padding-top: 2em;
-      width: 30%; /* Adjust as needed */
-      
-      img {
-        
-        border-radius: 50px;
-        border: 2px solid #8c2d19;
-      }
-      h2 {
-        font-size: 1.4em;
-        margin-bottom: 1em;
-      }
-      p {
-        font-size: 1.2em;
-        margin-left: 1em;
-      }
-      .profilebuttons {
-        position: relative;
+    flex-direction: column;
+    width: 50em;
+    margin: auto;
+}
+
+.mail {
+    background-color: antiquewhite;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100em; /* Adjust as needed */
+    .mail-header {
+        padding-bottom: 1em;
+        padding-top: 0.5em;
+        font-size: 3em;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
-        flex-direction: column;
-        button {
-          padding: 0.5em;
-          padding-left: 1em;
-          padding-right: 1em;
-          background-color: #118C4f;
-          color: #DADADA;
-          border-radius: 50px;
-          border: none;
-          margin: 0;
-          margin-top: 1em;
+        .mail-sender {
+            display: flex;
+            flex-direction: row;
+            align-items: s;
+            gap: 10px;
+            img {
+                border: 2px solid #8c2d19;
+                border-radius: 50%; /* Makes the image round */
+                margin-right: 20px;
+            }
         }
-        button:hover {
-          background-color: #073820;
+        .mail-title {
+            font-size: 1.4em;
+            margin-right: 20px;
         }
-        .mail {
-          display: flex;
-          justify-content: space-between; /* This will space out the items evenly */
-          flex-direction: row;
-          width: 100%; /* Ensure .mail takes up full width */
-      }
-      
-      .mail button {
-          flex: 1; /* This shorthand is equivalent to setting flex-grow: 1, flex-shrink: 1, and flex-basis: 0% */
-          padding: 0.5em 1em;
-          background-color: #118C4F;
-          color: #DADADA;
-          border-radius: 50px;
-          border: none;
-          margin-top: 1em;
-      }
-      
-      .mail button:hover {
-          background-color: #073820;
-      }
-      #sent {
-        margin-right: 0.5em;
-      }
-      #received {
-        margin-left: 0.5em;
-      }
+        .mail-timest {
+            font-size: 1.2em;
+        }
+        .mail-buttons {
+            margin-top: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            button {
+                padding: 0.5em 1em;
+                background-color: #118C4f;
+                color: #DADADA;
+                border-radius: 50px;
+                border: none;
+            }
+            button:hover {
+                background-color: #073820;
+            }
+    
+        }
     }
-  }
-  
-    /* Style for the selling container */
-    .profileselling {
-      width: 70%; /* Adjust as needed */
-    }
-  
-    /* Style for the container holding the items */
-    .profilealbums {
-      flex-direction: column;
-      gap: 20px;
-      overflow-y: auto; /* Add this line */
-      max-height: 23.8em;
-    }
-  
-    /* Style for each individual item */
-    .item-slab {
-      background-color: antiquewhite;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      margin-right: 2em;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: row;
-      .item-image {
-        width: 100px;
-        height: 100px;
-        border: 2px solid #8c2d19;
-      }
-      .item-seller {
-        font-size: 1.2em;;
-      }
-      .item-info {
-        font: 1em;
-      }
-      .item-buttons {
+    .mail-content {
+        padding: 1em;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
-        button {
-          padding: 0.5em;
-          padding-left: 1em;
-          padding-right: 1em;
-          background-color: #118C4f;
-          color: #DADADA;
-          border-radius: 50px;
-          border: none;
-          margin: 0;
-          margin-top: 0.2em;
-        }
-          .message {
-            background-color: #CCC;
-          }
-      }
-        button:hover {
-          background-color: #073820;
-      }
+        align-items: start;
+        gap: 10px;
     }
-  }
-  #delete {
-          background-color: #8c2d19;
-        }
-        #delete:hover {
-          background-color: #571c10;
-        }
+}
+
+.mail-sender 
+
+.mail-sender {
+    flex-grow: 1;
+}
+
+.mail h3 {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+.userinfo p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+}
+
+.userbuttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.userbuttons button {
+    padding: 0.5em 1em;
+    background-color: #118C4f;
+    color: #DADADA;
+    border-radius: 50px;
+    border: none;
+}
+
+.userbuttons button:hover {
+    background-color: #073820;
+}
+
+#delete {
+    background-color: #8c2d19;
+}
+#delete:hover {
+    background-color: #640000;
+}
+
+#register {
+  padding: 0.5em 1em;
+  background-color: rgb(207, 136, 4);
+  color: #DADADA;
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 20px; /* Adjust spacing as needed */
+}
+
+#register:hover {
+  background-color: rgb(124, 82, 3);
+}
 
 
-  
-
-  
-  
-  
-  footer {
+footer {
     background-color: #333;
     color: #DADADA;
-    margin-top: 1em;
     padding: 1em;
     font-size: 0.8em;
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
-
-  ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
-  }
-  
-  
-  ::-webkit-scrollbar-track {
-    background: #FFEAC9; 
-    border-radius: 0px; 
-  }
-  
- 
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
-  }
-  
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  
-  ::-webkit-scrollbar {
-    background-color: rgba(204, 204, 204, 0.5); 
   }

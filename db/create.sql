@@ -1,12 +1,8 @@
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Album;
 DROP TABLE IF EXISTS Item;
-DROP TABLE IF EXISTS ProfilePicture;
 DROP TABLE IF EXISTS Wishlist;
-DROP TABLE IF EXISTS Image;
-DROP TABLE IF EXISTS Review;
-DROP TABLE IF EXISTS Chat;
-DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Mail;
 
 
 --Table created for every user that is registered
@@ -84,8 +80,8 @@ CREATE TABLE Item
     condition VARCHAR(40),
     sold BOOLEAN DEFAULT FALSE,
     listDate DATE NOT NULL DEFAULT CURRENT_DATE,
-    seller INTEGER REFERENCES User(ID),
-    album INTEGER REFERENCES Album(ID)
+    seller INTEGER REFERENCES User(ID) ON DELETE CASCADE,
+    album INTEGER REFERENCES Album(ID) ON DELETE CASCADE
 );
 
 
@@ -143,20 +139,37 @@ VALUES
 (5, 9),
 (5, 10);
 
-
-CREATE TABLE Chat 
+-- Mail Table for Messaging system
+CREATE TABLE Mail 
 (
-    idChat INTEGER  NOT NULL,
-    idUser1 INTEGER  NOT NULL,
-    idUser2 
+    idMail INTEGER PRIMARY KEY NOT NULL,
+    senderID INTEGER NOT NULL REFERENCES User(ID) ON DELETE CASCADE,
+    receiverID INTEGER NOT NULL REFERENCES User(ID) ON DELETE CASCADE,
+    itemID INTEGER NOT NULL REFERENCES Item(ID) ON DELETE CASCADE,
+    title VARCHAR(64) NOT NULL,
+    content TEXT NOT NULL,
+    timest DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+-- Populate Mail
+INSERT INTO Mail (senderID, receiverID, itemID, title, content)
+VALUES 
+(1, 2, 1, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 2, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 3, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 4, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 5, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 6, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 7, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 8, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 9, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 10, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 11, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 12, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 13, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 14, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 15, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 16, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.');
 
-CREATE TABLE Message
-(
-    idMessage INTEGER NOT NULL,
-    idWriter INTEGER NOT NULL,
-    Content TEXT
-);
 
 
 

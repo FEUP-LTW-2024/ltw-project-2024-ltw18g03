@@ -75,6 +75,21 @@ class Item {
 
         return $items;
     }
+    static function getItemById($db, $itemId) {
+        $query = "SELECT * FROM Item WHERE ID = :itemId";
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':itemId', $itemId);
+        $statement->execute();
+
+        $row = $statement->fetch();
+
+        $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
+
+        $statement->closeCursor();
+
+        return $item;
+    }
 
 }
 ?>

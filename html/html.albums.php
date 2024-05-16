@@ -389,7 +389,11 @@
                                     </form>
                                     <?php else: ?>
                                         <button>Buy</button>
-                                        <button class="message">Message</button>
+                                        <form action="../pages/write.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>">
+                                            <input type="hidden" name="dest" value="<?= $item->seller ?>">
+                                            <button type="submit" name="reply">Message</button>
+                                        </form>
                                     <?php endif; ?>
                             </div>
                 </div>

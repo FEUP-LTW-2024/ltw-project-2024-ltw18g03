@@ -537,6 +537,10 @@ print "</table>";
                     <button onclick="location.href='../pages/admin.php'">Admin Panel</button>
                 <?php } ?>
                 <button type="submit" onclick="location.href='../pages/wishlist.php'">Wishlist</button>
+                <div class="mail">
+                    <button id="sent" type="submit" onclick="location.href='../pages/sent.php'">Sent</button>
+                    <button id="received" type="submit" onclick="location.href='../pages/received.php'">Received</button>
+                </div>
             </div>
         </div>
         <div class="profileselling">
