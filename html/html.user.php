@@ -46,10 +46,64 @@
     </header>
 <?php } ?>
 
+<?php function drawHeaderAdmin(Session $session) { ?>
+<!DOCTYPE html>
+<head>
+    <title>Admin</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
+    <link href="../css/style-admin.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/search.js" defer></script>
+</head>
+<body>
+<header>
+        <input type="checkbox" id="hamburger"> 
+        <label class="hamburger" for="hamburger"></label>
+        <h1>
+        <ul>
+        <li><div class="logo">
+            <a href="index.php">
+                <span class="brand">GrooveSwap</span>
+                <img class="spin" src="../imgs/vinyl-icon-500px.png" width="38" height="38">
+            </a>
+        </div></li>
+        <li>
+            <form id="searchForm" action="../pages/results.php" method="GET">
+                <div class="search">
+                    <input type="search" id="searchInput" name="query" placeholder="Search artists, albums, genres and more...">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            <ul id="searchResults"></ul>    
+        </li>
+        <li><nav id="topics">
+            <ul>
+            <a href="../pages/top.php"><li><p>Top</p></li></a>
+            <a href="../pages/hot.php"><li><p>Hot</p></li></a>
+            <a href="../pages/new.php"><li><p>New</p></li></a>
+            </ul>
+        </nav></li>
+        <!-- idea is to change to a profile icon when loged in -->
+        <li><div class="user"> 
+            <?php
+                if ($session->isLoggedIn()) {
+                    $db = getDBConn();
+                    $user = User::getUser($db, $session);
+                    showLogout($session, $user);
+                }
+                else showLogin($session);
+                ?>
+        </div></li>
+        </ul>
+        <h1>
+    </header>
+<?php } ?>
+
 <?php function drawHeaderEditProfile(Session $session) { ?>
 <!DOCTYPE html>
 <head>
-    <title>Register</title>
+    <title>Edit</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style-register.css" rel="stylesheet">
@@ -267,12 +321,6 @@ $districts = array(
     "Madeira"
 );
 
-function generateDistrictOptions($districts) {
-    foreach ($districts as $district) {
-        echo "<option>{$district}</option>\n";
-    }
-}
-
 generateDistrictOptions($districts);
 ?>
 
@@ -294,7 +342,7 @@ generateDistrictOptions($districts);
     <div class="form-group">
         <label class="col-sm-3 control-label" for="profilePicture">Profile Picture</label>
         <div class="col-sm-6">
-        <select class="form-control" id="profilePicture" name="profilePicture" required="required">
+        <select class="form-control" id="profilePicture" name="profilePicture">
             <option value="white">White</option>
             <option value="red">Red</option>
             <option value="orange">Orange</option>
@@ -378,6 +426,39 @@ print "</table>";
 }
 ?>
 
+<?php function drawUsers(Session $session, Array $users) {?>
+    <div class="users">
+        <div class="top">
+                <div id="hot"> </div>
+                <h2>Users</h2>
+        </div>
+        <?php foreach ($users as $user): ?>
+            <div class="us">
+                <div class="userimg">
+                    <img src="../imgs/profile/<?php echo $user->profilePicture; ?>.jpg" height=50 width=50>
+                </div>
+                <div class="userinfo">
+                    <h3><?php echo $user->name(); ?></h3>
+                    <p><?php echo $user->email; ?></p>
+                    <p><?php echo $user->isAdmin() ? "Admin" : "User"; ?></p>
+                </div>
+                <div class="userbuttons">
+                    <?php if (!$user->isAdmin()): ?>
+                        <form method="POST" action="../php/make_admin.php">
+                            <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
+                            <button type="submit">Make Admin</button>
+                        </form>
+                    <?php endif; ?>
+                    <form method="POST" action="../php/delete-user.php">
+                        <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
+                        <button id="delete" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php } ?>
+
 <?php function drawHeaderProfile(Session $session) { ?>
 <!DOCTYPE html>
 <head>
@@ -386,6 +467,7 @@ print "</table>";
     <link rel="icon" type="image/x-icon" href="../imgs/favicon2.ico">
     <link href="../css/style-profile.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <script src="../js/search.js" defer></script>
 </head>
 <body>
     <header>

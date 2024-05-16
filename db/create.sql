@@ -9,13 +9,13 @@ DROP TABLE IF EXISTS Chat;
 DROP TABLE IF EXISTS Message;
 
 
---Table created for every user that is registered in●●●●●●●●●●●●●●●●●●●●
+--Table created for every user that is registered
 CREATE TABLE User
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
-    profilePicture VARCHAR(30) DEFAULT white,
+    profilePicture VARCHAR(30) NOT NULL DEFAULT 'white',
     city VARCHAR(30) NOT NULL,
     postalCode CHAR(8),
     phone CHAR(9),
@@ -27,10 +27,12 @@ CREATE TABLE User
 -- Populate Users
 INSERT INTO User (firstName, lastName, profilePicture, city, postalCode, phone, email, passwordHash, isAdmin) 
 VALUES 
-('John', 'Doe', 'blue', 'New York', '1000-101', '123456789', 'john@example.com', 'hashed_password', FALSE),
-('Jane', 'Smith','green', 'Los Angeles', '9000-111', '987654321', 'jane@example.com', 'hashed_password', FALSE),
-('Admin', 'Adminson', 'white', 'Admin City', '1234-345', '111222333', 'admin@example.com', 'admin_password_hash', TRUE),
-('Rodrigo', 'de Sousa', 'orange', 'Porto', '4250-453', '966110454', 'rodrigodiasdesousa@gmail.com', 'what_imnot_doingTHAT', TRUE);
+('Rodrigo', 'de Sousa', 'orange', 'Porto', '4250-453', '966110454', 'rodrigodiasdesousa@gmail.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
+('User', 'One', 'white', 'Porto', '1234-123', '123456789', 'user1@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
+('User', 'Two', 'white', 'Porto', '1234-123', '123456789', 'user2@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
+('User', 'Three', 'white', 'Porto', '1234-123', '123456789', 'user3@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
+('User', 'Four', 'white', 'Porto', '1234-123', '123456789', 'user4@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE);
+
 
 -- Table created for every album on the db, not necessarily on sale
 CREATE TABLE Album
@@ -85,12 +87,8 @@ CREATE TABLE Item
     seller INTEGER REFERENCES User(ID),
     album INTEGER REFERENCES Album(ID)
 );
--- Table created for default profile pictures for Users
-CREATE TABLE ProfilePicture
-(
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    url VARCHAR(255) NOT NULL
-);
+
+
 -- Table created for each picture for each item
 CREATE TABLE Wishlist
 (
@@ -98,16 +96,53 @@ CREATE TABLE Wishlist
     userID INTEGER REFERENCES User(ID) ON DELETE CASCADE,
     albumID INTEGER REFERENCES Album(ID) ON DELETE CASCADE
 );
--- Table created for each review a user leaves on an item
-CREATE TABLE Review 
-(
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    itemID INTEGER REFERENCES Item(ID) NOT NULL,
-    userID INTEGER REFERENCES User(ID) NOT NULL,
-    feedback TEXT NOT NULL,
-    rating FLOAT NOT NULL CHECK (rating >= 1 AND rating <= 5),
-    dateOfReview DATE NOT NULL DEFAULT CURRENT_DATE
-);
+-- Populate Wishlist
+INSERT INTO Wishlist (userID, albumID)
+VALUES
+(1, 1),
+(1, 2),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 15),
+(1, 20),
+(1, 21),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 11),
+(2, 12),
+(2, 13),
+(2, 14),
+(2, 19),
+(2, 20),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(3, 10),
+(4, 11),
+(4, 12),
+(4, 13),
+(4, 14),
+(4, 19),
+(4, 20),
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5),
+(5, 8),
+(5, 9),
+(5, 10);
+
 
 CREATE TABLE Chat 
 (
@@ -165,3 +200,74 @@ BEGIN
     WHERE ID = OLD.album AND quantity > 1;
 END;
     
+
+-- Populate Items
+INSERT INTO Item (title, descriptionOfItem, price, condition, seller, album)
+VALUES
+('Vintage Rock Vinyl', 'Rare 70s rock album in great condition.', 120.00, 'Near Mint', 1, 1),
+('Jazz Classics Collection', 'A must-have collection for jazz enthusiasts.', 150.00, 'Mint', 2, 2),
+('The Blues Anthology', 'Deep and soulful blues from the Mississippi Delta.', 90.00, 'Very Good', 3, 3),
+('Indie Rock Hits', 'A compilation of the best indie rock songs.', 75.00, 'Light Scratches', 4, 4),
+('Electronic Vibes', 'Electrifying beats and soothing melodies.', 60.00, 'Damaged Cover', 5, 5),
+('Pop Icons', 'Greatest hits from the world’s biggest pop stars.', 80.00, 'Scratched', 1, 6),
+('Hip-Hop Masters', 'The essential tracks from hip-hop legends.', 110.00, 'Near Mint', 2, 7),
+('Country Classics', 'Heartfelt stories from country music’s finest.', 70.00, 'Mint', 3, 8),
+('Reggae Rhythms', 'Chill out with these smooth reggae tunes.', 65.00, 'Very Good', 4, 9),
+('Soulful Sounds', 'Soul music that touches the heart.', 85.00, 'Light Scratches', 5, 10),
+('Hard Rock Essentials', 'The loudest, most explosive hard rock tracks.', 95.00, 'Damaged Cover', 1, 11),
+('Classical Masterpieces', 'Timeless classical music from the maestros.', 100.00, 'Scratched', 2, 12),
+('Folk Favorites', 'Folk music that tells a story.', 55.00, 'Near Mint', 3, 13),
+('Punk Rock Rebellion', 'Punk anthems that defined a generation.', 45.00, 'Mint', 4, 14),
+('Heavy Metal Thunder', 'Heavy metal that’s as loud as it gets.', 105.00, 'Very Good', 5, 15),
+('Blues Guitar Legends', 'The greatest guitarists in blues history.', 115.00, 'Light Scratches', 1, 16),
+('Jazz Fusion Journeys', 'Experimental sounds from jazz fusion artists.', 50.00, 'Damaged Cover', 2, 17),
+('Electronic Dance Music Hits', 'The biggest EDM tracks for the dance floor.', 65.00, 'Scratched', 3, 18),
+('R&B Grooves', 'Smooth R&B tracks to get you in the groove.', 75.00, 'Near Mint', 4, 19),
+('Alternative Rock Adventures', 'Alternative rock tracks that defy genres.', 85.00, 'Mint', 5, 20),
+('Opera Classics', 'The most powerful and emotive opera performances.', 95.00, 'Very Good', 1, 21),
+('Ska and Reggae Rhythms', 'The infectious beats of ska and reggae music.', 60.00, 'Light Scratches', 2, 21),
+('Classic Rock Anthems', 'The ultimate collection of classic rock hits.', 90.00, 'Near Mint', 3, 1),
+('Smooth Jazz Grooves', 'Relaxing and melodic jazz tunes for a laid-back vibe.', 70.00, 'Mint', 4, 2),
+('Country Legends', 'Timeless country songs from legendary artists.', 80.00, 'Very Good', 5, 3),
+('Reggae Party Mix', 'Get the party started with these upbeat reggae tracks.', 65.00, 'Light Scratches', 1, 4),
+('Soulful Ballads', 'Emotional and soul-stirring ballads that tug at the heartstrings.', 85.00, 'Damaged Cover', 2, 5),
+('Hard Rock Revival', 'Modern hard rock tracks that pack a punch.', 95.00, 'Scratched', 3, 6),
+('Classical Piano Masterpieces', 'Beautiful piano compositions from classical composers.', 100.00, 'Near Mint', 4, 7),
+('Folk Revival', 'Contemporary folk music that pays homage to the classics.', 55.00, 'Mint', 5, 8),
+('Punk Rock Rebellion II', 'The next generation of punk rock anthems.', 45.00, 'Very Good', 1, 9),
+('Heavy Metal Mayhem', 'Intense and aggressive heavy metal tracks for headbangers.', 105.00, 'Light Scratches', 2, 10),
+('Blues Harmonica Legends', 'Soulful blues performances featuring the harmonica.', 115.00, 'Damaged Cover', 3, 11),
+('Jazz Fusion Explorations', 'Cutting-edge and experimental jazz fusion compositions.', 50.00, 'Scratched', 4, 12),
+('Electronic Dance Music Extravaganza', 'Energetic and pulsating EDM tracks for the ultimate dance party.', 65.00, 'Near Mint', 5, 13),
+('R&B Sensations', 'Smooth and seductive R&B tracks to set the mood.', 75.00, 'Mint', 1, 14),
+('Alternative Rock Revolution', 'Revolutionary alternative rock songs that challenge the status quo.', 85.00, 'Very Good', 2, 15),
+('Opera Divas', 'Powerful and awe-inspiring performances by opera divas.', 95.00, 'Light Scratches', 3, 16),
+('Ska and Reggae Revival', 'The resurgence of ska and reggae music with a modern twist.', 60.00, 'Damaged Cover', 4, 17),
+('Classic Rock Ballads', 'Heartfelt and emotional ballads from the golden era of classic rock.', 90.00, 'Scratched', 5, 18),
+('Smooth Jazz Vibes', 'Smooth and sophisticated jazz tunes for a relaxing atmosphere.', 70.00, 'Near Mint', 1, 19),
+('Country Hits', 'Chart-topping country hits that will make you sing along.', 80.00, 'Mint', 2, 20),
+('Reggae Classics', 'Timeless reggae classics that never go out of style.', 65.00, 'Very Good', 3, 21),
+('Soulful Grooves', 'Soulful and groovy tracks that will get you moving.', 85.00, 'Light Scratches', 4, 1),
+('Hard Rock Anthems', 'The ultimate collection of hard rock anthems that will blow you away.', 95.00, 'Damaged Cover', 5, 2),
+('Classical Guitar Masterpieces', 'Beautiful and intricate guitar compositions from classical composers.', 100.00, 'Scratched', 1, 3),
+('Folk Classics', 'Timeless folk classics that tell stories of love, loss, and life.', 55.00, 'Near Mint', 2, 4),
+('Punk Rock Pioneers', 'The pioneers of punk rock who paved the way for future generations.', 45.00, 'Mint', 3, 5),
+('Heavy Metal Legends', 'The legendary bands and artists who defined the heavy metal genre.', 105.00, 'Very Good', 4, 6),
+('Blues Guitar Heroes', 'The guitar heroes of the blues who influenced generations of musicians.', 115.00, 'Light Scratches', 5, 7),
+('Jazz Fusion Innovators', 'The innovative and groundbreaking artists who pushed the boundaries of jazz fusion.', 50.00, 'Damaged Cover', 1, 8),
+('Electronic Dance Music Icons', 'The iconic figures who shaped the electronic dance music scene.', 65.00, 'Scratched', 2, 9),
+('R&B Legends', 'The legendary figures who defined the R&B genre and influenced generations of artists.', 75.00, 'Near Mint', 3, 10),
+('Alternative Rock Icons', 'The iconic bands and artists who defined the alternative rock genre.', 85.00, 'Mint', 4, 11),
+('Opera Masters', 'The masters of opera whose performances continue to captivate audiences around the world.', 95.00, 'Very Good', 5, 12),
+('Ska and Reggae Legends', 'The legendary figures who shaped the ska and reggae genres and inspired countless musicians.', 60.00, 'Light Scratches', 1, 13),
+('Classic Rock Legends', 'The legendary bands and artists who defined the classic rock genre and continue to inspire new generations of musicians.', 90.00, 'Near Mint', 2, 14),
+('Smooth Jazz Masters', 'The masters of smooth jazz whose music continues to soothe and inspire listeners around the world.', 70.00, 'Mint', 3, 15),
+('Country Pioneers', 'The pioneers of country music who laid the foundation for the genre and inspired countless artists.', 80.00, 'Very Good', 4, 16),
+('Reggae Pioneers', 'The pioneers of reggae music who brought the sounds of Jamaica to the world stage.', 65.00, 'Light Scratches', 5, 17),
+('Soulful Legends', 'The legendary figures who defined the soul genre and continue to inspire new generations of artists.', 85.00, 'Damaged Cover', 1, 18),
+('Hard Rock Heroes', 'The heroes of hard rock who brought the thunder and the fury to the stage.', 95.00, 'Scratched', 2, 19),
+('Classical Masters', 'The masters of classical music whose compositions continue to resonate with audiences around the world.', 100.00, 'Near Mint', 3, 20),
+('Folk Pioneers', 'The pioneers of folk music who brought the sounds of the past into the present.', 55.00, 'Mint', 4, 21),
+('Punk Rock Icons', 'The iconic figures who defined the punk rock genre and inspired generations of musicians.', 45.00, 'Very Good', 5, 1),
+('Heavy Metal Pioneers', 'The pioneers of heavy metal who brought the power and the fury to the stage.', 105.00, 'Light Scratches', 1, 2),
+('Blues Legends', 'The legendary figures who defined the blues genre and continue to inspire new generations of musicians.', 115.00, 'Damaged Cover', 2, 3);
