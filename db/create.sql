@@ -27,8 +27,8 @@ VALUES
 ('User', 'One', 'white', 'Porto', '1234-123', '123456789', 'user1@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
 ('User', 'Two', 'white', 'Porto', '1234-123', '123456789', 'user2@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
 ('User', 'Three', 'white', 'Porto', '1234-123', '123456789', 'user3@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE),
-('User', 'Four', 'white', 'Porto', '1234-123', '123456789', 'user4@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE);
-
+('User', 'Four', 'white', 'Porto', '1234-123', '123456789', 'user4@example.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE)
+('Gonçalo', 'Sousa', 'orange', 'Aveiro', '3700-793', '916891858', 'guguini2004@gmail.com', '$2y$10$SRvGoGEpu.Nh02H5.bd.aevXrWclSL9Irh6zcxW1DJ7kFWRzzcAFS', FALSE);
 
 -- Table created for every album on the db, not necessarily on sale
 CREATE TABLE Album
