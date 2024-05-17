@@ -8,9 +8,10 @@ class Item {
     public $sold;
     public $date;
     public $seller;
+    public $buyer;
     public $album;
 
-    public function __construct($id, $title, $description, $price, $condition, $sold, $date, $seller, $album) {
+    public function __construct($id, $title, $description, $price, $condition, $sold, $date, $seller, $buyer, $album) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
@@ -19,6 +20,7 @@ class Item {
         $this->sold = $sold;
         $this->date = $date;
         $this->seller = $seller;
+        $this->buyer = $buyer;
         $this->album = $album;
     }
 
@@ -30,7 +32,7 @@ class Item {
         $items = [];
 
         while ($row = $result->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['buyer'], $row['album']);
             $items[] = $item;
         }
 
@@ -49,7 +51,7 @@ class Item {
         $items = [];
 
         while ($row = $statement->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['buyer'], $row['album']);
             $items[] = $item;
         }
 
@@ -67,7 +69,7 @@ class Item {
         $items = [];
 
         while ($row = $statement->fetch()) {
-            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
+            $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['buyer'], $row['album']);
             $items[] = $item;
         }
 
@@ -84,7 +86,7 @@ class Item {
 
         $row = $statement->fetch();
 
-        $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['album']);
+        $item = new Item($row['ID'], $row['title'], $row['description'], $row['price'], $row['condition'], $row['sold'], $row['date'], $row['seller'], $row['buyer'], $row['album']);
 
         $statement->closeCursor();
 

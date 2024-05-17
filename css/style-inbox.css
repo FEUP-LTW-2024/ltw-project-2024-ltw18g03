@@ -213,26 +213,21 @@ body {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    padding: 20px;
     margin-bottom: 20px;
     width: 100em; /* Adjust as needed */
     .mail-header {
+      width: 100%;
+        background-color: rgb(199, 180, 155);
         padding-bottom: 1em;
         padding-top: 0.5em;
-        font-size: 3em;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         .mail-sender {
             display: flex;
             flex-direction: row;
-            align-items: s;
+            align-items: left;
             gap: 10px;
-            img {
-                border: 2px solid #8c2d19;
-                border-radius: 50%; /* Makes the image round */
-                margin-right: 20px;
-            }
         }
         .mail-title {
             font-size: 1.4em;
@@ -261,6 +256,7 @@ body {
         }
     }
     .mail-content {
+      font-size: 2em;
         padding: 1em;
         display: flex;
         flex-direction: column;
