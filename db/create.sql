@@ -60,7 +60,7 @@ VALUES
 ('Nevermind', 'Nirvana', '1991', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/NirvanaNevermindalbumcover.jpg/220px-NirvanaNevermindalbumcover.jpg', 'Grunge, Alternative Rock', 4.01, 0, 0.0),
 ('The Chronic', 'Dr. Dre', '1992', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/19/Dr.DreTheChronic.jpg/220px-Dr.DreTheChronic.jpg', 'West Coast Hip Hop, G-Funk', 3.83, 0, 0.0),
 ('Ten', 'Pearl Jam', '1991', 'https://upload.wikimedia.org/wikipedia/pt/thumb/d/da/Pearl_Jam_-_Ten.jpg/220px-Pearl_Jam_-_Ten.jpg', 'Grunge, Alternative Rock', 3.74, 0, 0.0),
-('The Slim Shady LP', 'Eminem', '1999', 'https://i.discogs.com/fIM1eAAcJOZQy7MUVS0Cx9Jf2l8NwxETKg1IfsT7A_0/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyODMx/OTUtMTY4Mjk0Mzc2/OS04MjUyLmpwZWc.jpeg', 'Hip Hop', 3.51, 0, 0.0),
+('The Slim Shady LP', 'Eminem', '1999', 'https://upload.wikimedia.org/wikipedia/pt/f/f9/The_Slim_Shady_LP.jpg', 'Hip Hop', 3.51, 0, 0.0),
 ('OK Computer', 'Radiohead', '1997', 'https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png', 'Alternative Rock, Experimental', 4.29, 0, 0.0),
 ('Achtung Baby', 'U2', '1991', 'https://upload.wikimedia.org/wikipedia/en/7/72/Achtung_Baby.png', 'Alternative Rock', 3.70, 0, 0.0),
 ('The College Dropout', 'Kanye West', '2004', 'https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg', 'Hip Hop', 4.12, 0, 0.0),
@@ -80,7 +80,7 @@ VALUES
 ('London Calling', 'The Clash', '1979', 'https://upload.wikimedia.org/wikipedia/en/0/00/TheClashLondonCallingalbumcover.jpg', 'Punk Rock', 4.01, 0, 0.0),
 ('Electric Warrior', 'T. Rex', '1971', 'https://upload.wikimedia.org/wikipedia/en/e/e5/T_Rex_Electric_Warrior_UK_album_cover.jpg', 'Punk Rock', 3.89, 0, 0.0),
 ('Little Girl Blue', 'Nina Simone', '1959', 'https://upload.wikimedia.org/wikipedia/en/5/53/Ninasimonelittlegirlblue.jpg', 'Jazz', 3.88, 0, 0.0),
-('Volume 1', 'José Pinhal', '1984', 'https://upload.wikimedia.org/wikipedia/commons/8/8b/JosePinhal_vol1.jpg', 'PPM', 3.64, 0, 0.0),
+('Volume 1', 'José Pinhal', '1984', 'https://i.discogs.com/tpdykHHLh2XV0TOpLpOdIPlXWbxeLmrVTucDIbbqDw4/rs:fit/g:sm/q:90/h:600/w:587/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNzE4/MjM0LTE2Njk1ODcy/NTMtMzAzNi5qcGVn.jpeg', 'PPM', 3.64, 0, 0.0),
 ('So Alone ', 'Johnny Thunders', '1978', 'https://upload.wikimedia.org/wikipedia/en/b/b1/Johnny_Thunders_So_Alone.jpg', 'Punk Rock', 3.64, 0, 0.0),
 ('Appetite for Destruction', 'Guns N Roses', '1987', 'https://upload.wikimedia.org/wikipedia/en/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg', 'Hard Rock', 3.92, 0, 0.0),
 ('Toys in the Attic', 'Aerosmith', '1975', 'https://upload.wikimedia.org/wikipedia/en/3/37/Aerosmith_-_Toys_in_the_Attic.jpg', 'Hard Rock', 3.51, 0, 0.0),
@@ -89,7 +89,7 @@ VALUES
 ('Transformer', 'Lou Reed', '1972', 'https://upload.wikimedia.org/wikipedia/en/f/f1/Loureedtransformer.jpeg', 'Glam Rock', 3.90, 0, 0.0),
 ('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://en.wikipedia.org/wiki/Pearl_(Janis_Joplin_album)#/media/File:Janis_Joplin-Pearl_(album_cover).jpg', 'Blues Rock', 3.73, 0, 0.0),
 ('Marquee Moon', 'Television', '1977', 'https://upload.wikimedia.org/wikipedia/en/a/af/Marquee_moon_album_cover.jpg', 'Post-Punk', 4.14, 0, 0.0),
-('Never Mind the Bollocks, Here is the Sex Pistols', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 0.0),
+('Never Mind the Bollocks', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 0.0),
 ('Rum Sodomy & the Lash', 'The Pogues', '1985', 'https://upload.wikimedia.org/wikipedia/en/e/eb/Rum_sodomy_and_the_lash.jpg', 'Glam Rock', 4.14, 0, 0.0);
 
 
