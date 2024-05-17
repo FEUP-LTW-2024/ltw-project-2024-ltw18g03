@@ -8,24 +8,24 @@ $db = getDBConn();
 
 
 $title = $_POST['title'];
-$description = $_POST['description'];
-$album = $_POST['album'];
-$price = $_POST['price'];
-$condition = $_POST['condition'];
-$seller = $_POST['seller'];
+$artist = $_POST['artist'];
+$year = $_POST['year'];
+$cover = $_POST['cover'];
+$genre = $_POST['genre'];
+$rating = $_POST['rating'];
 
 
 //Sanitize the inputs
 $title = preg_replace ("/[^a-zA-Z0-9\s]/", '', $title);
-$description = preg_replace ("/[^a-zA-Z0-9\s]/", '', $description);
-$album = preg_replace ("/[^0-9]/", '', $album);
-$price = preg_replace ("/[^0-9.]/", '', $price);
-$condition = preg_replace ("/[^a-zA-Z\s]/", '', $condition);
+$artist = preg_replace ("/[^a-zA-Z0-9\s]/", '', $artist);
+$year = preg_replace ("/[^0-9]/", '', $year);
+$rating = preg_replace ("/[^0-9.]/", '', $rating);
+$genre = preg_replace ("/[^a-zA-Z\s,]/", '', $genre);
 
 //Insert record  
 
-$db->exec("INSERT INTO Item (title, descriptionOfItem, price, condition,  seller, album)
-VALUES('$title', '$description', '$price', '$condition', '$seller', '$album');");
+$db->exec("INSERT INTO Album (title, artist, yearOfRelease, cover,  genre, rym, quantity, averagePrice)
+VALUES('$title', '$artist', '$year', '$cover', '$genre', '$rating', 0, 0.0);");
 
 
 

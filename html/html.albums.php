@@ -395,7 +395,7 @@
     <div class="form-group">
         <label class="col-sm-3 control-label" for="title">Title</label>
         <div class="col-sm-6">
-            <input autofocus="" class="form-control" id="title" name="title" type="text" required="required">
+            <input autofocus="" class="form-control" id="title" name="title" placeholder="Cannot Exceed 25 Characters" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
@@ -405,43 +405,35 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="price">Price</label>
+        <label class="col-sm-3 control-label" for="year">Year of Release</label>
         <div class="col-sm-6">
-            <input class="form-control" id="price" name="price" placeholder="€" type="text" required="required">
+            <input class="form-control" id="year" name="year" placeholder="YYYY" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" for="condition">Condition</label>
+        <label class="col-sm-3 control-label" for="cover">Cover Link</label>
         <div class="col-sm-6">
-            <select class="form-control" id="condition" name="condition">
-                <option value="Mint">Mint</option>
-                <option value="Near Mint">Near Mint</option>
-                <option value="Very Good">Very Good</option>
-                <option value="Light Scratches">Light Scratches</option>
-                <option value="Damaged Cover">Damaged Cover</option>
-                <option value="Scratched">Scratched</option>
-            </select>
+            <input class="form-control" id="cover" name="cover" placeholder="upload.wikimedia.org" type="text" required="required">
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-3 control-label" for="genre">Genre</label>
         <div class="col-sm-6">
-            <div class="checkbox"></div>
-        </div><!-- /.form-group -->
-        <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3">
-                <div class="checkbox">
-                    <label><input type="checkbox" required="required"><span>I accept </span><a href="#">Terms & Conditions</a></label>
-                </div>
-            </div>
-        </div><!-- /.form-group -->
+            <input class="form-control" id="genre" name="genre" placeholder="Use Commas to Separate Multiple Genres" type="text" required="required">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label" for="rating">Rating</label>
+        <div class="col-sm-6">
+            <input class="form-control" id="rating" name="rating" placeholder="Use RYM Ratings" type="text" required="required">
+        </div>
+    </div>
 
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 <button class="btn" type="submit">Publish</button>
             </div>
         </div>
-        <input type="hidden" name="album" value="<?php echo $album->id; ?>">
-        <input type="hidden" name="seller" value="<?php echo $session->getId(); ?>">
     </div>
 </form>
 <?php } ?>
@@ -467,10 +459,6 @@
                     <p><?php echo $album->genre; ?></p>
                 </div>
                 <div class="userbuttons">
-                <form method="POST" action="../php/edit-album.php">
-                        <input type="hidden" name="album_id" value="<?php echo $album->id; ?>">
-                        <button id="edit" type="submit">Edit</button>
-                    </form>
                     <form method="POST" action="../php/delete-album.php">
                         <input type="hidden" name="album_id" value="<?php echo $album->id; ?>">
                         <button id="delete" type="submit">Delete</button>
