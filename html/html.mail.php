@@ -143,7 +143,7 @@
     <section id="mail">
         <form action="../php/send.php" class="form-horizontal" id="login-form" method="post" name="login-form" role="form">
         <div class="form-group">
-        <label for="content">Body:</label>
+        <label for="content">Body</label>
             <div class="col-sm-6">
             <textarea id="content" class="form-control" name="content" rows="4" cols="50" required></textarea>
             </div>
