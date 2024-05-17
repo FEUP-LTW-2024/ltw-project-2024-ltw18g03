@@ -42,7 +42,7 @@ class Item {
     }
 
     static function getItemsByAlbum($db, $albumId) {
-        $query = "SELECT * FROM Item WHERE album = :albumId";
+        $query = "SELECT * FROM Item WHERE album = :albumId AND sold = FALSE";
 
         $statement = $db->prepare($query);
         $statement->bindValue(':albumId', $albumId);

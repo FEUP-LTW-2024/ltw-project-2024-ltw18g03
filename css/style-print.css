@@ -1,0 +1,98 @@
+@page {
+    size: A4;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #000;
+    background-color: #fff;
+
+}
+
+
+@media screen {
+    
+
+html {
+    background-color: white;
+    margin: 1em;
+
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+.libre-barcode-39-regular {
+    font-family: "Libre Barcode 39 Extended Text", system-ui;
+    font-style: normal;
+    font-size: 10em;
+    text-align: center;
+    padding: 0;
+  }
+  .info {
+    padding: 5em;
+  }
+}
+
+@media print {
+@page {size: landscape}
+html {
+    background-color: white;
+    margin: 1em;
+
+}
+#printable {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.libre-barcode-39-regular {
+    font-family: "Libre Barcode 39 Extended Text", system-ui;
+    font-style: normal;
+    font-size: 10em;
+    text-align: center;
+        padding: 0;
+  }
+  .info {
+    padding: 5em;
+  }
+
+}

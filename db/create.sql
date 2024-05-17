@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Album;
 DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Wishlist;
 DROP TABLE IF EXISTS Mail;
-
+PRAGMA foreign_keys = ON;
 
 --Table created for every user that is registered
 CREATE TABLE User
@@ -104,9 +104,12 @@ CREATE TABLE Item
     condition VARCHAR(40),
     sold BOOLEAN DEFAULT FALSE,
     listDate DATE NOT NULL DEFAULT CURRENT_DATE,
-    seller INTEGER REFERENCES User(ID) ON DELETE CASCADE,
-    buyer INTEGER REFERENCES User(ID) ON DELETE SET NULL DEFAULT NULL,
-    album INTEGER REFERENCES Album(ID) ON DELETE CASCADE
+    seller INTEGER NOT NULL,
+    buyer INTEGER DEFAULT NULL,
+    album INTEGER NOT NULL,
+    FOREIGN KEY (seller) REFERENCES User(ID) ON DELETE CASCADE,
+    FOREIGN KEY (album) REFERENCES Album(ID) ON DELETE CASCADE,
+    FOREIGN KEY (buyer) REFERENCES User(ID) ON DELETE SET NULL
 );
 
 
@@ -114,8 +117,10 @@ CREATE TABLE Item
 CREATE TABLE Wishlist
 (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    userID INTEGER REFERENCES User(ID) ON DELETE CASCADE,
-    albumID INTEGER REFERENCES Album(ID) ON DELETE CASCADE
+    userID INTEGER,
+    albumID INTEGER,
+    FOREIGN KEY (userID) REFERENCES User(ID) ON DELETE CASCADE,
+    FOREIGN KEY (albumID) REFERENCES Album(ID) ON DELETE CASCADE
 );
 -- Populate Wishlist
 INSERT INTO Wishlist (userID, albumID)
@@ -168,33 +173,16 @@ VALUES
 CREATE TABLE Mail 
 (
     idMail INTEGER PRIMARY KEY NOT NULL,
-    senderID INTEGER NOT NULL REFERENCES User(ID) ON DELETE CASCADE,
-    receiverID INTEGER NOT NULL REFERENCES User(ID) ON DELETE CASCADE,
-    itemID INTEGER NOT NULL REFERENCES Item(ID) ON DELETE CASCADE,
+    senderID INTEGER NOT NULL,
+    receiverID INTEGER NOT NULL,
+    itemID INTEGER NOT NULL,
     title VARCHAR(64) NOT NULL,
     content TEXT NOT NULL,
-    timest DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    timest DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (senderID) REFERENCES User(ID) ON DELETE CASCADE,
+    FOREIGN KEY (receiverID) REFERENCES User(ID) ON DELETE CASCADE,
+    FOREIGN KEY (itemID) REFERENCES Item(ID) ON DELETE CASCADE
 );
--- Populate Mail
-INSERT INTO Mail (senderID, receiverID, itemID, title, content)
-VALUES 
-(1, 2, 1, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 2, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 3, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 4, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 5, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 6, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 7, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 8, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 9, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 10, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 11, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 12, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 13, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 14, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
-(1, 2, 15, 'Hello', 'Hello, I am interested in buying your album.'),
-(2, 1, 16, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.');
-
 
 
 
@@ -339,3 +327,25 @@ VALUES
 ('Country Legends', 'Timeless country songs from legendary artists.', 80.00, 'Very Good', TRUE, 5, 1, 3),
 ('Reggae Party Mix', 'Get the party started with these upbeat reggae tracks.', 65.00, 'Light Scratches', TRUE, 1, 2, 4),
 ('Soulful Ballads', 'Emotional and soul-stirring ballads that tug at the heartstrings.', 85.00, 'Damaged Cover', TRUE, 2, 3, 5);
+
+
+-- Populate Mail
+INSERT INTO Mail (senderID, receiverID, itemID, title, content)
+VALUES 
+(1, 2, 1, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 2, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 3, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 4, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 5, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 6, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 7, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 8, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 9, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 10, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 11, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 12, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 13, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 14, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.'),
+(1, 2, 15, 'Hello', 'Hello, I am interested in buying your album.'),
+(2, 1, 16, 'Re: Hello', 'Hello, I am glad you are interested in my album. I can give you a discount if you buy more than one.');
+
