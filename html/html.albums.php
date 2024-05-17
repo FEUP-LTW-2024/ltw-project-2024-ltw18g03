@@ -371,7 +371,10 @@
                                         <button id="delete" type="submit">Delete</button>
                                     </form>
                                     <?php else: ?>
-                                        <button>Buy</button>
+                                        <form action="../pages/buy.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>">
+                                            <button type="submit">Buy</button>
+                                        </form>
                                         <form action="../pages/write.php" method="POST">
                                             <input type="hidden" name="itemId" value="<?= $item->id ?>">
                                             <input type="hidden" name="dest" value="<?= $item->seller ?>">

@@ -224,6 +224,37 @@ generateAlbumOptions($albums);
     </div>
 </form>
 <?php } ?>
+<?php function drawConfirm($session, $itemID) {
+    $item = Item::getItemByID(getDBConn(), $itemID);
+    $album = Album::getAlbumByID(getDBConn(), $item->album);
+    $seller = User::getUserByID(getDBConn(), $item->seller);
+    $buyer = User::getUserByID(getDBConn(), $session->getId());
+    ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Confirm your listing</h2>
+                <p>Are you sure you want to list the following item?</p>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?php echo $item->title; ?></h3>
+                    </div>
+                    <div class="panel-body">
+                        <p><?php echo $item->description; ?></p>
+                        <p>Price: €<?php echo $item->price; ?></p>
+                        <p>Condition: <?php echo $item->condition; ?></p>
+                        <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
+                    </div>
+                </div>
+                <form action="../php/confirm-item.php" method="post">
+                    <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
+                    <button class="btn btn-primary" type="submit">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
 <?php
 function printItemTable($db) {
 //now output the data to a simple html table...
