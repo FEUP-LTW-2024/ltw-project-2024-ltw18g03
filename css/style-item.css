@@ -176,7 +176,9 @@
   }
   
   body {
-    padding-top: 8em; /* Adjust this value to match the height of your header */
+    padding-top: 8em;
+    overflow-x: hidden;
+    /* Adjust this value to match the height of your header */
   }
   
 
