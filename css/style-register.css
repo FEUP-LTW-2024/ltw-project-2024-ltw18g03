@@ -132,9 +132,7 @@
     .btn {
       margin-top: 2em;
       margin-left: 2.6em;
-      padding: 0.5em;
-      padding-left: 1em;
-      padding-right: 1em;
+      padding: 0.5em 1em;
       background-color: #8c2d19;
       color: #DADADA;
       font-size: 1.5em;
