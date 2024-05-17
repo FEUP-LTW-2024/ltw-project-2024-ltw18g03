@@ -8,9 +8,6 @@
   require_once(__DIR__ . '/../db/connection.db.php');
   $db = getDBConn();
 
-  require_once(__DIR__ . '/../db/class.album.php');
-  $albums = Album::getAlbums($db);
-
   require_once(__DIR__ . '/../html/html.main.php');
   require_once(__DIR__ . '/../html/html.albums.php');
   require_once(__DIR__ . '/../html/html.user.php');

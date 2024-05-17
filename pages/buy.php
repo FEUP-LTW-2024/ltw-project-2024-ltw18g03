@@ -16,8 +16,18 @@
   require_once(__DIR__ . '/../html/html.albums.php');
   require_once(__DIR__ . '/../html/html.user.php');
   require_once(__DIR__ . '/../html/html.items.php');
-  
-    drawHeader($session);
-    drawConfirm($session, $_POST['itemId']);
-    drawFooter();
+  $time = current($db->query("SELECT CURRENT_TIMESTAMP")->fetch());
+  if (isset($_POST['itemId'])) {
+    $item = Item::getItemById($db, $_POST['itemId']);
+    if (!$item->sold) {
+      drawHeaderProfile($session);
+      drawConfirm($session, $_POST['itemId'], $time);
+      drawFooter();
+    }
+    else {
+      header('Location: ../');
+    }
+  } else {
+    header('Location: ../');
+  }
 ?>

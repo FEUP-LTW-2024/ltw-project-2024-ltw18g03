@@ -572,7 +572,10 @@ print "</table>";
                             
                             <div class="item-buttons">
                                 <?php if ($item->sold):?>
-                                    <button>Sold</button>
+                                    <form method="POST" action="../pages/printable.php">
+                                        <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">
+                                        <button type="submit" id="edit">Sold</button>
+                                    </form>
                                 <?php else: ?>
                                     <form method="POST" action="../pages/edit_item.php">
                                         <input type="hidden" name="item_id" value="<?php echo $item->id; ?>">

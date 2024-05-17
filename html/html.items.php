@@ -224,36 +224,101 @@ generateAlbumOptions($albums);
     </div>
 </form>
 <?php } ?>
-<?php function drawConfirm($session, $itemID) {
+<?php function drawConfirm($session, $itemID, $date) {
     $item = Item::getItemByID(getDBConn(), $itemID);
     $album = Album::getAlbumByID(getDBConn(), $item->album);
     $seller = User::getUserByID(getDBConn(), $item->seller);
     $buyer = User::getUserByID(getDBConn(), $session->getId());
     ?>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Confirm your listing</h2>
-                <p>Are you sure you want to list the following item?</p>
+        <div class="buy">
+                <div id="hot"> </div>
+                <h2>Confirm Your Purchase</h2>
+            
+            </div>
+
+        <div class="confirmer">
+                <h2>Are you sure you want to list the following item?</h2>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title"><?php echo $item->title; ?></h3>
                     </div>
                     <div class="panel-body">
                         <p><?php echo $item->description; ?></p>
-                        <p>Price: €<?php echo $item->price; ?></p>
+                        <p>Price: <?php echo $item->price; ?>€</p>
                         <p>Condition: <?php echo $item->condition; ?></p>
                         <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
+                        <p>Seller: <?php echo $seller->name(); ?></p>
+                        <p>Email: <?php echo $seller->email; ?></p>
+                        <p>Phone Number: <?php echo $seller->phone ?></p>
+                    </div>
+                    <h3>Shipping</h3>
+                    <div class="shipping">
+                        <p>Shipping costs an extra 2.99€.</p>
+                    </div>
+                    <h3>Total</h3>
+                    <div class="total">
+                        <p><?php echo $item->price + 2.99; ?>€</p>
+                    </div>
+                    <div class="terms">
+                        <p>By clicking confirm, you agree to our terms and conditions.</p>
                     </div>
                 </div>
                 <form action="../php/confirm-item.php" method="post">
                     <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
+                    <input type="hidden" name="buyerID" value="<?php echo $buyer->id; ?>">
+                    <input type="hidden" name="time" value="<?php echo $date; ?>">
                     <button class="btn btn-primary" type="submit">Confirm</button>
                 </form>
+    </div>
+<?php } ?>
+<?php function drawReceiptHeader() { ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39&family=Libre+Barcode+39+Extended+Text&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Print</title>
+    <link rel="stylesheet" href="../css/style-receipt.css">
+    </head>
+    <body>
+<?php } ?>
+
+<?php function drawReceipt($item, $time) {
+    $item = Item::getItemByID(getDBConn(), $item);
+    $album = Album::getAlbumByID(getDBConn(), $item->album);
+    $seller = User::getUserByID(getDBConn(), $item->seller);
+    $buyer = User::getUserByID(getDBConn(), $item->buyer);
+    ?>
+    <div class="receipt">
+        <h2>Thank you for your purchase!</h2>
+        <h3>Please Print this page<h3>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?php echo $item->title; ?></h3>
+            </div>
+            <div class="panel-body">
+                <p><?php echo $item->description; ?></p>
+                <p>Price: <?php echo $item->price; ?>€</p>
+                <p>Condition: <?php echo $item->condition; ?></p>
+                <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
+                <p>Seller: <?php echo $seller->name(); ?></p>
+                <p>Email: <?php echo $seller->email; ?></p>
+                <p>Phone Number: <?php echo $seller->phone ?></p>
+                <p><?php echo $time ?></p>
+            </div>
+            <h3>Shipping</h3>
+            <div class="shipping">
+                <p>Your item will arrive in two business days</p>
+            </div>
+            <h3>Total</h3>
+            <div class="total">
+                <p><?php echo $item->price + 2.99; ?>€</p>
             </div>
         </div>
     </div>
 <?php } ?>
+
 
 <?php
 function printItemTable($db) {
