@@ -85,9 +85,9 @@ VALUES
 ('Appetite for Destruction', 'Guns N Roses', '1987', 'https://upload.wikimedia.org/wikipedia/en/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg', 'Hard Rock', 3.92, 0, 0.0),
 ('Toys in the Attic', 'Aerosmith', '1975', 'https://upload.wikimedia.org/wikipedia/en/3/37/Aerosmith_-_Toys_in_the_Attic.jpg', 'Hard Rock', 3.51, 0, 0.0),
 ('Rocks ', 'Aerosmith', '1976', 'https://upload.wikimedia.org/wikipedia/en/8/87/Aerosmith_-_Rocks.JPG', 'Hard Rock', 3.59, 0, 0.0),
-('Life', 'Thin Lizzy', '1983', 'https://en.wikipedia.org/wiki/Life_(Thin_Lizzy_album)#/media/File:Thin_Lizzy_-_Life.jpg', 'Hard Rock', 3.88, 0, 0.0),
+('Life', 'Thin Lizzy', '1983', 'https://i.discogs.com/TOKhtcPeMYCoMcplgjC8AoJ9nPEGfP1a3dlTx_b7tR0/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NTc2/MTEtMTQ0MDk1MTQ5/MC0zMDI2LmpwZWc.jpeg', 'Hard Rock', 3.88, 0, 0.0),
 ('Transformer', 'Lou Reed', '1972', 'https://upload.wikimedia.org/wikipedia/en/f/f1/Loureedtransformer.jpeg', 'Glam Rock', 3.90, 0, 0.0),
-('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://en.wikipedia.org/wiki/Pearl_(Janis_Joplin_album)#/media/File:Janis_Joplin-Pearl_(album_cover).jpg', 'Blues Rock', 3.73, 0, 0.0),
+('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://i.discogs.com/28hdnSSH750w93OUwFJfAmXpHNfQjQfDRPlHYDXEa58/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2OTA3/Ny0xNzE0MzY1OTE5/LTU1ODkuanBlZw.jpeg', 'Blues Rock', 3.73, 0, 0.0),
 ('Marquee Moon', 'Television', '1977', 'https://upload.wikimedia.org/wikipedia/en/a/af/Marquee_moon_album_cover.jpg', 'Post-Punk', 4.14, 0, 0.0),
 ('Never Mind the Bollocks', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 0.0),
 ('Rum Sodomy & the Lash', 'The Pogues', '1985', 'https://upload.wikimedia.org/wikipedia/en/e/eb/Rum_sodomy_and_the_lash.jpg', 'Glam Rock', 4.14, 0, 0.0);
