@@ -155,6 +155,7 @@
     }
     .btn:hover {
       background-color: #640000;
+      cursor: pointer;
     }
   }
 

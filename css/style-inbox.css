@@ -104,7 +104,8 @@
           padding: 1.5em;
       }
       li:hover {
-      background-color: #38210a;; 
+      background-color: #38210a;
+      cursor: pointer; 
       }
   }
   #register p{
@@ -143,9 +144,11 @@
     }
     .register:hover {
       background-color: #640000;
+      cursor: pointer;
     }
     .login:hover {
       background-color: #222;
+      cursor: pointer;
     }
     .logout {
       position: relative;
@@ -167,6 +170,7 @@
     }
     .logout:hover {
       background-color: #222;
+      cursor: pointer;
     }
   }
 
@@ -251,6 +255,7 @@ body {
             }
             button:hover {
                 background-color: #073820;
+                cursor: pointer;
             }
     
         }
@@ -298,6 +303,7 @@ body {
 
 .userbuttons button:hover {
     background-color: #073820;
+    cursor: pointer;
 }
 
 #delete {
@@ -305,6 +311,7 @@ body {
 }
 #delete:hover {
     background-color: #640000;
+    cursor: pointer;
 }
 
 #register {
@@ -318,6 +325,7 @@ body {
 
 #register:hover {
   background-color: rgb(124, 82, 3);
+  cursor: pointer;
 }
 
 
