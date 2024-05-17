@@ -76,7 +76,22 @@ VALUES
 ('Aja', 'Steely Dan', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/49/Aja_album_cover.jpg', 'Jazz Rock', 4.01, 0, 0.0),
 ('Ágætis byrjun', 'Sigur Rós', '1999', 'https://upload.wikimedia.org/wikipedia/en/9/92/%C3%81g%C3%A6tisByrjunCover.JPG', 'Post-Rock', 4.04, 0, 0.0),
 ('The Stone Roses', 'The Stone Roses', '1989', 'https://upload.wikimedia.org/wikipedia/en/f/ff/Stoneroses.jpg', 'Indie Rock', 4.00, 0, 0.0),
-('Mezzanine', 'Massive Attack', '1998', 'https://upload.wikimedia.org/wikipedia/en/e/e9/Massive_Attack_-_Mezzanine.png', 'Trip Hop', 4.07, 0, 0.0);
+('Mezzanine', 'Massive Attack', '1998', 'https://upload.wikimedia.org/wikipedia/en/e/e9/Massive_Attack_-_Mezzanine.png', 'Trip Hop', 4.07, 0, 0.0),
+('London Calling', 'The Clash', '1979', 'https://upload.wikimedia.org/wikipedia/en/0/00/TheClashLondonCallingalbumcover.jpg', 'Punk Rock', 4.01, 0, 0.0),
+('Electric Warrior', 'T. Rex', '1971', 'https://upload.wikimedia.org/wikipedia/en/e/e5/T_Rex_Electric_Warrior_UK_album_cover.jpg', 'Punk Rock', 3.89, 0, 0.0),
+('Little Girl Blue', 'Nina Simone', '1959', 'https://upload.wikimedia.org/wikipedia/en/5/53/Ninasimonelittlegirlblue.jpg', 'Jazz', 3.88, 0, 0.0),
+('Volume 1', 'José Pinhal', '1984', 'https://upload.wikimedia.org/wikipedia/commons/8/8b/JosePinhal_vol1.jpg', 'PPM', 3.64, 0, 0.0),
+('So Alone ', 'Johnny Thunders', '1978', 'https://upload.wikimedia.org/wikipedia/en/b/b1/Johnny_Thunders_So_Alone.jpg', 'Punk Rock', 3.64, 0, 0.0),
+('Appetite for Destruction', 'Guns N Roses', '1987', 'https://upload.wikimedia.org/wikipedia/en/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg', 'Hard Rock', 3.92, 0, 0.0),
+('Toys in the Attic', 'Aerosmith', '1975', 'https://upload.wikimedia.org/wikipedia/en/3/37/Aerosmith_-_Toys_in_the_Attic.jpg', 'Hard Rock', 3.51, 0, 0.0),
+('Rocks ', 'Aerosmith', '1976', 'https://upload.wikimedia.org/wikipedia/en/8/87/Aerosmith_-_Rocks.JPG', 'Hard Rock', 3.59, 0, 0.0),
+('Life', 'Thin Lizzy', '1983', 'https://en.wikipedia.org/wiki/Life_(Thin_Lizzy_album)#/media/File:Thin_Lizzy_-_Life.jpg', 'Hard Rock', 3.88, 0, 0.0),
+('Transformer', 'Lou Reed', '1972', 'https://upload.wikimedia.org/wikipedia/en/f/f1/Loureedtransformer.jpeg', 'Glam Rock', 3.90, 0, 0.0),
+('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://en.wikipedia.org/wiki/Pearl_(Janis_Joplin_album)#/media/File:Janis_Joplin-Pearl_(album_cover).jpg', 'Blues Rock', 3.73, 0, 0.0),
+('Marquee Moon', 'Television', '1977', 'https://upload.wikimedia.org/wikipedia/en/a/af/Marquee_moon_album_cover.jpg', 'Post-Punk', 4.14, 0, 0.0),
+('Never Mind the Bollocks, Here is the Sex Pistols', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 0.0),
+('Rum Sodomy & the Lash', 'The Pogues', '1985', 'https://upload.wikimedia.org/wikipedia/en/e/eb/Rum_sodomy_and_the_lash.jpg', 'Glam Rock', 4.14, 0, 0.0);
+
 
 
 -- Table created for each item to be sold
