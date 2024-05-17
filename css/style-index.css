@@ -188,12 +188,14 @@ body {
       display: flex;
       align-items: center;
       .bannerimg {
+        
+        padding-left: 10.7vw;
         flex:1;
-      }
+        }
   
       .text-wrapper {
-        flex:2;
-        padding: 0 20px;
+        flex:1;
+        padding:20px;
         align-items: center;
       }
       h2:first-child {
