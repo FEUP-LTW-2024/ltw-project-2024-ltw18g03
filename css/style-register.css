@@ -129,7 +129,7 @@
       
     }
     .btn {
-      margin-top: 2.5em;
+      margin-top: 2em;
       margin-left: 2.6em;
       padding: 0.5em;
       padding-left: 1em;
@@ -139,9 +139,11 @@
       font-size: 1.5em;
       border-radius: 50px;
       border: none;
+      
     }
     .btn:hover {
       background-color: #640000;
+      cursor: grab;
     }
   }
 
