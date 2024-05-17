@@ -227,6 +227,7 @@ body {
       }
       .sell:hover {
         background-color: #073820;
+        cursor: grab;
       }
     }
   }
