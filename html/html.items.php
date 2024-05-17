@@ -313,8 +313,6 @@ generateAlbumOptions($albums);
             <tr>
             <tr>
                 <td> </td>
-            <tr>
-                <td>Description: <?php echo $item->description ?> </td>
             </tr>
             <tr>
                 <td>Condition: <?php echo $item->condition ?> </td>
