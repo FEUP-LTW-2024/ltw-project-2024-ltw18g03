@@ -66,7 +66,7 @@ class Album {
     static function searchAlbums($db, $query) {
         $searchQuery = "%{$query}%"; 
     
-        $query = "SELECT * FROM Album WHERE title LIKE :searchQuery OR artist LIKE :searchQuery";
+        $query = "SELECT * FROM Album WHERE title LIKE :searchQuery OR artist LIKE :searchQuery OR genre LIKE :searchQuery";
     
         $statement = $db->prepare($query);
         $statement->bindValue(':searchQuery', $searchQuery);
