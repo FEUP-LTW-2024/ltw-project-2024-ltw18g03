@@ -143,12 +143,13 @@
       border: none;
     }
     .register:hover {
-      background-color: #640000;
+      background-color: #640000;;
       cursor: pointer;
     }
     .login:hover {
       background-color: #222;
       cursor: pointer;
+      
     }
     .logout {
       position: relative;
