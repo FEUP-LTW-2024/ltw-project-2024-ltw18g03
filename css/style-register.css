@@ -144,7 +144,7 @@
     }
     .btn:hover {
       background-color: #640000;
-      cursor: grab;
+      cursor: pointer;
     }
   }
 

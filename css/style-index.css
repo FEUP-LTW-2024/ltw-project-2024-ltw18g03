@@ -92,6 +92,7 @@
     cursor: pointer;
 }
   
+  
   /* Style for navigation links */
   #topics a {
     color: #DADADA; /* Change the color as needed */
@@ -143,9 +144,11 @@
     }
     .register:hover {
       background-color: #640000;
+      cursor: pointer;
     }
     .login:hover {
       background-color: #222;
+      cursor: pointer;
     }
     .logout {
       position: relative;
@@ -167,6 +170,7 @@
     }
     .logout:hover {
       background-color: #222;
+      cursor: pointer;
     }
   }
 
@@ -227,7 +231,7 @@ body {
       }
       .sell:hover {
         background-color: #073820;
-        cursor: grab;
+        cursor: pointer;
       }
     }
   }
@@ -345,7 +349,7 @@ body {
     }
     button:hover {
       background-color: #073820;
-      cursor: grab;
+      cursor: pointer;
     }
   }
 

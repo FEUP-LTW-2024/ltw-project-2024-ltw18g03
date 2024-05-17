@@ -169,6 +169,7 @@
     }
     .logout:hover {
       background-color: #222;
+      cursor: pointer;
     }
   }
   
@@ -271,6 +272,7 @@
       
       .mail button:hover {
           background-color: #073820;
+          cursor: pointer;
       }
       #sent {
         margin-right: 0.5em;
@@ -335,6 +337,7 @@
       }
         button:hover {
           background-color: #073820;
+          cursor: pointer;
       }
     }
   }
@@ -343,6 +346,7 @@
         }
         #delete:hover {
           background-color: #571c10;
+          cursor: pointer;
         }
 
 
