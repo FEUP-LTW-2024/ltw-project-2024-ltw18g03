@@ -100,9 +100,14 @@
     }
 
     textarea.form-control {
-      border-radius: 2%;
-      width: 25em; 
-      height: 25em; 
+      font-size: 1.25em;
+      border-radius: 5%;
+      border-width: 0.15em;
+      border-color: black ;
+      padding: 0.5em;
+      width: 20em; 
+      height: 25em;
+      background-color: #EEE; 
       position: relative;
       text-align: justify;
       resize: none; 
