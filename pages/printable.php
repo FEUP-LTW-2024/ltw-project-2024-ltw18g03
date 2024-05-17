@@ -39,33 +39,33 @@ function drawPrintable($id) {
                 <td> <h1> Expedition: 00<?php echo $id; ?>55 </h1> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user"> <?php echo $seller->name(); ?> </td>
+                <td colspan="2"> <?php echo $seller->name(); ?> </td>
                 <td rowspan="4"> <h1>Standard Package</h1> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user"> <?php echo $seller->city ?> </td>
+                <td colspan="2"> <?php echo $seller->city ?> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user"> <?php echo $seller->postalCode ?> </td>
+                <td colspan="2"> <?php echo $seller->postalCode ?> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user">Phone: <?php echo $seller->phone ?> </td>
+                <td colspan="2">Phone: <?php echo $seller->phone ?> </td>
             </tr>
            
-                <td colspan="2" class="user"> <?php echo $buyer->name(); ?> </td>
+                <td colspan="2"> <?php echo $buyer->name(); ?> </td>
                 <td rowspan="4" class="libre-barcode-39-regular">*<?php echo $item->id;?>GRV<?php echo $item->buyer;?>SWP<?php echo $item->seller;?>*</td>
             </tr>
             <tr>
-                <td colspan="2" class="user"> <?php echo $buyer->city ?> </td>
+                <td colspan="2"> <?php echo $buyer->city ?> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user"> <?php echo $buyer->postalCode ?> </td>
+                <td colspan="2"> <?php echo $buyer->postalCode ?> </td>
             </tr>
             <tr>
-                <td colspan="2" class="user">Phone: <?php echo $buyer->phone ?> </td>
+                <td colspan="2">Phone: <?php echo $buyer->phone ?> </td>
             </tr>
             <tr>
-                <td colspan="3" class="info"><h3> Additional Info: </h3></td>
+                <td colspan="3"><h3> Additional Info: </h3></td>
             </tr>
         </table>
     </section>

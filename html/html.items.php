@@ -238,7 +238,7 @@ generateAlbumOptions($albums);
             </div>
 
         <div class="confirmer">
-                <h2>Are you sure you want to list the following item?</h2>
+                <h2>Are you sure you want to buy the following item?</h2>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title"><?php echo $item->title; ?></h3>
@@ -291,32 +291,57 @@ generateAlbumOptions($albums);
     $buyer = User::getUserByID(getDBConn(), $item->buyer);
     ?>
     <div class="receipt">
-        <h2>Thank you for your purchase!</h2>
-        <h3>Please Print this page<h3>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $item->title; ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php echo $item->description; ?></p>
-                <p>Price: <?php echo $item->price; ?>€</p>
-                <p>Condition: <?php echo $item->condition; ?></p>
-                <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
-                <p>Seller: <?php echo $seller->name(); ?></p>
-                <p>Email: <?php echo $seller->email; ?></p>
-                <p>Phone Number: <?php echo $seller->phone ?></p>
-                <p><?php echo $time ?></p>
-            </div>
-            <h3>Shipping</h3>
-            <div class="shipping">
-                <p>Your item will arrive in two business days</p>
-            </div>
-            <h3>Total</h3>
-            <div class="total">
-                <p><?php echo $item->price + 2.99; ?>€</p>
-            </div>
-        </div>
-    </div>
+    <table>
+            <tr>
+                <td> <img src="../imgs/vinyl-icon.jpg" width="150" height="150"> <h1> GrooveSwap </h1></td>
+    
+            </tr>
+            <tr>
+                <td> Receipt </td>
+            </tr>
+            <tr>
+                <td>Number: <?php echo $item->id; echo $item->album; echo $item->seller; echo $item->buyer; ?> </td>
+            </tr>
+            <tr>
+                <td>Date: <?php echo $time ?> </td>
+            </tr>
+            <tr>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>Item: <?php echo $item->title ?> </td>
+            <tr>
+            <tr>
+                <td> </td>
+            <tr>
+                <td>Description: <?php echo $item->description ?> </td>
+            </tr>
+            <tr>
+                <td>Condition: <?php echo $item->condition ?> </td>
+            </tr>
+            <tr>
+                <td>Price: <?php echo $item->price ?>€</td>
+            </tr>
+            <tr>
+                <td>Album: <?php echo $album->title ?> by <?php echo $album->artist ?> </td>
+            </tr>
+            <tr>
+                <td>Seller: <?php echo $seller->name(); ?> </td>
+            </tr>
+            <tr>
+                <td>Email: <?php echo $seller->email ?> </td>
+            </tr>
+            <tr>
+                <td> </td>
+            <tr>
+            <tr>
+                <td>Payment Method: Visa Card </td>
+            <tr>
+                <td>Total: <?php echo $item->price +2.99?>€ </td>
+            </tr>
+            
+            
+</table>
 <?php } ?>
 
 
