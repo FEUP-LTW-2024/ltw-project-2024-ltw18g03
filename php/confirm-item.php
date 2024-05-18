@@ -6,20 +6,21 @@ try {
     $db = getDBConn();
 
     $item = $_POST['itemID'];
-    $user = $_POST['userID'];
+    $buyer = $_POST['buyerID'];
+    $album = $_POST['albumID'];
     $time = $_POST['time'];
 
+    // Update Item table
+    $sqlItem = "UPDATE Item SET sold = TRUE, buyer = ? WHERE ID = ?";
+    $paramsItem = [$buyer, $item];
+    $stmtItem = $db->prepare($sqlItem);
+    $stmtItem->execute($paramsItem);
 
-    $sql = "UPDATE Item SET sold = TRUE, buyer = ? WHERE ID = ?";
-    $params = [$user, $item];
-
-    // Prepare and execute the statement
-    $stmt = $db->prepare($sql);
-    $stmt->execute($params);
-
-  // Prepare and execute the statement
-  $stmt = $db->prepare($sql);
-  $stmt->execute($params);
+    // Decrement album quantity
+    $sqlAlbum = "UPDATE Album SET quantity = quantity - 1 WHERE ID = ?";
+    $paramsAlbum = [$album];
+    $stmtAlbum = $db->prepare($sqlAlbum);
+    $stmtAlbum->execute($paramsAlbum);
     
     drawReceiptHeader();
     drawReceipt($item, $time);

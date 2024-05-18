@@ -186,13 +186,13 @@ CREATE TABLE Mail
 
 
 
--- Trigger to increment quantity when a new item is inserted
+-- Trigger to increment quantity when a new item is inserted and Sold is false
 CREATE TRIGGER increment_album_quantity_trigger
 AFTER INSERT ON Item
 BEGIN
     UPDATE Album
     SET quantity = quantity + 1
-    WHERE ID = NEW.album;
+    WHERE ID = NEW.album AND NEW.sold = FALSE;
 END;
 
 -- Trigger to decrement quantity when an item is deleted

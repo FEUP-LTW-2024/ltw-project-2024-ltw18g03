@@ -268,6 +268,7 @@ generateAlbumOptions($albums);
                     <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
                     <input type="hidden" name="buyerID" value="<?php echo $buyer->id; ?>">
                     <input type="hidden" name="time" value="<?php echo $date; ?>">
+                    <input type="hidden" name="albumID" value="<?php echo $album->id; ?>">
                     <button class="btn btn-primary" type="submit">Confirm</button>
                 </form>
     </div>
@@ -347,9 +348,9 @@ generateAlbumOptions($albums);
 function printItemTable($db) {
 //now output the data to a simple html table...
 print "<table border=1>";
-print "<tr><td>id</td><td>title</td><td>description</td><td>album</td><td>price</td><td>condition</td><td>seller</td></tr>";
+print "<tr><td>id</td><td>title</td><td>description</td><td>album</td><td>price</td><td>condition</td><td>seller</td><td>buyer</td><td>sold</td></tr>";
 $statement = $db->query('SELECT * FROM Item');
 while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-print "<tr><td>".$row['ID']."</td><td>".$row['title']."</td><td>".$row['descriptionOfItem']."</td><td>".$row['album']."</td><td>".$row['price']."</td><td>".$row['condition']."</td><td>".$row['seller']."</td></tr>";
+print "<tr><td>".$row['ID']."</td><td>".$row['title']."</td><td>".$row['descriptionOfItem']."</td><td>".$row['album']."</td><td>".$row['price']."</td><td>".$row['condition']."</td><td>".$row['seller']."</td><td>".$row['buyer']."</td><td>".$row['sold']."</td></tr>";
 }
 }?>
