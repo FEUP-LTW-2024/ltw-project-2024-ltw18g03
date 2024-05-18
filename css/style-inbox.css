@@ -261,7 +261,9 @@ body {
         }
     }
     .mail-content {
-      font-size: 2em;
+      p  {
+        font-size: 1.25em;
+      }
         padding: 1em;
         display: flex;
         flex-direction: column;
@@ -337,4 +339,159 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+
+
+  @media (max-width: 1024px) {
+    body {
+      flex-direction: column;
+      align-items: center;
+      }
+      
+      .top{
+        a{
+          text-decoration: none
+        }
+        
+  
+        width: auto;
+        margin: auto;
+        margin-left: 1em;
+        #new {
+          width: 50px; height: 50px;
+          position: relative;
+          top: 3.3em;
+          left:-15em;
+        }
+        
+  
+        h2{
+          width: 10em;
+          margin-right: 55em;
+          font-size: 1.5em;
+        }
+  
+      }
+      
+      #mails {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 20px;
+        overflow-y: auto; /* Add this line */
+        max-height: 100em;
+        
+    }
+    
+    .mail {
+        background-color: antiquewhite;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        width: 60em; /* Adjust as needed */
+        .mail-header {
+            width: 100%;
+            background-color: rgb(199, 180, 155);
+            padding-bottom: 1em;
+            padding-top: 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .mail-sender {
+              p  {
+                font-size: 1em;
+              }
+                display: flex;
+                flex-direction: row;
+                align-items: left;
+                gap: 10px;
+            }
+            .mail-title {
+              h2 {
+                font-size: 1em;
+              }
+                font-size: 1.8em;
+                margin-right: 20px;
+            }
+            .mail-timest {
+              p  {
+                font-size: 1em;
+              }
+                font-size: 1.6em;
+            }
+            .mail-buttons {
+              p  {
+                font-size: 1em;
+              }
+                margin-top: 1em;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                button {
+                    padding: 0.5em 1em;
+                    background-color: #118C4f;
+                    color: #DADADA;
+                    border-radius: 50px;
+                    border: none;
+                }
+                button:hover {
+                    background-color: #073820;
+                    cursor: pointer;
+                }
+        
+            }
+        }
+        .mail-content {
+         p  {
+            font-size: 1em;
+          }
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+        }
+    }
+    
+    .mail-sender 
+    
+    .mail-sender {
+        flex-grow: 1;
+    }
+    
+    .mail h3 {
+        font-size: 1.4em;
+        margin-bottom: 0.5em;
+    }
+    
+    .userinfo p {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+    }
+    
+    .userbuttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .userbuttons button {
+        padding: 0.5em 1em;
+        background-color: #118C4f;
+        color: #DADADA;
+        border-radius: 50px;
+        border: none;
+    }
+    
+    .userbuttons button:hover {
+        background-color: #073820;
+        cursor: pointer;
+    }
+  
+    footer {
+      font-size: 0.8em;
+    }
   }
