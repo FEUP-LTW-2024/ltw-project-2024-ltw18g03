@@ -195,16 +195,16 @@ CREATE TABLE ReferralCodes (
 -- Populate ReferralCodes
 INSERT INTO ReferralCodes (code, discount)
 VALUES
-('REFERRAL10', 10),
-('REFERRAL20', 20),
-('REFERRAL30', 30),
-('REFERRAL40', 40),
-('REFERRAL50', 50),
-('REFERRAL60', 60),
-('REFERRAL70', 70),
-('REFERRAL80', 80),
-('REFERRAL90', 90),
-('REFERRAL100', 100);
+('GRVSWP10', 10),
+('GRVSWP20', 20),
+('GRVSWP30', 30),
+('GRVSWP40', 40),
+('GRVSWP50', 50),
+('GRVSWP60', 60),
+('GRVSWP70', 70),
+('GRVSWP80', 80),
+('GRVSWP90', 90),
+('GRVSWP100', 100);
 
 -- Trigger to increment quantity when a new item is inserted and Sold is false
 CREATE TRIGGER increment_album_quantity_trigger
