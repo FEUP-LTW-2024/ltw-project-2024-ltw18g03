@@ -611,7 +611,7 @@ print "</table>";
                 <p>City: <?php echo $user->city; ?></p>
                 <p>Postal Code: <?php echo $user->postalCode; ?></p>
             </div>
-            <div class="profilebuwiosttons">
+            <div class="profilebuttons">
                 <form method="POST" action="../pages/wishlist.php">
                     <input type="hidden" name="id" value="<?php echo $user->id; ?>">
                     <button type="submit">Wishlist</button>
