@@ -512,10 +512,71 @@
 
 
   @media (max-width: 1024px) {
+    .button-style{
+      font-size: 2em;
+    }
+    
     .profile-container {
       width: 100%;
       flex-direction: column;
       align-items: center;
+      
+      
+
+      .profile{
+        width: 100%;
+        height: 50em;
+        
+        img{
+          display: flex;
+          
+        }
+        h2{
+          font-size: 2em;
+          display: flex;
+          justify-content: center;
+        }
+        p{
+          font-size: 1.8em;
+          display: flex;
+          align-items: center;
+        }
+
+        .profilebuttons{
+          button{
+            font-size: 2em;
+          }
+        }
+      }
+
+      .profileselling{
+        width: 68em;
+      }
+
+      .profilealbums{
+        width: 100%;
+      }
+
+      .item-slab{
+        height: 20em;
+        .item-image{
+          width: 270px;
+          height: 270px;
+          border: 4px solid #8c2d19;
+        }
+        
+        
+        .item-buttons{
+          .profilebuttons{
+            
+            font-size: 1.5em;
+          }
+          button {
+            width: 10em;
+            font-size: 1.5em;
+          }
+        }
+      }
     }
     
     .profile {
@@ -525,29 +586,31 @@
     
     .profileselling {
       width: 90%; /* Adjust as needed */
+      height: 100%;
       margin: auto;
     }
   
     .profilealbums {
-      width: 90%; /* Adjust as needed */
+      width: 100%;       /* Adjust as needed */
       margin: auto;
       flex-direction: column;
       gap: 20px;
       overflow-y: auto; /* Add this line */
       max-height: 23.8em;
     }
+    
   
     .top {
       a{
         text-decoration: none;
       }
-      
+      ;
       width: auto; /* Adjust as needed */
       margin: auto;
       margin-bottom: 1em;
       #hot{
         top: 3.3em;
-        left: -7em;
+        left: -17em;
       }
       h2{
         width: 10em ;
