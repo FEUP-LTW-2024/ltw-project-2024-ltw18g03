@@ -228,17 +228,24 @@ body {
         flex-direction: row;
         justify-content: space-between;
         .mail-sender {
+          p {
+            font-size: 1.2em;
+          }
             display: flex;
             flex-direction: row;
             align-items: left;
             gap: 10px;
         }
         .mail-title {
+          h2 {
             font-size: 1.4em;
+          }
             margin-right: 20px;
         }
         .mail-timest {
+          p  {
             font-size: 1.2em;
+          }
         }
         .mail-buttons {
             margin-top: 1em;
@@ -262,7 +269,7 @@ body {
     }
     .mail-content {
       p  {
-        font-size: 1.25em;
+        font-size: 1.1em;
       }
         padding: 1em;
         display: flex;
@@ -400,7 +407,7 @@ footer {
             justify-content: space-between;
             .mail-sender {
               p  {
-                font-size: 1em;
+                font-size: 1.2em;
               }
                 display: flex;
                 flex-direction: row;
@@ -409,16 +416,14 @@ footer {
             }
             .mail-title {
               h2 {
-                font-size: 1em;
+                font-size: 1.2em;
               }
-                font-size: 1.8em;
                 margin-right: 20px;
             }
             .mail-timest {
               p  {
-                font-size: 1em;
+                font-size: 1.2em;
               }
-                font-size: 1.6em;
             }
             .mail-buttons {
               p  {
@@ -445,7 +450,7 @@ footer {
         }
         .mail-content {
          p  {
-            font-size: 1em;
+            font-size: 1.2em;
           }
             padding: 1em;
             display: flex;
