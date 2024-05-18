@@ -232,46 +232,49 @@ generateAlbumOptions($albums);
     ?>
     <div class="container">
         <div class="buy">
-                <div id="hot"> </div>
-                <h2>Confirm Your Purchase</h2>
-            
-            </div>
-
+            <div id="hot"></div>
+            <h2>Confirm Your Purchase</h2>
+        </div>
+    
         <div class="confirmer">
-                <h2>Are you sure you want to buy the following item?</h2>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title"><?php echo $item->title; ?></h3>
-                    </div>
-                    <div class="panel-body">
-                        <p><?php echo $item->description; ?></p>
-                        <p>Price: <?php echo $item->price; ?>€</p>
-                        <p>Condition: <?php echo $item->condition; ?></p>
-                        <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
-                        <p>Seller: <?php echo $seller->name(); ?></p>
-                        <p>Email: <?php echo $seller->email; ?></p>
-                        <p>Phone Number: <?php echo $seller->phone ?></p>
-                    </div>
-                    <h3>Shipping</h3>
-                    <div class="shipping">
-                        <p>Shipping costs an extra 2.99€.</p>
-                    </div>
-                    <h3>Total</h3>
-                    <div class="total">
-                        <p><?php echo $item->price + 2.99; ?>€</p>
-                    </div>
-                    <div class="terms">
-                        <p>By clicking confirm, you agree to our terms and conditions.</p>
-                    </div>
+            <h2>Are you sure you want to buy the following item?</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><?php echo $item->title; ?></h3>
                 </div>
-                <form action="../php/confirm-item.php" method="post">
-                    <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
-                    <input type="hidden" name="buyerID" value="<?php echo $buyer->id; ?>">
-                    <input type="hidden" name="time" value="<?php echo $date; ?>">
-                    <input type="hidden" name="albumID" value="<?php echo $album->id; ?>">
-                    <button class="btn btn-primary" type="submit">Confirm</button>
-                </form>
+                <div class="panel-body">
+                    <p><?php echo $item->description; ?></p>
+                    <p>Price: <span id="itemPrice"><?php echo $item->price; ?></span>€</p>
+                    <p>Condition: <?php echo $item->condition; ?></p>
+                    <p>Album: <?php echo $album->title; ?> by <?php echo $album->artist; ?></p>
+                    <p>Seller: <?php echo $seller->name(); ?></p>
+                    <p>Email: <?php echo $seller->email; ?></p>
+                    <p>Phone Number: <?php echo $seller->phone; ?></p>
+                </div>
+                <h3>Shipping</h3>
+                <div class="shipping">
+                    <p>Shipping costs an extra 2.99€.</p>
+                </div>
+                <h3>Total</h3>
+                <div class="total">
+                    <p id="totalPrice"><?php echo $item->price + 2.99; ?>€</p>
+                </div>
+                <div class="terms">
+                    <p>By clicking confirm, you agree to our terms and conditions.</p>
+                </div>
+            </div>
+            <form action="../php/confirm-item.php" method="post">
+                <input type="text" name="referralCode" id="referralCode" value="">
+                <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
+                <input type="hidden" name="buyerID" value="<?php echo $buyer->id; ?>">
+                <input type="hidden" name="time" value="<?php echo $date; ?>">
+                <input type="hidden" name="albumID" value="<?php echo $album->id; ?>">
+                <button class="btn btn-primary" type="submit">Confirm</button>
+            </form>
+        </div>
     </div>
+    <script src="../js/promotion.js"></script>
+    
 <?php } ?>
 <?php function drawReceiptHeader() { ?>
     <!DOCTYPE html>
@@ -285,7 +288,7 @@ generateAlbumOptions($albums);
     <body>
 <?php } ?>
 
-<?php function drawReceipt($item, $time) {
+<?php function drawReceipt($item, $time, $finalPrice) {
     $item = Item::getItemByID(getDBConn(), $item);
     $album = Album::getAlbumByID(getDBConn(), $item->album);
     $seller = User::getUserByID(getDBConn(), $item->seller);
@@ -319,7 +322,7 @@ generateAlbumOptions($albums);
                 <td>Condition: <?php echo $item->condition ?> </td>
             </tr>
             <tr>
-                <td>Price: <?php echo $item->price ?>€</td>
+                <td>Original Price: <?php echo $item->price ?>€</td>
             </tr>
             <tr>
                 <td>Album: <?php echo $album->title ?> by <?php echo $album->artist ?> </td>
@@ -336,7 +339,7 @@ generateAlbumOptions($albums);
             <tr>
                 <td>Payment Method: Visa Card </td>
             <tr>
-                <td>Total: <?php echo $item->price +2.99?>€ </td>
+                <td>Total: <?php echo $finalPrice?>€ </td>
             </tr>
             
             

@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS Album;
 DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Wishlist;
 DROP TABLE IF EXISTS Mail;
+DROP TABLE IF EXISTS ReferralCodes;
 PRAGMA foreign_keys = ON;
 
 --Table created for every user that is registered
@@ -184,7 +185,26 @@ CREATE TABLE Mail
     FOREIGN KEY (itemID) REFERENCES Item(ID) ON DELETE CASCADE
 );
 
+CREATE TABLE ReferralCodes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    code TEXT NOT NULL UNIQUE,
+    discount REAL NOT NULL,
+    valid BOOLEAN NOT NULL DEFAULT 1
+);
 
+-- Populate ReferralCodes
+INSERT INTO ReferralCodes (code, discount)
+VALUES
+('REFERRAL10', 10),
+('REFERRAL20', 20),
+('REFERRAL30', 30),
+('REFERRAL40', 40),
+('REFERRAL50', 50),
+('REFERRAL60', 60),
+('REFERRAL70', 70),
+('REFERRAL80', 80),
+('REFERRAL90', 90),
+('REFERRAL100', 100);
 
 -- Trigger to increment quantity when a new item is inserted and Sold is false
 CREATE TRIGGER increment_album_quantity_trigger
