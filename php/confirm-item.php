@@ -22,6 +22,20 @@ try {
     $stmtAlbum = $db->prepare($sqlAlbum);
     $stmtAlbum->execute($paramsAlbum);
     
+    // Find the cheapest price on all items from the album
+    $sqlCheapestPrice = "SELECT MIN(price) AS minPrice FROM Item WHERE album = ? AND sold = FALSE";
+    $paramsCheapestPrice = [$album];
+    $stmtCheapestPrice = $db->prepare($sqlCheapestPrice);
+    $stmtCheapestPrice->execute($paramsCheapestPrice);
+    $resultCheapestPrice = $stmtCheapestPrice->fetch(PDO::FETCH_ASSOC);
+    $minPrice = $resultCheapestPrice['minPrice'];
+
+    // Update the minPrice entry in the Album table
+    $sqlUpdateMinPrice = "UPDATE Album SET minPrice = ? WHERE ID = ?";
+    $paramsUpdateMinPrice = [$minPrice, $album];
+    $stmtUpdateMinPrice = $db->prepare($sqlUpdateMinPrice);
+    $stmtUpdateMinPrice->execute($paramsUpdateMinPrice);
+
     drawReceiptHeader();
     drawReceipt($item, $time);
 } catch (PDOException $e) {

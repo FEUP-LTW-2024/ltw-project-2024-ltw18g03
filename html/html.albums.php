@@ -127,7 +127,7 @@
             <p><?php echo $album->yearOfRelease; ?></p>
             <p><?php echo $album->genre; ?></p>
             <?php if ($album->quantity > 0): ?>
-            <p><?php echo $album->quantity; ?> for <?php echo number_format((float)$album->averagePrice, 2, '.', ''); ?>€</p>
+            <p><?php echo $album->quantity; ?> from <?php echo number_format((float)$album->minPrice, 2, '.', ''); ?>€</p>
             <?php else: ?>
             <p>Out of stock</p>
             <?php endif; ?>
@@ -191,7 +191,7 @@
                     <p><?php echo $album->yearOfRelease; ?></p>
                     <p><?php echo $album->genre; ?></p>
                     <?php if ($album->quantity > 0): ?>
-                    <p><?php echo $album->quantity; ?> for <?php echo number_format((float)$album->averagePrice, 2, '.', ''); ?>€</p>
+                    <p><?php echo $album->quantity; ?> from <?php echo number_format((float)$album->minPrice, 2, '.', ''); ?>€</p>
                     <?php else: ?>
                     <p>Out of stock</p>
                     <?php endif; ?>
@@ -338,7 +338,7 @@
             ?>
             <div class="album_prices">
                 <h3>For Sale on GrooveSwap</h3>
-                <p><?php echo $album->quantity; ?> albums for <?php echo number_format((float)$album->averagePrice, 2, '.', ''); ?>€ </p>
+                <p><?php echo $album->quantity; ?> albums from <?php echo number_format((float)$album->minPrice, 2, '.', ''); ?>€ </p>
             </div>
         </div>
         <div class="items">

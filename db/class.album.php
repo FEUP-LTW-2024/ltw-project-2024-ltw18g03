@@ -8,9 +8,9 @@ class Album {
     public $genre;
     public $rym;
     public $quantity;
-    public $averagePrice;
+    public $minPrice;
 
-    public function __construct($id, $title, $artist, $yearOfRelease, $cover, $genre, $rym, $quantity, $averagePrice) {
+    public function __construct($id, $title, $artist, $yearOfRelease, $cover, $genre, $rym, $quantity, $minPrice) {
         $this->id = $id;
         $this->title = $title;
         $this->artist = $artist;
@@ -19,7 +19,7 @@ class Album {
         $this->genre = $genre;
         $this->rym = $rym;
         $this->quantity = $quantity;
-        $this->averagePrice = $averagePrice;
+        $this->minPrice = $minPrice;
     }
 
     // You can also add methods here to perform operations related to albums
@@ -36,7 +36,7 @@ class Album {
         // Fetch albums from the result set
         while ($row = $result->fetch()) {
             // Create an Album object for each row and add it to the albums array
-            $album = new Album($row['ID'], $row['title'], $row['artist'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['averagePrice']);
+            $album = new Album($row['ID'], $row['title'], $row['artist'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['minPrice']);
             $albums[] = $album;
         }
     
@@ -56,7 +56,7 @@ class Album {
         $album = null;
     
         if ($row = $statement->fetch()) {
-            $album = new Album($row['ID'], $row['title'], $row['artist'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['averagePrice']);
+            $album = new Album($row['ID'], $row['title'], $row['artist'], $row['yearOfRelease'], $row['cover'], $row['genre'], $row['rym'], $row['quantity'], $row['minPrice']);
         }
     
         $statement->closeCursor();
@@ -84,7 +84,7 @@ class Album {
                 $row['genre'], 
                 $row['rym'], 
                 $row['quantity'], 
-                $row['averagePrice']
+                $row['minPrice']
             );
             $albums[] = $album;
         }

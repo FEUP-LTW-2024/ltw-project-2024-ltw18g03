@@ -41,56 +41,56 @@ CREATE TABLE Album
     genre TEXT NOT NULL, --all genres, comma-seperated-values
     rym FLOAT NOT NULL CHECK (rym >= 1 AND rym <= 5), --rym rating
     quantity INTEGER NOT NULL, --number of items for sale
-    averagePrice FLOAT NOT NULL --average price of the items for sale
+    minPrice FLOAT NOT NULL --average price of the items for sale
 );
 
 -- Populate Albums
-INSERT INTO Album (title, artist, yearOfRelease, cover, genre, rym, quantity, averagePrice) 
+INSERT INTO Album (title, artist, yearOfRelease, cover, genre, rym, quantity, minPrice) 
 VALUES 
-('Thriller', 'Michael Jackson', '1982', 'https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png', 'Pop, R&B', 3.99, 0, 0.0),
-('Back in Black', 'AC/DC', '1980', 'https://upload.wikimedia.org/wikipedia/commons/9/92/ACDC_Back_in_Black.png', 'Hard Rock',  3.46, 0, 0.0),
-('The Dark Side of the Moon', 'Pink Floyd', '1973', 'https://upload.wikimedia.org/wikipedia/pt/3/3b/Dark_Side_of_the_Moon.png', 'Progressive Rock', 4.24, 0, 0.0),
-('Abbey Road', 'The Beatles', '1969', 'https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg', 'Rock', 4.27, 0, 0.0),
-('The Wall', 'Pink Floyd', '1979', 'https://i.scdn.co/image/ab67616d0000b2735d48e2f56d691f9a4e4b0bdf', 'Progressive Rock', 3.82, 0, 0.0),
-('Led Zeppelin IV', 'Led Zeppelin', '1971', 'https://upload.wikimedia.org/wikipedia/pt/4/4b/LedZeppelinIV.jpg', 'Hard Rock', 4.09, 0, 0.0),
-('Hotel California', 'Eagles', '1976', 'https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg', 'Rock', 3.27, 0, 0.0),
-('Rumours', 'Fleetwood Mac', '1977', 'https://upload.wikimedia.org/wikipedia/en/f/fb/FMacRumours.PNG', 'Rock', 4.03, 0, 0.0),
-('Born to Run', 'Bruce Spring', '1975', 'https://upload.wikimedia.org/wikipedia/en/7/7a/Born_to_Run_%28Front_Cover%29.jpg', 'Rock', 3.96, 0, 0.0),
-('The Joshua Tree', 'U2','1987', 'https://upload.wikimedia.org/wikipedia/en/6/6b/The_Joshua_Tree.png', 'Rock', 3.88, 0, 0.0),
-('Nevermind', 'Nirvana', '1991', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/NirvanaNevermindalbumcover.jpg/220px-NirvanaNevermindalbumcover.jpg', 'Grunge, Alternative Rock', 4.01, 0, 0.0),
-('The Chronic', 'Dr. Dre', '1992', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/19/Dr.DreTheChronic.jpg/220px-Dr.DreTheChronic.jpg', 'West Coast Hip Hop, G-Funk', 3.83, 0, 0.0),
-('Ten', 'Pearl Jam', '1991', 'https://upload.wikimedia.org/wikipedia/pt/thumb/d/da/Pearl_Jam_-_Ten.jpg/220px-Pearl_Jam_-_Ten.jpg', 'Grunge, Alternative Rock', 3.74, 0, 0.0),
-('The Slim Shady LP', 'Eminem', '1999', 'https://upload.wikimedia.org/wikipedia/pt/f/f9/The_Slim_Shady_LP.jpg', 'Hip Hop', 3.51, 0, 0.0),
-('OK Computer', 'Radiohead', '1997', 'https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png', 'Alternative Rock, Experimental', 4.29, 0, 0.0),
-('Achtung Baby', 'U2', '1991', 'https://upload.wikimedia.org/wikipedia/en/7/72/Achtung_Baby.png', 'Alternative Rock', 3.70, 0, 0.0),
-('The College Dropout', 'Kanye West', '2004', 'https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg', 'Hip Hop', 4.12, 0, 0.0),
-('Definitely Maybe', 'Oasis', '1994', 'https://upload.wikimedia.org/wikipedia/en/d/d4/OasisDefinitelyMaybealbumcover.jpg', 'Britpop, Rock', 3.65, 0, 0.0),
-('In Utero', 'Nirvana', '1993', 'https://upload.wikimedia.org/wikipedia/pt/b/b4/InUtero.jpeg', 'Grunge, Alternative Rock', 4.05, 0, 0.0),
-('Californication', 'Red Hot Chili Peppers', '1999', 'https://upload.wikimedia.org/wikipedia/pt/7/78/Red_Hot_Chili_Peppers_-_Californication.jpg', 'Alternative Rock, Funk Rock', 3.47, 0, 0.0),
-('The Marshall Mathers LP', 'Eminem', '2000', 'https://upload.wikimedia.org/wikipedia/en/a/ae/The_Marshall_Mathers_LP.jpg', 'Hip Hop', 3.68, 0, 0.0),
-('Debut', 'Björk', '1993', 'https://upload.wikimedia.org/wikipedia/en/7/77/Bj%C3%B6rk-Debut-1993.png', 'Art Pop, House', 3.77, 0, 0.0),
-('The Bends', 'Radiohead', '1995', 'https://upload.wikimedia.org/wikipedia/en/5/55/Radioheadthebends.png', 'Alternative Rock', 3.86, 0, 0.0),
-('The Blueprint', 'Jay-Z', '2001', 'https://upload.wikimedia.org/wikipedia/en/2/2c/The_Blueprint.png', 'East Coast Hip Hop', 3.87, 0, 0.0),
-('The Queen Is Dead', 'The Smiths', '1986', 'https://upload.wikimedia.org/wikipedia/en/e/ed/The-Queen-is-Dead-cover.png', 'Alternative Rock', 4.13, 0, 0.0),
-('The Doors', 'The Doors', '1967', 'https://upload.wikimedia.org/wikipedia/en/9/98/TheDoorsTheDoorsalbumcover.jpg', 'Psychedelic Rock', 4.08, 0, 0.0),
-('Aja', 'Steely Dan', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/49/Aja_album_cover.jpg', 'Jazz Rock', 4.01, 0, 0.0),
-('Ágætis byrjun', 'Sigur Rós', '1999', 'https://upload.wikimedia.org/wikipedia/en/9/92/%C3%81g%C3%A6tisByrjunCover.JPG', 'Post-Rock', 4.04, 0, 0.0),
-('The Stone Roses', 'The Stone Roses', '1989', 'https://upload.wikimedia.org/wikipedia/en/f/ff/Stoneroses.jpg', 'Indie Rock', 4.00, 0, 0.0),
-('Mezzanine', 'Massive Attack', '1998', 'https://upload.wikimedia.org/wikipedia/en/e/e9/Massive_Attack_-_Mezzanine.png', 'Trip Hop', 4.07, 0, 0.0),
-('London Calling', 'The Clash', '1979', 'https://upload.wikimedia.org/wikipedia/en/0/00/TheClashLondonCallingalbumcover.jpg', 'Punk Rock', 4.01, 0, 0.0),
-('Electric Warrior', 'T. Rex', '1971', 'https://upload.wikimedia.org/wikipedia/en/e/e5/T_Rex_Electric_Warrior_UK_album_cover.jpg', 'Punk Rock', 3.89, 0, 0.0),
-('Little Girl Blue', 'Nina Simone', '1959', 'https://upload.wikimedia.org/wikipedia/en/5/53/Ninasimonelittlegirlblue.jpg', 'Jazz', 3.88, 0, 0.0),
-('Volume 1', 'José Pinhal', '1984', 'https://i.discogs.com/tpdykHHLh2XV0TOpLpOdIPlXWbxeLmrVTucDIbbqDw4/rs:fit/g:sm/q:90/h:600/w:587/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNzE4/MjM0LTE2Njk1ODcy/NTMtMzAzNi5qcGVn.jpeg', 'PPM', 3.64, 0, 0.0),
-('So Alone ', 'Johnny Thunders', '1978', 'https://upload.wikimedia.org/wikipedia/en/b/b1/Johnny_Thunders_So_Alone.jpg', 'Punk Rock', 3.64, 0, 0.0),
-('Appetite for Destruction', 'Guns N Roses', '1987', 'https://upload.wikimedia.org/wikipedia/en/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg', 'Hard Rock', 3.92, 0, 0.0),
-('Toys in the Attic', 'Aerosmith', '1975', 'https://upload.wikimedia.org/wikipedia/en/3/37/Aerosmith_-_Toys_in_the_Attic.jpg', 'Hard Rock', 3.51, 0, 0.0),
-('Rocks ', 'Aerosmith', '1976', 'https://upload.wikimedia.org/wikipedia/en/8/87/Aerosmith_-_Rocks.JPG', 'Hard Rock', 3.59, 0, 0.0),
-('Life', 'Thin Lizzy', '1983', 'https://i.discogs.com/TOKhtcPeMYCoMcplgjC8AoJ9nPEGfP1a3dlTx_b7tR0/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NTc2/MTEtMTQ0MDk1MTQ5/MC0zMDI2LmpwZWc.jpeg', 'Hard Rock', 3.88, 0, 0.0),
-('Transformer', 'Lou Reed', '1972', 'https://upload.wikimedia.org/wikipedia/en/f/f1/Loureedtransformer.jpeg', 'Glam Rock', 3.90, 0, 0.0),
-('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://i.discogs.com/28hdnSSH750w93OUwFJfAmXpHNfQjQfDRPlHYDXEa58/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2OTA3/Ny0xNzE0MzY1OTE5/LTU1ODkuanBlZw.jpeg', 'Blues Rock', 3.73, 0, 0.0),
-('Marquee Moon', 'Television', '1977', 'https://upload.wikimedia.org/wikipedia/en/a/af/Marquee_moon_album_cover.jpg', 'Post-Punk', 4.14, 0, 0.0),
-('Never Mind the Bollocks', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 0.0),
-('Rum Sodomy & the Lash', 'The Pogues', '1985', 'https://upload.wikimedia.org/wikipedia/en/e/eb/Rum_sodomy_and_the_lash.jpg', 'Glam Rock', 4.14, 0, 0.0);
+('Thriller', 'Michael Jackson', '1982', 'https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png', 'Pop, R&B', 3.99, 0, 999.9),
+('Back in Black', 'AC/DC', '1980', 'https://upload.wikimedia.org/wikipedia/commons/9/92/ACDC_Back_in_Black.png', 'Hard Rock',  3.46, 0, 999.9),
+('The Dark Side of the Moon', 'Pink Floyd', '1973', 'https://upload.wikimedia.org/wikipedia/pt/3/3b/Dark_Side_of_the_Moon.png', 'Progressive Rock', 4.24, 0, 999.9),
+('Abbey Road', 'The Beatles', '1969', 'https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg', 'Rock', 4.27, 0, 999.9),
+('The Wall', 'Pink Floyd', '1979', 'https://i.scdn.co/image/ab67616d0000b2735d48e2f56d691f9a4e4b0bdf', 'Progressive Rock', 3.82, 0, 999.9),
+('Led Zeppelin IV', 'Led Zeppelin', '1971', 'https://upload.wikimedia.org/wikipedia/pt/4/4b/LedZeppelinIV.jpg', 'Hard Rock', 4.09, 0, 999.9),
+('Hotel California', 'Eagles', '1976', 'https://upload.wikimedia.org/wikipedia/en/4/49/Hotelcalifornia.jpg', 'Rock', 3.27, 0, 999.9),
+('Rumours', 'Fleetwood Mac', '1977', 'https://upload.wikimedia.org/wikipedia/en/f/fb/FMacRumours.PNG', 'Rock', 4.03, 0, 999.9),
+('Born to Run', 'Bruce Spring', '1975', 'https://upload.wikimedia.org/wikipedia/en/7/7a/Born_to_Run_%28Front_Cover%29.jpg', 'Rock', 3.96, 0, 999.9),
+('The Joshua Tree', 'U2','1987', 'https://upload.wikimedia.org/wikipedia/en/6/6b/The_Joshua_Tree.png', 'Rock', 3.88, 0, 999.9),
+('Nevermind', 'Nirvana', '1991', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/NirvanaNevermindalbumcover.jpg/220px-NirvanaNevermindalbumcover.jpg', 'Grunge, Alternative Rock', 4.01, 0, 999.9),
+('The Chronic', 'Dr. Dre', '1992', 'https://upload.wikimedia.org/wikipedia/en/thumb/1/19/Dr.DreTheChronic.jpg/220px-Dr.DreTheChronic.jpg', 'West Coast Hip Hop, G-Funk', 3.83, 0, 999.9),
+('Ten', 'Pearl Jam', '1991', 'https://upload.wikimedia.org/wikipedia/pt/thumb/d/da/Pearl_Jam_-_Ten.jpg/220px-Pearl_Jam_-_Ten.jpg', 'Grunge, Alternative Rock', 3.74, 0, 999.9),
+('The Slim Shady LP', 'Eminem', '1999', 'https://upload.wikimedia.org/wikipedia/pt/f/f9/The_Slim_Shady_LP.jpg', 'Hip Hop', 3.51, 0, 999.9),
+('OK Computer', 'Radiohead', '1997', 'https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png', 'Alternative Rock, Experimental', 4.29, 0, 999.9),
+('Achtung Baby', 'U2', '1991', 'https://upload.wikimedia.org/wikipedia/en/7/72/Achtung_Baby.png', 'Alternative Rock', 3.70, 0, 999.9),
+('The College Dropout', 'Kanye West', '2004', 'https://upload.wikimedia.org/wikipedia/en/a/a3/Kanyewest_collegedropout.jpg', 'Hip Hop', 4.12, 0, 999.9),
+('Definitely Maybe', 'Oasis', '1994', 'https://upload.wikimedia.org/wikipedia/en/d/d4/OasisDefinitelyMaybealbumcover.jpg', 'Britpop, Rock', 3.65, 0, 999.9),
+('In Utero', 'Nirvana', '1993', 'https://upload.wikimedia.org/wikipedia/pt/b/b4/InUtero.jpeg', 'Grunge, Alternative Rock', 4.05, 0, 999.9),
+('Californication', 'Red Hot Chili Peppers', '1999', 'https://upload.wikimedia.org/wikipedia/pt/7/78/Red_Hot_Chili_Peppers_-_Californication.jpg', 'Alternative Rock, Funk Rock', 3.47, 0, 999.9),
+('The Marshall Mathers LP', 'Eminem', '2000', 'https://upload.wikimedia.org/wikipedia/en/a/ae/The_Marshall_Mathers_LP.jpg', 'Hip Hop', 3.68, 0, 999.9),
+('Debut', 'Björk', '1993', 'https://upload.wikimedia.org/wikipedia/en/7/77/Bj%C3%B6rk-Debut-1993.png', 'Art Pop, House', 3.77, 0, 999.9),
+('The Bends', 'Radiohead', '1995', 'https://upload.wikimedia.org/wikipedia/en/5/55/Radioheadthebends.png', 'Alternative Rock', 3.86, 0, 999.9),
+('The Blueprint', 'Jay-Z', '2001', 'https://upload.wikimedia.org/wikipedia/en/2/2c/The_Blueprint.png', 'East Coast Hip Hop', 3.87, 0, 999.9),
+('The Queen Is Dead', 'The Smiths', '1986', 'https://upload.wikimedia.org/wikipedia/en/e/ed/The-Queen-is-Dead-cover.png', 'Alternative Rock', 4.13, 0, 999.9),
+('The Doors', 'The Doors', '1967', 'https://upload.wikimedia.org/wikipedia/en/9/98/TheDoorsTheDoorsalbumcover.jpg', 'Psychedelic Rock', 4.08, 0, 999.9),
+('Aja', 'Steely Dan', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/49/Aja_album_cover.jpg', 'Jazz Rock', 4.01, 0, 999.9),
+('Ágætis byrjun', 'Sigur Rós', '1999', 'https://upload.wikimedia.org/wikipedia/en/9/92/%C3%81g%C3%A6tisByrjunCover.JPG', 'Post-Rock', 4.04, 0, 999.9),
+('The Stone Roses', 'The Stone Roses', '1989', 'https://upload.wikimedia.org/wikipedia/en/f/ff/Stoneroses.jpg', 'Indie Rock', 4.00, 0, 999.9),
+('Mezzanine', 'Massive Attack', '1998', 'https://upload.wikimedia.org/wikipedia/en/e/e9/Massive_Attack_-_Mezzanine.png', 'Trip Hop', 4.07, 0, 999.9),
+('London Calling', 'The Clash', '1979', 'https://upload.wikimedia.org/wikipedia/en/0/00/TheClashLondonCallingalbumcover.jpg', 'Punk Rock', 4.01, 0, 999.9),
+('Electric Warrior', 'T. Rex', '1971', 'https://upload.wikimedia.org/wikipedia/en/e/e5/T_Rex_Electric_Warrior_UK_album_cover.jpg', 'Punk Rock', 3.89, 0, 999.9),
+('Little Girl Blue', 'Nina Simone', '1959', 'https://upload.wikimedia.org/wikipedia/en/5/53/Ninasimonelittlegirlblue.jpg', 'Jazz', 3.88, 0, 999.9),
+('Volume 1', 'José Pinhal', '1984', 'https://i.discogs.com/tpdykHHLh2XV0TOpLpOdIPlXWbxeLmrVTucDIbbqDw4/rs:fit/g:sm/q:90/h:600/w:587/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxNzE4/MjM0LTE2Njk1ODcy/NTMtMzAzNi5qcGVn.jpeg', 'PPM', 3.64, 0, 999.9),
+('So Alone ', 'Johnny Thunders', '1978', 'https://upload.wikimedia.org/wikipedia/en/b/b1/Johnny_Thunders_So_Alone.jpg', 'Punk Rock', 3.64, 0, 999.9),
+('Appetite for Destruction', 'Guns N Roses', '1987', 'https://upload.wikimedia.org/wikipedia/en/6/60/GunsnRosesAppetiteforDestructionalbumcover.jpg', 'Hard Rock', 3.92, 0, 999.9),
+('Toys in the Attic', 'Aerosmith', '1975', 'https://upload.wikimedia.org/wikipedia/en/3/37/Aerosmith_-_Toys_in_the_Attic.jpg', 'Hard Rock', 3.51, 0, 999.9),
+('Rocks ', 'Aerosmith', '1976', 'https://upload.wikimedia.org/wikipedia/en/8/87/Aerosmith_-_Rocks.JPG', 'Hard Rock', 3.59, 0, 999.9),
+('Life', 'Thin Lizzy', '1983', 'https://i.discogs.com/TOKhtcPeMYCoMcplgjC8AoJ9nPEGfP1a3dlTx_b7tR0/rs:fit/g:sm/q:90/h:600/w:592/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2NTc2/MTEtMTQ0MDk1MTQ5/MC0zMDI2LmpwZWc.jpeg', 'Hard Rock', 3.88, 0, 999.9),
+('Transformer', 'Lou Reed', '1972', 'https://upload.wikimedia.org/wikipedia/en/f/f1/Loureedtransformer.jpeg', 'Glam Rock', 3.90, 0, 999.9),
+('Pearl (Legacy Edition)', 'Janis Joplin', '1971', 'https://i.discogs.com/28hdnSSH750w93OUwFJfAmXpHNfQjQfDRPlHYDXEa58/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2OTA3/Ny0xNzE0MzY1OTE5/LTU1ODkuanBlZw.jpeg', 'Blues Rock', 3.73, 0, 999.9),
+('Marquee Moon', 'Television', '1977', 'https://upload.wikimedia.org/wikipedia/en/a/af/Marquee_moon_album_cover.jpg', 'Post-Punk', 4.14, 0, 999.9),
+('Never Mind the Bollocks', 'Sex Pistols', '1977', 'https://upload.wikimedia.org/wikipedia/en/4/4c/Never_Mind_the_Bollocks%2C_Here%27s_the_Sex_Pistols.png', 'Punk Rock', 3.53, 0, 999.9),
+('Rum Sodomy & the Lash', 'The Pogues', '1985', 'https://upload.wikimedia.org/wikipedia/en/e/eb/Rum_sodomy_and_the_lash.jpg', 'Glam Rock', 4.14, 0, 999.9);
 
 
 
@@ -204,28 +204,33 @@ BEGIN
     WHERE ID = OLD.album;
 END;
 
--- Trigger to update average price when a new item is inserted
-CREATE TRIGGER update_album_average_price_insert_trigger
+-- Trigger to update min price when a new item is inserted
+CREATE TRIGGER update_album_min_price_insert_trigger
 AFTER INSERT ON Item
 BEGIN
     UPDATE Album
-    SET averagePrice = (
-        (averagePrice * quantity + NEW.price) / (quantity + 1)
+    SET minPrice = (
+        SELECT MIN(price) FROM Item WHERE album = NEW.album
     )
     WHERE ID = NEW.album;
 END;
 
 -- Trigger to update average price when an item is deleted
-CREATE TRIGGER update_album_average_price_delete_trigger
+CREATE TRIGGER update_album_price_delete_trigger
 AFTER DELETE ON Item
 BEGIN
     UPDATE Album
-    SET averagePrice = (
-        (averagePrice * quantity - OLD.price) / (quantity - 1)
+    SET minPrice = (
+        CASE
+            WHEN minPrice = OLD.price THEN (
+                SELECT MIN(price)
+                FROM Item
+                WHERE album = OLD.album
+            )
+        END
     )
     WHERE ID = OLD.album AND quantity > 1;
 END;
-    
 
 -- Populate Items
 INSERT INTO Item (title, descriptionOfItem, price, condition, seller, album)
