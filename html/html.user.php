@@ -642,7 +642,10 @@ print "</table>";
                                 <p><?php echo $item->price; ?>€</p>
                             </div>
                             <div class="item-buttons">
-                                        <button>Buy</button>
+                                        <form action="../pages/buy.php" method="POST">
+                                            <input type="hidden" name="itemId" value="<?= $item->id ?>">
+                                            <button type="submit">Buy</button>
+                                        </form>
                                         <form action="../pages/write.php" method="POST">
                                             <input type="hidden" name="itemId" value="<?= $item->id ?>">
                                             <input type="hidden" name="dest" value="<?= $item->seller ?>">
