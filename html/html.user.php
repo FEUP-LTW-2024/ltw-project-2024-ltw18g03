@@ -320,6 +320,11 @@ $districts = array(
     "Açores",
     "Madeira"
 );
+function generateDistrictOptions($districts) {
+    foreach ($districts as $district) {
+        echo "<option>{$district}</option>\n";
+    }
+}
 
 generateDistrictOptions($districts);
 ?>
