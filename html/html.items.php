@@ -264,7 +264,7 @@ generateAlbumOptions($albums);
                 </div>
             </div>
             <form action="../php/confirm-item.php" method="post">
-                <input type="text" name="referralCode" id="referralCode" value="">
+                <input type="text" name="referralCode" id="referralCode" placeholder="Promotional Code" value="">
                 <input type="hidden" name="itemID" value="<?php echo $itemID; ?>">
                 <input type="hidden" name="buyerID" value="<?php echo $buyer->id; ?>">
                 <input type="hidden" name="time" value="<?php echo $date; ?>">
@@ -294,14 +294,14 @@ generateAlbumOptions($albums);
     $seller = User::getUserByID(getDBConn(), $item->seller);
     $buyer = User::getUserByID(getDBConn(), $item->buyer);
     ?>
-    <div class="receipt">
+    <div class="receipt">Please Print this Receipt</div>
     <table>
             <tr>
                 <td> <img src="../imgs/vinyl-icon.jpg" width="150" height="150"> <h1> GrooveSwap </h1></td>
     
             </tr>
             <tr>
-                <td> Receipt </td>
+                <td><h2> Receipt </h2></td>
             </tr>
             <tr>
                 <td>Number: <?php echo $item->id; echo $item->album; echo $item->seller; echo $item->buyer; ?> </td>

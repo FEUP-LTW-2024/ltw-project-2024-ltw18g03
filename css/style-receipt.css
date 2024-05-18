@@ -12,14 +12,21 @@ body {
 
 
 @media screen {
-    
+
 
 html {
     background-color: white;
-    margin: 1em;
+    width: 25%;
+    margin: auto;
 
 }
 
+.receipt {
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+    font-size: 2em;
+}
 
 table {
     width: 100%;
@@ -40,6 +47,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    font-size: 1.2em;
+}
 
 .libre-barcode-39-regular {
     font-family: "Libre Barcode 39 Extended Text", system-ui;
@@ -63,7 +74,9 @@ html {
 #printable {
     margin: 20px;
 }
-
+.receipt {
+    display: none;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -79,20 +92,14 @@ img {
     margin: 0 auto;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-
-.libre-barcode-39-regular {
-    font-family: "Libre Barcode 39 Extended Text", system-ui;
-    font-style: normal;
-    font-size: 10em;
+h2 {
     text-align: center;
-        padding: 0;
-  }
-  .info {
-    padding: 5em;
-  }
+    font-size: 1.2em;
+}
+
 
 }

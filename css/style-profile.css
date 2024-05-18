@@ -445,6 +445,16 @@
           
         
         }
+        #referralCode {
+          font-size: 1em;
+          width: 15em;
+          padding: 0.5em;
+          border-radius: 50px;
+          background-color: #EEE;
+          margin: 1em;
+          position: relative;
+          left: 3em;
+        }
         button {
           padding: 0.5em 1em;
           background-color: #118C4F;
