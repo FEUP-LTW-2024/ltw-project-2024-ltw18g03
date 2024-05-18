@@ -368,3 +368,58 @@ footer {
   ::-webkit-scrollbar {
     background-color: rgba(204, 204, 204, 0.5); 
   }
+
+@media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    }
+    .shelf-wrapper {
+      overflow-y: auto;
+      white-space: nowrap;
+      max-width: 100em;
+      margin: auto;
+    
+    }
+    .shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(17em, 17em));
+      grid-gap: 1em;
+      margin: 5em;
+      .card {
+      width: 100%;
+      background-color: antiquewhite;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  
+      }
+    }
+    .top{
+      a{
+        text-decoration: none
+      }
+      
+
+      width: auto;
+      margin: auto;
+      margin-left: 1em;
+      #wishlist {
+        width: 50px; height: 50px;
+        position: relative;
+        top: 3.3em;
+        left:-15em;
+      }
+      
+
+      h2{
+        width: 10em;
+        margin-right: 55em;
+        font-size: 1.5em;
+      }
+
+    }
+    
+        
+
+  footer {
+    font-size: 0.8em;
+  }
+}
