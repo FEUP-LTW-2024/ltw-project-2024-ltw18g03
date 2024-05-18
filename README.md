@@ -1,8 +1,8 @@
 # GrooveSwap
 ### Swap your Grooves
 ## LTW18G03
-- Gonçalo Sousa (202207320)
-- Rodrigo Dias Ferreira Loureiro de Sousa 
+- Gonçalo Augusto Sousa (202207320)
+- Rodrigo Dias Ferreira Loureiro de Sousa (202205751)
 
 ## Install Instructions
 
@@ -33,11 +33,11 @@ http://localhost:9000/
 
 
 
-- [ ] Register a new account.
+- [x] Register a new account.
 
-- [ ] Log in and out.
+- [x] Log in and out.
 
-- [ ] Edit their profile, including their name, username, password, and email.
+- [x] Edit their profile, including their name, username, password, and email.
 
 
 
@@ -45,13 +45,13 @@ http://localhost:9000/
 
 
 
-- [ ] List new items, providing details such as category, brand, model, size, and condition, along with images.
+- [x] List new items, providing details such as album, price, and condition.
 
-- [ ] Track and manage their listed items.
+- [x] Track and manage their listed items.
 
-- [ ] Respond to inquiries from buyers regarding their items and add further information if needed.
+- [x] Respond to inquiries from buyers regarding their items and add further information if needed.
 
-- [ ] Print shipping forms for items that have been sold.
+- [x] Print shipping forms for items that have been sold.
 
 
 
@@ -59,13 +59,13 @@ http://localhost:9000/
 
 
 
-- [ ] Browse items using filters like category, price, and condition.
+- [x] Browse items using filters like genre, artist, and title.
 
-- [ ] Engage with sellers to ask questions or negotiate prices.
+- [x] Engage with sellers to ask questions or negotiate prices.
 
-- [ ] Add items to a wishlist or shopping cart.
+- [x] Add items to a wishlist or shopping cart.
 
-- [ ] Proceed to checkout with their shopping cart (simulate payment process).
+- [x] Proceed to checkout with their shopping cart (simulate payment process).
 
 
 
@@ -73,11 +73,11 @@ http://localhost:9000/
 
 
 
-- [ ] Elevate a user to admin status.
+- [x] Elevate a user to admin status.
 
-- [ ] Introduce new item categories, sizes, conditions, and other pertinent entities.
+- [x] Introduce new albums and other pertinent entities.
 
-- [ ] Oversee and ensure the smooth operation of the entire system.
+- [x] Oversee and ensure the smooth operation of the entire system.
 
 
 
@@ -87,11 +87,11 @@ We have been careful with the following security aspects:
 
 
 
-- [ ] **SQL injection**
+- [x] **SQL injection**
 
-- [ ] **Cross-Site Scripting (XSS)**
+- [x] **Cross-Site Scripting (XSS)**
 
-- [ ] **Cross-Site Request Forgery (CSRF)**
+- [x] **Cross-Site Request Forgery (CSRF)**
 
 
 
@@ -107,22 +107,8 @@ We also implemented the following additional requirements (you can add more):
 
 
 
-- [ ] **Rating and Review System**
 
-- [ ] **Promotional Features**
+- [x] **Promotional Features**, like one-time use Promotional Codes
 
-- [ ] **Analytics Dashboard**
+- [x] **Shipping Costs**
 
-- [ ] **Multi-Currency Support**
-
-- [ ] **Item Swapping**
-
-- [ ] **API Integration**
-
-- [ ] **Dynamic Promotions**
-
-- [ ] **User Preferences**
-
-- [ ] **Shipping Costs**
-
-- [ ] **Real-Time Messaging System**
