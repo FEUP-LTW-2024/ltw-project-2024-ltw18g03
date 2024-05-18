@@ -613,13 +613,58 @@
         left: -17em;
       }
       h2{
-        width: 10em ;
+        width: 10em;
       }
     }
-  
-    .buy {
-      width: 90%; /* Adjust as needed */
-      margin: auto;
-      margin-bottom: 1em;
+    .container {
+      .buy {
+        a{
+          text-decoration: none;
+        }
+        width: auto;
+        margin: auto;
+        margin-bottom: 1em;
+        #hot {
+          width: 50px; height: 50px;
+          position: relative;
+          top: 3.3em;
+          left:-10em;
+          transform: skew(30deg); background-color: #8c2d19;
+        }
+      
+        h2 {
+          width: 14em;
+          background-color: #DADADA;
+          padding: 0.5em;
+          color: #000;
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    .confirmer {
+      p {
+        font-size: 1.5em;
+      }
+      #itemPrice {
+        font-size: 1em;
+      }
+      h3 {
+        font-size: 1.5em;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      input#referralCode {
+        width: 10em;
+        font-size: 1.5em;
+        position: relative;
+        left: 0em;
+      }
+      button {
+        width: 10em;
+        font-size: 1.5em;
+      }
     }
   }
