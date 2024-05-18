@@ -508,3 +508,55 @@
   ::-webkit-scrollbar {
     background-color: rgba(204, 204, 204, 0.5); 
   }
+
+
+
+  @media (max-width: 1024px) {
+    .profile-container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .profile {
+      width: 90%; /* Adjust as needed */
+      margin-bottom: 2em;
+    }
+    
+    .profileselling {
+      width: 90%; /* Adjust as needed */
+      margin: auto;
+    }
+  
+    .profilealbums {
+      width: 90%; /* Adjust as needed */
+      margin: auto;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto; /* Add this line */
+      max-height: 23.8em;
+    }
+  
+    .top {
+      a{
+        text-decoration: none;
+      }
+      
+      width: auto; /* Adjust as needed */
+      margin: auto;
+      margin-bottom: 1em;
+      #hot{
+        top: 3.3em;
+        left: -7em;
+      }
+      h2{
+        width: 10em ;
+      }
+    }
+  
+    .buy {
+      width: 90%; /* Adjust as needed */
+      margin: auto;
+      margin-bottom: 1em;
+    }
+  }
