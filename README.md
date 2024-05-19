@@ -8,7 +8,7 @@
 
 
 
-    git clone <your_repo_url>
+    git clone https://github.com/FEUP-LTW-2024/ltw-project-2024-ltw18g03.git
 
     git checkout final-delivery-v1
 
@@ -19,15 +19,13 @@
 http://localhost:9000/
 ## Screenshots
 
-
-
-(2 or 3 screenshots of your website)
-
-
+![index](docs/screenshots/index.png)
+![item](docs/screenshots/item.png)
+![buy](docs/screenshots/buy.png)
+![profile](docs/screenshots/profile.png)
+![printable](docs/screenshots/printable.png)
 
 ## Implemented Features
-
-
 
 **General**:
 
